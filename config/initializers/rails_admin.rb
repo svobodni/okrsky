@@ -52,5 +52,6 @@ RailsAdmin.config do |config|
 
   config.model 'Region'
   config.model 'Municipality'
+  config.model 'District'
 
 end
