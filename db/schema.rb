@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130901080156) do
+ActiveRecord::Schema.define(version: 20130901080758) do
 
   create_table "districts", force: true do |t|
     t.string   "name"
@@ -42,6 +42,18 @@ ActiveRecord::Schema.define(version: 20130901080156) do
 
   create_table "regions", force: true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "town_halls", force: true do |t|
+    t.string   "type"
+    t.string   "name"
+    t.string   "address"
+    t.integer  "wards_count"
+    t.string   "wards_list_uri"
+    t.integer  "municipality_id"
+    t.integer  "district_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
