@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130901080758) do
+ActiveRecord::Schema.define(version: 20130901202638) do
+
+  create_table "commisaries", force: true do |t|
+    t.string   "name"
+    t.string   "birth_number"
+    t.string   "address"
+    t.string   "postal_address"
+    t.string   "phone"
+    t.string   "email"
+    t.integer  "town_hall_id"
+    t.string   "ward_number"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "districts", force: true do |t|
     t.string   "name"
