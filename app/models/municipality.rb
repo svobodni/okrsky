@@ -5,4 +5,6 @@ class Municipality < ActiveRecord::Base
   has_one :town_hall
   has_many :town_halls, through: :districts
 
+  default_scope { order("#{self.table_name}.name ASC") }
+
 end
