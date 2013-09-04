@@ -1,0 +1,11 @@
+<h3>Registrace - výběr obce</h3>
+
+Vyberte si prosím obec, ve které chcete delegovat do okrskové komise.
+
+<% for municipality in @municipalities %>
+
+<ul>
+<li><%= link_to municipality.name, next_wizard_path(municipality_id: municipality.id) %></li>
+</ul>
+
+<% end %>

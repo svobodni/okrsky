@@ -1,0 +1,121 @@
+<h3>Registrace do okrskové volební komise</h3>
+
+<%#= image_tag(@town_hall.flag_path, width: '100px') %>
+
+<% if @commisary.errors.any? %>
+  <div id="error_explanation">
+    <h2>Prosím, opravte <%= @commisary.errors.count %> chyb ve formuláři:</h2>
+ 
+    <ul>
+    <% @commisary.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% else %>
+<table id="tablex">
+<tbody>
+<tr>
+	<td><em>Kraj:</th>
+	<td><%= @town_hall.region.name %></td>
+	<td>[<%=link_to "Změnit", wizard_path(:region)%>]</td>
+</tr>
+
+<tr>
+	<td><em>Obec:</th>
+	<td><%= @town_hall.municipality.name %></td>
+	<td>[<%=link_to "Změnit", wizard_path(:municipality, region_id: @town_hall.region)%>]</td>
+</tr>
+
+<% if @town_hall.kind_of?(DistrictTownHall) %>
+<tr><td><em>Městská část / obvod:</em></td><td><%= @town_hall.district.name %></td></tr>
+<% end %>
+
+<tr>
+	<td><em>Úřad:</em></td>
+	<td><%= @town_hall.name %><br><%= @town_hall.address.gsub(/\n/,'<br />').html_safe %></td>
+	<td><%= image_tag(@town_hall.heraldry_path, width: '50px') %></td>
+</tr>
+
+<tr><td><em>Počet okrsků celkem:</em></td><td><%= @town_hall.wards_count %></td></tr>
+<tr><td><em>Počet obsazených okrsků:</em></td><td><%= @town_hall.taken_wards_count %></td></tr>
+<tr><td><em>Čísla již obsazených okrsků:</em></td><td><%= @town_hall.taken_wards_numbers.join(" ") %></td></tr>
+</tbody>
+</table>
+
+<% end %>
+
+  <div class="form">
+    <%= form_for @commisary, url: wizard_path, method: :put   do |f| %>
+    <%= f.hidden_field :town_hall_id %>
+      <table class="formular">
+
+        <tr>
+          <th><label for="commisary_ward_number">Číslo okrsku:</label></th>
+          <td>
+            <%= f.text_field :ward_number, class: 'delka3' %>
+            <span class="pozna">Čísla okrsků naleznete od 15.9.2013 na úřední desce příslušného úřadu. Pokud nevyplníte, přidělí Vám okrsek úřad.</span>
+          </td>
+        </tr>
+        
+        <tr>
+          <th><label for="commisary_name">Jméno a příjmení:</label></th>
+          <td>
+            <%= f.text_field :name, class: 'delka3' %>
+            <span class="pozn">(vzor: Petr Mach)</span>            
+          </td>
+        </tr>
+
+        <tr>
+          <th><label for="commisary_birth_number">Rodné číslo:</label></th>
+          <td>
+            <%= f.text_field :birth_number, class: 'delka3' %>
+            <span class="pozn">(vzor: 700218/0461)</span>            
+          </td>
+        </tr>
+
+        <tr>
+          <th><label for="commisary_address">Adresa trvalého bydliště:</label></th>
+          <td>
+            <%= f.text_field :address, class: 'delka3' %>
+            <span class="pozn"><strong>Dle občanky!</strong> (vzor: Perucká 2196, 120 00 Praha 2)</span>            
+          </td>
+        </tr>
+
+        <tr>
+          <th><label for="commisary_phone">Telefon:</label></th>
+          <td>
+            <%= f.text_field :phone, class: 'delka3' %>
+            <span class="pozn">(vzor: 773697983)</span>            
+          </td>
+        </tr>
+
+        <tr>
+          <th><label for="commisary_email">Email:</label></th>
+          <td>
+            <%= f.text_field :email, class: 'delka3' %>
+            <span class="pozn">(vzor: mach@svobodni.cz)</span>            
+          </td>
+        </tr>
+
+        <tr>
+          <th><label for="commisary_postal_address">Korespondenční adresa:</label></th>
+          <td>
+            <%= f.text_field :postal_address, class: 'delka3' %>
+            <span class="pozn"><strong>Vyplňujte jen pokud se liší od trvalého bydliště</strong></span>            
+          </td>
+        </tr>
+
+        <tr class="submit-row">
+          <td colspan="2">
+            <div class="submit-row-inner center">
+              <%= f.submit "Odeslat přihlášku" %>
+              <div class="cleaner"></div>
+            </div>
+          </td>
+        </tr>
+
+      </table>
+    <% end %>
+
+  

@@ -46,3 +46,5 @@ end
 
 gem 'rails_admin'
 gem 'devise'
+gem 'wicked'
+gem 'google_drive', group: :development

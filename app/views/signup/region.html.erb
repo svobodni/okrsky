@@ -1,0 +1,11 @@
+<h3>Registrace - výběr kraje</h3>
+
+Vyberte prosím kraj, ve kterém chcete delegovat do okrskové komise.
+
+<% for region in @regions %>
+
+<ul>
+<li><%= link_to region.name, next_wizard_path(region_id: region.id) %></li>
+</ul>
+
+<% end %>
