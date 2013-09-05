@@ -20,7 +20,7 @@ class SignupController < ApplicationController
       else
         @town_hall = Municipality.find(params[:municipality_id]).town_hall
       end
-      @commisary = Commisary.new(:town_hall_id=>@town_hall.idw)
+      @commisary = Commisary.new(:town_hall_id=>@town_hall.id)
     end
     render_wizard
   end
