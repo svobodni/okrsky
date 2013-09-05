@@ -9,7 +9,7 @@ class CommisaryMailer < ActionMailer::Base
 		'entry.917885295'  => commisary.shipping_address})
     @url = "https://docs.google.com/forms/d/1bkN-w1JgvpQpdM-0Os_Q-cjcbaOg_uR-NE1Tx_mc870/viewform?#{options}"
 
-    mail(to: commisary.email, bcc: 'kubicek@svobodni.cz', subject: '[PSP2013-OVK#{@commisary.id}] Potvrzení přijetí registrace člena okrskové volební komise')
+    mail(to: commisary.email, bcc: 'kubicek@svobodni.cz', subject: "[PSP2013-OVK#{@commisary.id}] Potvrzení přijetí registrace člena okrskové volební komise")
   end
 
 end
