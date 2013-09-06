@@ -39,7 +39,7 @@
 
 <tr><td><em>Počet okrsků celkem:</em></td><td><%= @town_hall.wards_count %></td></tr>
 <tr><td><em>Počet obsazených okrsků:</em></td><td><%= @town_hall.taken_wards_count %></td></tr>
-<tr><td><em>Čísla již obsazených okrsků:</em></td><td><%= @town_hall.taken_wards_numbers.join(" ") %></td></tr>
+<tr><td><em>Čísla již obsazených okrsků:</em></td><td><%= @town_hall.taken_wards_numbers.sort.join(" ") %></td></tr>
 </tbody>
 </table>
 
