@@ -5,5 +5,6 @@
 		<% for region, commisaries in @stats%>
 		<tr><td><%= region.name %></td><td><%= commisaries.count %></td></tr>
 		<% end %>
+		<tr><th>Celkem</th><th><%= Commisary.count %></th></tr>
 	</tbody>
 </table>
