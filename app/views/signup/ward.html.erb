@@ -45,6 +45,7 @@
 
 <% end %>
 
+<% if @town_hall.taken_wards_count < @town_hall.wards_count %>
   <div class="form">
     <%= form_for @commisary, url: wizard_path, method: :put   do |f| %>
     <%= f.hidden_field :town_hall_id %>
@@ -118,4 +119,7 @@
       </table>
     <% end %>
 
-  
+<% else %>
+<p>Všechny okrsky v této obci máme již obsazeny. Zkuste se zaregistrovat jako dobrovolník přímo na úřadě.</p>
+<% end %>
+
