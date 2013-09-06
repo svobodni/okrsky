@@ -20,7 +20,7 @@ Vyplněné údaje pro delegaci:
 
 Kraj:               <%= @commisary.town_hall.region.name %>
 Obec:               <%= @commisary.town_hall.municipality.name %>
-Městská část/obvod: <%= @commisary.town_hall.district.name %>
+Městská část/obvod: <%= @commisary.town_hall.try(:district).try(:name) %>
 Okrsek:             <%= @commisary.ward_number %>
 
 Jméno:              <%= @commisary.name %>
