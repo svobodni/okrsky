@@ -1,0 +1,9 @@
+<h3>Počty registrací dle krajů</h3>
+<table>
+	<thead><tr><th>Kraj</th><th>Počet registrací</th></tr></thead>
+	<tbody>
+		<% for region, commisaries in @stats%>
+		<tr><td><%= region.name %></td><td><%= commisaries.count %></td></tr>
+		<% end %>
+	</tbody>
+</table>

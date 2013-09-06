@@ -5,4 +5,5 @@ Okrsky::Application.routes.draw do
   root 'signup#index'
 
   resources :signup
+  get '/stats', to: 'stats#index'
 end
