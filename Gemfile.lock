@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    Ascii85 (1.0.2)
     actionmailer (4.0.0)
       actionpack (= 4.0.0)
       mail (~> 2.5.3)
@@ -25,6 +26,7 @@ GEM
       multi_json (~> 1.3)
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
+    afm (0.2.0)
     arel (4.0.0)
     atomic (1.1.13)
     bcrypt-ruby (3.1.2)
@@ -55,6 +57,7 @@ GEM
       oauth2 (>= 0.5.0)
     haml (4.0.3)
       tilt
+    hashery (2.1.1)
     hike (1.2.3)
     httpauth (0.2.0)
     i18n (0.6.5)
@@ -94,7 +97,22 @@ GEM
       multi_xml (~> 0.5)
       rack (~> 1.2)
     orm_adapter (0.4.0)
+    pdf-reader (1.3.3)
+      Ascii85 (~> 1.0.0)
+      afm (~> 0.2.0)
+      hashery (~> 2.0)
+      ruby-rc4
+      ttfunk
     polyglot (0.3.3)
+    prawn (0.12.0)
+      pdf-reader (>= 0.9.0)
+      ttfunk (~> 1.0.2)
+    prawn-core (0.8.4)
+    prawn-format (0.2.3)
+      prawn-core
+    prawn_rails (0.0.11)
+      prawn (>= 0.11.1)
+      railties (>= 3.0.0)
     rack (1.5.2)
     rack-pjax (0.7.0)
       nokogiri (~> 1.5)
@@ -133,6 +151,7 @@ GEM
     rdoc (3.12.2)
       json (~> 1.4)
     remotipart (1.2.1)
+    ruby-rc4 (0.1.5)
     safe_yaml (0.9.5)
     sass (3.2.10)
     sass-rails (4.0.0)
@@ -159,6 +178,7 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
+    ttfunk (1.0.3)
     turbolinks (1.3.0)
       coffee-rails
     tzinfo (0.3.37)
@@ -179,6 +199,9 @@ DEPENDENCIES
   google_drive
   jbuilder (~> 1.2)
   jquery-rails
+  prawn
+  prawn-format
+  prawn_rails
   rails (= 4.0.0)
   rails_admin
   sass-rails (~> 4.0.0)
