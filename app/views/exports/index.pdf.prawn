@@ -24,10 +24,9 @@ pdf.text "Naše značka: VS2012-OVK-#{town_hall.id}"
 pdf.text "Vyřizuje: Ing. Jiří Kubíček, kubicek@svobodni.cz, tel.: 605 058 092"
 pdf.move_down 20
 
-# if district.region.code=="CZ010"
-  pdf.text "Seznam delegovaných členů do okrskové(-ých) volební(-ch) komise(-í) pro volby do Senátu Parlamentu České republiky, které  se uskuteční ve dnech 12. a 13. října 2012.", :style => :bold
-#   pdf.move_down 20
-pdf.text "V souladu s ustanovením § 14e odst. 3 a 4 zákona č. 247/1995 Sb. o volbách do Parlamentu České republiky a o změně a doplnění některých dalších zákonů, ve znění pozdějších předpisů tímto politická strana Strana svobodných občanů, jejíž kandidátní listina byla zaregistrována pro volby, deleguje níže uvedené členy do okrskové(-ých) volební(ích) komise(-í) vaší obce - města."
+pdf.text "Seznam delegovaných členů do okrskové(-ých) volební(-ch) komise(-í) pro volby do Poslanecké sněmovny Parlamentu České republiky, které  se uskuteční ve dnech 25. a 26. října 2013.", :style => :bold
+
+pdf.text "V souladu s ustanovením § 14e odst. 3 a 4 zákona č. 247/1995 Sb. o volbách do Parlamentu České republiky a o změně a doplnění některých dalších zákonů, ve znění pozdějších předpisů tímto politická strana Strana svobodných občanů, jejíž kandidátní listina byla zaregistrována pro volby do Poslanecké sněmovny Parlamentu ČR, deleguje níže uvedené členy do okrskové(-ých) volební(ích) komise(-í) vaší obce - města."
 
 pdf.move_down 20
 
