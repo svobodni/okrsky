@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">Kraj</Data></Cell>
+        <Cell><Data ss:Type="String">Obec</Data></Cell>
+        <Cell><Data ss:Type="String">Městská část / obvod</Data></Cell>
+        <Cell><Data ss:Type="String">Číslo okrsku</Data></Cell>
+        <Cell><Data ss:Type="String">Jméno a příjmení</Data></Cell>
+        <Cell><Data ss:Type="String">Email</Data></Cell>
+        <Cell><Data ss:Type="String">Telefon</Data></Cell>
+        <Cell><Data ss:Type="String">Adresa bydliště</Data></Cell>
+        <Cell><Data ss:Type="String">Korespondenční adresa</Data></Cell>
+      </Row>
+    <% @town_halls.each do |town_hall, commisaries| %>
+    <% commisaries.each do |commisary| %>
+      <Row>
+        <Cell><Data ss:Type="String"><%= town_hall.region.name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= town_hall.municipality.name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= town_hall.try(:district).try(:name) %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= commisary.ward_number %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= commisary.name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= commisary.email %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= commisary.phone %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= commisary.address %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= commisary.postal_address %></Data></Cell>
+      </Row>
+    <% end %>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>
