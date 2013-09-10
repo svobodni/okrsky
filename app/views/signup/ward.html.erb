@@ -55,7 +55,7 @@
           <th><label for="commisary_ward_number">Číslo okrsku:</label></th>
           <td>
             <%= f.text_field :ward_number, class: 'delka3' %>
-            <span class="pozna">Čísla okrsků naleznete od 15.9.2013 na úřední desce příslušného úřadu. Pokud nevyplníte, přidělí Vám okrsek úřad.</span>
+            <span class="pozna">Čísla okrsků naleznete <% if @town_hall.wards_list_uri.blank? %>nejpozději od 15.9.2013 na úřední desce příslušného úřadu<% else %><%=link_to "zde", @town_hall.wards_list_uri %><% end %>. Pokud nevyplníte, přidělí Vám okrsek úřad.</span>
           </td>
         </tr>
         
