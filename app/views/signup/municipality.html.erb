@@ -2,7 +2,7 @@
 
 Vyberte si prosím obec, ve které chcete delegovat do okrskové komise.
 
-<% for municipality in @municipalities %>
+<% for municipality in @municipalities.sort{|a,b| ActiveSupport::Inflector.transliterate(a.name)<=>ActiveSupport::Inflector.transliterate(b.name)} %>
 
 <ul>
 <li><%= link_to municipality.name, next_wizard_path(municipality_id: municipality.id) %></li>
