@@ -1,0 +1,221 @@
+* {margin:  0px; padding: 0px; border-style: none; }
+
+/*html, body {
+	color: black; background: white;
+	font-family: arial, sans-serif; font-size: small;
+}
+
+body {
+	position: relative;	
+}
+
+hr {
+	border-style: none; border-top: 1px solid #D7DAC4;
+	margin: 5px 0 7px 0;
+	_background: black;
+}
+
+
+/* ============== TABULKA ============== */
+/*a, a:link, a:visited, a:active {
+	color: #4F6128;
+	text-decoration: none;
+}
+
+a:hover {
+	color: black;
+	text-decoration: underline;
+}*/
+
+p {
+	/*margin: 0px 0px 8px 0px;*/
+	text-indent: 0px;
+}
+
+h2, h3, h4, h5, h6 {
+	margin: 0px 0;
+	padding: 10px 0px 2px 0px;
+}
+
+h2 {
+}
+
+h3 {
+}
+
+h4 {
+}
+
+h5 {
+}
+
+h6 {
+}
+
+
+img { border: 0; padding: 0; margin: 0; }
+/*a img { border: none; }*/
+form { margin: 0; padding: 0; border-style: none; }
+iframe { border-style: none; }
+
+
+/* ============== TABULKA ============== */
+table {
+	border-collapse: collapse;
+}
+
+table tr td, table tr th {
+	border: 1px solid gray;
+	text-align: left;
+	padding: 2px 3px;
+}
+
+table tr th {
+	font-weight: bold;
+}
+
+table.table-big {
+	width: 100%;
+}
+
+table.table-small {
+	width: auto;
+}
+
+/* ============== CLEANER / CISTIC ============== */
+.cleaner {border-style: none; clear: both; float: none; font-size: 1px; height: 0 !important;line-height: 1px; margin: 0 !important; padding: 0 !important; visibility: hidden; }
+
+
+/* ============================== OBECNÉ TŘÍDY ==============================  */
+
+.center {text-align: center; }
+.left {text-align: left; }
+.right {text-align: right; }
+.justify { text-align: justify; }
+
+.number {text-align: right; }
+td.number, tbody th.number {text-align: right !important; }
+
+.yes {color: green; font-weight: bold; }
+.no {color: red; }
+
+.fleft { float: left; }
+.fright { float: right; }
+
+.nowrap { white-space: nowrap; }
+
+
+/* ==========================================================================  */
+/* ============================= KONKRÉTNÍ CSS ==============================  */
+/* ==========================================================================  */
+
+
+
+ul.hlaseni {
+	margin: 0px;
+	padding: 0px 0px 0px 20px;
+}
+
+
+
+
+
+
+
+.lister {
+	margin: 5px 0px 8px 0px;
+	padding: 4px 4px 4px 6px;
+	border: 2px solid black;
+	background-color: #DDDDDD;
+}
+
+
+
+
+/*
+.paginator-wrapper {
+	text-align: center;
+}
+
+.paginator-wrapper a {
+	padding: 2px 6px 2px 6px;
+	background-color: #CED3C7;
+	color: white;
+}
+*/
+
+
+
+/* ============================== SQL LOGGER ==============================  */
+#sql-logger, #sql-logger table {
+	font-size: 13px;
+	width: auto;
+	color: black;
+}
+
+#sql-logger {
+	background-color: white;
+	clear: both;
+}
+
+#sql-logger table {
+	border: 1px solid black;
+}
+
+#sql-logger table thead th,
+#sql-logger table thead td {
+	font-weight: bold;
+}
+
+#sql-logger table th, 
+#sql-logger table td {
+	border: 1px solid black;
+	padding: 2px;
+	background-color: white;
+	vertical-align: top;
+}
+
+#sql-logger table table {
+	margin: 5px;
+}
+
+
+
+pre {
+	text-align: left;
+	font-size: 11px;	
+}
+
+
+
+.loader {
+	text-align: center;	
+}
+
+.loader span {
+	background: transparent URL('../img/nahravani.gif') no-repeat 0px 0px;
+	padding: 1px 0px 3px 20px;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.loader-err {
+	text-align: center;	
+	color: red;
+	font-weight: bold;
+}
+
+
+p.err {
+	color: red;
+	font-weight: bold;
+}
+
+
+
+a > span.extern,
+a.extern {
+	padding-right: 15px;
+	margin-right: 2px;
+	background: transparent URL('../img/extern.png') no-repeat right center;
+}

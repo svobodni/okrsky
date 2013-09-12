@@ -1,0 +1,1625 @@
+* {
+	margin:  0; padding: 0; border: none;
+}
+
+html, body {
+	font-family: robotoregular, "trebuchet ms", arial, sans-serif; font-size: small; text-align: center;
+	color: black; background: white;
+	height: 100%;
+}
+
+body {
+	position: relative;	
+	background: url('../images/global/telo-bg.PNG') left top repeat-x;
+}
+
+hr {
+	border: none; border-top: 1px solid #D7DAC4;
+	margin: 5px 0 7px 0;
+	width: 98.5%;
+	_background: black;
+}
+
+hr.cistic, hr.pristupnost {
+	margin: 0;
+}
+
+hr.cistic {
+	height: 1px;
+	margin-top: -1px;
+	clear: both;
+	visibility: hidden;
+}
+
+hr.cistic-zobrazeny {
+	margin: 10px 0;
+	clear: both;
+}
+
+.pristupnost {
+	display: none;
+}
+
+.hidden {display: none; }
+
+
+
+@font-face {
+    font-family: 'robotolight';
+    src: url('http://volby.svobodni.cz/_skin/index/fonts/roboto-light-webfont.eot');
+    src: url('http://volby.svobodni.cz/_skin/index/fonts/roboto-light-webfont.eot?') format('embedded-opentype'),
+         url('http://volby.svobodni.cz/_skin/index/fonts/roboto-light-webfont.woff') format('woff'),
+         url('http://volby.svobodni.cz/_skin/index/fonts/roboto-light-webfont.ttf') format('truetype'),
+         url('http://volby.svobodni.cz/_skin/index/fonts/roboto-light-webfont.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'robotoregular';
+    src: url('http://volby.svobodni.cz/_skin/index/fonts/roboto-regular-webfont.eot');
+    src: url('../fonts/roboto-regular-webfont.eot') format('embedded-opentype'),
+         url('../fonts/roboto-regular-webfont.woff') format('woff'),
+         url('../fonts/roboto-regular-webfont.ttf') format('truetype'),
+         url('../fonts/roboto-regular-webfont.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'robotobold';
+    src: url('http://volby.svobodni.cz/_skin/index/fonts/roboto-bold-webfont.eot');
+    src: url('../fonts/roboto-bold-webfont.eot') format('embedded-opentype'),
+         url('../fonts/roboto-bold-webfont.woff') format('woff'),
+         url('../fonts/roboto-bold-webfont.ttf') format('truetype'),
+         url('../fonts/roboto-bold-webfont.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'robotolight_italic';
+    src: url('http://volby.svobodni.cz/_skin/index/fonts/roboto-lightitalic-webfont.eot');
+    src: url('http://volby.svobodni.cz/_skin/index/fonts/roboto-lightitalic-webfont.eot?') format('embedded-opentype'),
+         url('http://volby.svobodni.cz/_skin/index/fonts/roboto-lightitalic-webfont.woff') format('woff'),
+         url('http://volby.svobodni.cz/_skin/index/fonts/roboto-lightitalic-webfont.ttf') format('truetype'),
+         url('http://volby.svobodni.cz/_skin/index/fonts/roboto-lightitalic-webfont.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'robotobold_italic';
+    src: url('http://volby.svobodni.cz/_skin/index/fonts/roboto-bolditalic-webfont.eot');
+    src: url('../fonts/roboto-bolditalic-webfont.eot') format('embedded-opentype'),
+         url('../fonts/roboto-bolditalic-webfont.woff') format('woff'),
+         url('../fonts/roboto-bolditalic-webfont.ttf') format('truetype'),
+         url('../fonts/roboto-bolditalic-webfont.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'robotoitalic';
+    src: url('http://volby.svobodni.cz/_skin/index/fonts/roboto-italic-webfont.eot');
+    src: url('../fonts/roboto-italic-webfont.eot') format('embedded-opentype'),
+         url('../fonts/roboto-italic-webfont.woff') format('woff'),
+         url('../fonts/roboto-italic-webfont.ttf') format('truetype'),
+         url('../fonts/roboto-italic-webfont.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/* ---------- OBAL  ------------------------------------------------------------------------------------------------------------------------------------------- */
+#obal {
+	width: 1020px;
+	margin: 0 auto;
+	position: relative;
+	text-align: left;
+	border-left: 18px solid white;
+}
+
+
+/* ---------- HLAVIČKA  ------------------------------------------------------------------------------------------------------------------------------------------- */
+#hlavicka {
+	height: 150px;
+	width: 100%;
+	position: relative;
+	border-bottom: 1px solid white;
+}
+
+h1 {
+	font-size: 2.7em; font-family: garamond; text-transform: uppercase;
+	overflow: hidden;
+	position: relative; 
+	background: #005F49;
+}
+
+h1, h1 span {
+	width: 385px; height: 150px;
+}
+
+h1 a, h1 a:hover, h1 a:visited {
+	color: white;
+	text-decoration: none;
+}	
+
+h1 a span {
+	display: block;
+	position: absolute; left: 0px; top: 0;
+	background: url('../images/global/svobodni-logo.PNG') left top no-repeat;
+}
+
+h1 a:hover span {
+	display: block;
+	position: absolute; left: 0px; top: 0;
+	background: url('../images/global/svobodni-logo.PNG') left bottom no-repeat;
+}
+
+#hlavicka em {
+	font-style: normal; font-size: 1em; _font-size: 0.95em;
+	position: absolute; top: 120px; left: 60px;
+}
+
+.eshop-odkaz, .stary-odkaz {
+	text-transform: uppercase; font-weight: bold; font-size: 15px; font-family: robotobold;
+	position: absolute; top: 30px; right: 0px;
+	width: 100px;
+}
+
+.stary-odkaz {
+	position: absolute; top: 30px; right: 120px;
+	width: 120px;
+}
+
+.stary-odkaz a, .eshop-odkaz a {
+	text-decoration: none;
+}
+
+.prispet {
+	position: absolute; top: 14px; left: 410px;
+}
+	
+/* --- POMŮCKY --- */
+#pomucky {
+		font-size: 0.95em; color: silver;
+		position: absolute; top: 35px; right: 110px;
+}
+
+#pomucky a {
+	position: relative; top: -1px;
+	margin: 0 1px;
+}
+
+/* --- SPOJENI --- */
+#spojeni {
+	width: 180px; height: 50px;
+	position: absolute; left: 570px; top: 20px;
+}
+
+#spojeni li {
+	list-style: none;
+	width: 38px; height: 38px;
+	display: block;
+	float: left;
+	font-size: 0.6em;
+	margin: 0 6px 0 0;
+}
+
+#spojeni li a, #spojeni li span {
+	display: block; width: 38px; height: 38px;
+	position: relative;
+}
+
+#spojeni li a span {
+	position: absolute; left: 0px; top: 0;
+	background-position: left top;
+	background: repeat: no-repeat
+}
+
+#spojeni li a:hover span {
+	background-position: left bottom;
+}
+
+#spojeni li.f a span {background-image: url('../images/global/ikona-f.PNG');}
+#spojeni li.g a span {background-image: url('../images/global/ikona-g.PNG');}
+#spojeni li.t a span {background-image: url('../images/global/ikona-t.PNG');}
+#spojeni li.y a span {background-image: url('../images/global/ikona-y.PNG');}
+
+
+
+/* --- VYHLEDÁVÁNÍ --- */
+#vyhledavani {
+	position: absolute; top: 55px; right: 110px;	
+	width: 230px;
+	padding: 10px;
+	border: 1px solid #76923C;
+}
+
+#vyhledavani input {
+	border: 1px solid #76923C;
+	padding: 1px;
+	vertical-align: center;
+}
+
+#vyhledavani input.potvrd {
+	background: #76923C;
+}
+
+/* --- JAZYKY--- */
+#jazyky {
+	position: absolute; top: 145px; right: 50px;
+}
+
+#jazyky a {
+	font-weight: bold;
+}
+
+
+/* ---------- NABÍDKA ------------------------------------------------------------------------------------------------------------------------------------------- */
+#nabidka {
+	background: white;
+	height: 68px; width: 700px;
+	position: absolute; left: 385px; top: 82px;
+}
+
+#nabidka-in {
+}	
+
+#nabidka ul {
+	white-space: nowrap;
+	margin: 23px 5px;
+}
+#nabidka ul li {
+	list-style: none;
+	text-transform: uppercase; font-size: 1.49em; 
+	float: left;
+	
+}
+
+#nabidka ul li a {
+	color: #262626; text-decoration: none;
+	border-left: 1px solid #BFBFBF;
+	padding: 4px 20px;
+}
+
+#nabidka ul li:first-child a {
+	border: none;
+	padding-left: 25px;
+
+}
+
+#nabidka ul li.prvni a {
+	border: none;
+}
+
+#nabidka ul li a.posledni {
+}
+
+#nabidka ul li.aktivni {
+}
+
+#nabidka ul li.aktivni a, #nabidka ul li.aktivni a:hover {
+	text-decoration: none;
+	color: #005340;
+	cursor: default;
+}
+
+#nabidka ul li.aktivni span{
+}
+
+#nabidka ul li a:hover {
+	color: #005340;
+}
+
+#nabidka ul li a:hover span {
+	
+}
+
+#nabidka ul ul {
+	display: none !important;
+}
+
+li.prvni {
+	width: 58px; 
+}
+
+li.prvni a, li.prvni a span {
+	display: block; width: 58px; height: 100%;
+	position: relative;
+	font-size: 0.6em; font-weight: bold;
+}
+
+li.prvni a span {
+	position: absolute; left: 0px; top: 0;
+	background: url('../images/global/ikona-domek.PNG') left top no-repeat;
+}
+
+li.prvni a:hover span {
+	background-position: left bottom;
+}
+
+/* ---------- DROBKY ------------------------------------------------------------------------------------------------------------------------------------------- */
+#drobky {
+	padding: 10px;
+	font-size: 0.85em;
+	margin: 0 20px;
+}
+
+#drobky a {
+	margin: 0 2px;
+}
+
+/* ---------- BLOK-1 ------------------------------------------------------------------------------------------------------------------------------------------- */
+#blok-1 {
+	background: #EBF1DD; border: 1px solid #C3D69B; display: block;
+}
+
+#blok-1-1, #blok-1-2, #blok-1-1-1, #blok-1-1-2 {
+	float: left;
+}
+
+#blok-1-1 {
+	width: 80%;
+
+}
+
+#blok-1-2 {
+	width: 19.5%;
+	background: white; border: 1px solid #C3D69B;
+}
+
+#blok-1-1-1, #blok-1-1-2 {
+	width: 25%;
+}
+
+#blok-1-1-2 {
+	width: 75%;
+}
+
+/* ---------- BLOK-2  ------------------------------------------------------------------------------------------------------------------------------------------- */
+#blok-2 {
+
+}
+
+#blok-2-1, #blok-2-2 {
+	float: left;
+}
+
+#blok-2-1 {
+	width: 200px;
+}
+
+#blok-2-2 {
+	width: 820px;
+}
+
+/* ---------- BLOK-3  ------------------------------------------------------------------------------------------------------------------------------------------- */
+#blok-3 {
+	
+}
+
+/* ---------- BLOK-4 ------------------------------------------------------------------------------------------------------------------------------------------- */
+#blok-4 {
+}
+
+#blok-4-1, #blok-4-2 {
+	float: left;
+}
+
+#blok-4-1 {
+	width: 635px;
+}
+
+#blok-4-2 {
+	width: 385px;
+}
+
+/* ---------- BLOK-5 ------------------------------------------------------------------------------------------------------------------------------------------- */
+#blok-5 {
+	background: #EBF1DD; border: 1px solid #C3D69B;
+}
+
+#blok-5-1, #blok-5-2 {
+	float: left;
+}
+
+#blok-5-1 {
+	width: 50%;
+}
+
+#blok-5-2 {
+	width: 50%;
+}
+
+
+/* ---------- BLOK-6 ------------------------------------------------------------------------------------------------------------------------------------------- */
+#blok-6 {
+}
+
+#blok-6-1, #blok-6-2, #blok-6-2-1, #blok-6-2-2 {
+	float: left;
+}
+
+#blok-6-1 {
+	width: 385px;;
+}
+
+#blok-6-2 {
+	width: 635px;
+}
+
+#blok-6-2-1, #blok-6-2-2 {
+	width: 385px;
+}
+
+#blok-6-2-2 {
+	width: 250px;
+}
+
+/* ---------- BLOK-7 ------------------------------------------------------------------------------------------------------------------------------------------- */
+#blok-7 {
+}
+
+#blok-7-1, #blok-7-2 {
+	float: left;
+}
+
+#blok-7-1 {
+	width: 770px;
+}
+
+#blok-7-2 {
+	width: 250px;
+}
+
+/* ---------- MENU  ------------------------------------------------------------------------------------------------------------------------------------------- */
+.menu {
+	background: white; 
+	
+}
+
+/* --- MENU - ÚROVEŇ 1 --- */
+.menu ul {
+	margin: 15px;
+}
+
+.menu ul li{
+	list-style: none;
+	line-height: 2.34;
+	border-bottom: 1px solid #BFBFBF;
+	font-size: 17px;
+}
+
+.menu ul li a{
+	text-decoration: none;
+	display: block;
+}
+
+/* --- MENU - ÚROVEŇ 2 --- */
+.menu ul ul {
+	margin: 3px 10px 10px 30px;
+}
+
+.menu ul ul li{
+	list-style: none;
+	line-height: 2;
+	border: none;
+}
+
+.menu ul ul li a{
+	font-weight: normal;
+}
+
+/* ---------- OBSAH  ------------------------------------------------------------------------------------------------------------------------------------------- */
+.obsah {
+	margin: 0 18px;
+	line-height: 1.4;
+	font-size: 16px;
+}
+
+.obsah-in {
+	
+}
+
+/* ---------- PANEL  ------------------------------------------------------------------------------------------------------------------------------------------- */
+.panel {
+	margin: 15px;
+}
+
+
+/* ---------- TLAČÍTKA ---------------------------------------------------------------------------------------------------------------------------------- */
+
+.megatlacitka {
+	font-family: robotobold;
+}
+
+.megatlacitka ul li {
+	list-style: none;
+	width: 100%; height: 120px;
+	display: block;
+	margin: 0 0 2px 0;
+	font-size: 2.44em; font-weight: bold; text-transform: uppercase;
+	line-height: 1.2;
+}
+
+.megatlacitka li a {
+	display: block; width: 100%; height: 120px;
+	background: #F1F1F2 url('../images/uvod/megatlacitka-a-bg.PNG') right top no-repeat;
+	border: 1px solid #EAEAEB; border-top: none; border-left: none;
+	text-decoration: none; color: #262626;
+}
+
+.megatlacitka li a:hover {
+	background: #E9E9EA;
+	color: #005F49;
+}
+
+.megatlacitka li a span {
+	padding: 20px 35px 0 33px;
+	display: block;
+}
+
+/**/
+
+.akcni-tlacitka {
+	margin: 54px 0;
+}
+
+.akcni-tlacitka ul {
+	margin: 0 !important;
+}
+
+.akcni-tlacitka ul li {
+	list-style: none;
+	display: block;
+	float: left;
+	text-transform: uppercase; font-weight: bold;
+}
+
+.akcni-tlacitka li a {
+	background-color: #F1F1F2;
+	text-decoration: none; color: #262626;
+	padding: 12px 18px;
+	border-right: 1px solid white;
+}
+
+.akcni-tlacitka li a:hover {
+	background: #E9E9EA;
+	color: #005F49;
+}
+
+
+/* ---------- ZÁLOŽKY  ------------------------------------------------------------------------------------------------------------------------------------------- */
+#zalozky ul {
+	border-bottom: 1px solid #C3D69B;
+	margin: 0; padding: 0 5px;
+	height: 27px;
+}
+
+#zalozky ul li {
+	float: left;
+	margin: 0 2px; 	padding: 4px 0 6px 0;
+	list-style: none;
+}
+
+#zalozky ul li a {
+	padding: 4px 16px 6px 16px;
+	background: #C3D69B; border: 1px solid #C3D69B; border-bottom: none;
+	-moz-border-radius-topleft: 3px; -moz-border-radius-topright: 3px;
+}
+
+#zalozky ul li.aktivni a {
+	background: #EBF1DD;
+	position: relative; top: 1px;
+}
+	
+
+/* ---------- FORMÁTOVÁNÍ  ------------------------------------------------------------------------------------------------------------------------------------------- */
+a {
+	color: #005340;
+}
+
+a:visited {
+	color: #005F49
+}
+
+a:hover {
+	color: #004A39;
+}
+
+p {
+	margin: 10px 0;
+}
+
+/* ---------- NADPISY ------------------------------------------------------------------------------------------------------------------------------------------- */
+h2, h3, h4, h5, h6 {
+	color: #262626;
+	margin: 6px 0 12px 0;
+	line-height: 1.2;
+	font-family: robotobold;
+}
+
+h2 {
+	font-size: 43px;
+	border-bottom: 6px solid #EAEAEB;
+	padding-bottom: 18px; margin-bottom: 12px;
+}
+
+.page-aktualne h2 {
+	border-bottom: none;
+	padding-bottom: 0;
+}
+
+h3 {
+	font-size: 29px;
+	color: #005340;
+}
+
+h3 a {
+	color: #262626 !important; text-decoration: none;
+}
+
+h3 a:hover {
+	text-decoration: underline;
+}
+
+
+h4 {	
+	font-size: 19px;
+	
+}
+
+h5 {
+	
+}
+
+h6 {
+}
+
+b {
+	font-family: robotobold;
+}
+
+a img {
+	text-decoration: none;
+}
+
+img.right {
+	text-align: right; margin: 0 0 18px 18px;
+}
+
+img.left {
+	text-align: left; margin: 0 18px 18px 0;
+}
+
+.zvetsene {
+	font-size: 21px;
+	margin: 0 0 18px 0;
+}
+
+.zvetsene ul li {
+	list-style-type: none !important;
+	margin: 10px 0;
+	line-height: 1.1;
+}
+
+.dalsi, .prispet {
+	text-transform: uppercase; font-family: robotobold;
+	margin: 18px 0 0 0; text-align: right;
+	
+}
+
+.dalsi a, .prispet a {
+	color: white; font-size: 1.1em; font-weight: bold; text-decoration: none;
+	background: #005F49 url('../images/ostatni/dalsi-a-bg.PNG') left top no-repeat;
+	padding: 9px 18px 10px 30px;
+}
+
+.prispet a {
+	background: #BFBFBF;
+	padding: 9px 18px 10px 18px;
+}
+
+.dalsi a:hover, .prispet a:hover {
+	background-position: left bottom;
+}
+
+.prispet a:hover {
+	background: #005F49;
+}
+
+.tlacitko {
+	text-transform: uppercase;
+	margin: 54px 0; text-align: center;
+	clear: both;
+	font-family: robotobold;
+}
+
+.tlacitko a {
+	color: white;  font-weight: bold; font-size: 26px; text-decoration: none;
+	background: #005F49;
+	padding: 18px 36px; margin: 0 auto;
+}
+
+.tlacitko a:hover {
+	background-color: #005A45;
+}
+
+/* ---------- PŘÍSPĚVKY ------------------------------------------------------------------------------------------------------------------------------------------- */
+.prispevek {
+	margin: 6px 18px;
+	background: white;
+	position: relative;
+	width: 348px; height: auto;
+	float: left;
+}
+
+.prispevek a {
+	display: block; height: 100%;
+	border: 1px solid #EAEAEB; border-top: none; border-left: none;
+}
+
+.prispevek a:hover {
+	border-color: #D6D6D8;
+}
+
+.prispevek a strong {
+	display: block; 
+	font-size: 18px;
+	padding: 12px 6px 18px 18px;
+	font-weight: normal;
+	line-height: 1.3;
+}
+
+.prispevek a img {
+	margin: 0; display: block;
+}
+
+.prispevek a:hover img {
+	opacity: 0.91;
+}
+
+.prispevek .datum {
+	position: absolute; right: 12px; bottom: 12px;
+	font-size: 13px;
+	color: #808080;
+}
+
+.aktualne-vypis .prispevek {
+	float: none;
+	width: auto;
+	clear: both;
+	border: 1px solid #EAEAEB; border-top: none; border-left: none;
+	margin-bottom: 12px;
+}
+
+.aktualne-vypis .prispevek:hover {
+	border-color: #D6D6D8;
+}
+
+
+.aktualne-vypis .prispevek a {
+	height: 100% !important!;
+}
+
+.aktualne-vypis .prispevek a {
+	border: none;
+}
+
+.aktualne-vypis .prispevek a img {
+	float: left;
+	width: 260px;
+}
+
+.aktualne-vypis .prispevek .perex  {
+	display: block;
+	float: left;
+	width: 580px;
+	margin: -18px 6px 0 6px; 
+	font-size: 15px; color: black;
+}
+
+.aktualne-vypis .prispevek strong {
+	font-size: 26px;
+	
+}
+
+.aktualne-vypis p {
+	margin: 18px
+}
+
+
+/**/
+
+.module-clanek-global h2 {
+	font-size: 36px;
+	margin-bottom: 26px;
+}
+
+.module-clanek-global img.left {
+
+}
+
+.module-clanek-global .image {
+	display: block; width: 395px; 
+	float: left;
+	margin: 0 12px 18px 0;
+}
+
+.module-clanek-global .info {
+	display: block; width: 150px;
+	float: left;
+	font-size: 13px; color: #808080;
+	margin: 0 0 18px 0;
+}
+
+.module-clanek-global .text {
+	clear: both;
+	margin: 18px 0;
+}
+
+/* ---------- UDÁLOSTI ------------------------------------------------------------------------------------------------------------------------------------------- */
+
+.udalosti-box .dalsi {
+	margin-right: 1px;
+	height: 40px;
+}
+
+.udalost {
+	margin: 0px 0px 0px 18px;
+	position: relative;
+	clear: both;
+}
+
+.udalost span.nadpis a {
+	display: block; 
+	border: 1px solid white;
+	padding: 12px 6px 12px 85px;
+	position: relative;
+	
+}
+
+/* Opravit přes kód */
+.udalost .fb-link a {
+	border: none !important;
+}
+
+.udalost span.nadpis a:hover {
+	border-color: #D6D6D8;
+	border-radius: 2px;
+}
+
+
+.udalost em.datum {
+	position: absolute; left: 6px; top: 8px;
+	font-size: 12px; font-style: normal;
+	color: #262626;
+	width: 64px;
+	text-align: right;
+	padding: 6px 0px 6px 0;
+	line-height: 1.3;
+}
+
+.udalost em.datum .den/*, .udalost em .datum/*, .udalost em .hod*/ {
+	display: block;
+}
+
+.udalost span.nadpis strong {
+	display: block; width: 255px;
+	font-size: 18px;
+	padding: 0 0px 0 14px;
+	font-weight: normal;
+	border-left: 1px solid #BFBFBF; 
+	line-height: 1.3;
+	min-height: 35px;
+}
+
+.udalost-detail {
+	display: none;
+	position: absolute;
+	background: red;
+	font-size: 15px;
+}
+
+.udalost-detail .datum {
+	font-size: 13px;
+	font-style: normal;
+}
+
+
+.udalost-detail span.nadpis strong {
+	font-size: 18px;
+	font-weight: normal;
+}
+
+
+.udalost .detail {
+	margin: 0 0 0 137px;
+	font-size: 15px;
+}
+
+/* VÝPIS */
+
+.udalosti-vypis {
+	width: 100%;
+}
+
+.udalosti-vypis span.nadpis a {
+	padding-left: 120px;
+}
+
+.udalosti-vypis span.nadpis strong {
+	font-size: 26px;
+	width: 820px;
+}
+
+.udalosti-vypis em.datum {
+	top: 8px;
+	/*left: 10px;*/
+	width: 100px;
+	line-height: 1.2;
+}
+
+.udalosti-vypis em.datum .den, .udalosti-vypis em.datum span.datum {
+	display: inline;
+}
+
+.udalosti-vypis em.datum .hod {
+	display: block;
+}
+
+.udalosti-vypis .udalost {
+	margin: 0px 18px;
+}
+
+/* ---------- SEZNAMY ------------------------------------------------------------------------------------------------------------------------------------------- */
+.udalost-detail-in ul, .udalost-detail-in ol,
+.obsah ul, .obsah ol {
+	margin: 12px 26px;
+}
+
+.udalost-detail-in ul li,
+.obsah ul li {
+	list-style: square;
+}
+
+
+/* */
+
+.menu-tags {
+	background: white;
+	width: 500px;
+	margin: -36px 0 0 400px; padding: 0;
+}
+
+.menu-tags ul {
+	white-space: nowrap;
+}
+	
+.menu-tags ul li {
+	list-style: none;
+	float: left;
+	font-weight: normal;
+}
+
+.menu-tags ul li a {
+	color: #262626; text-decoration: none;
+	padding: 12px 18px;
+	display: block;
+	text-decoration: none; 
+	
+}
+
+.menu-tags ul li a.active {
+	background: #F1F1F2;
+	border: none;
+}
+
+.menu-tags ul li a span {
+	
+}
+
+
+/* ---------- KANDIDÁTI ------------------------------------------------------------------------------------------------------------------------------------------- */
+.kandidati-vypis {
+	background: white;
+	width: 100%;
+	clear: both;
+}
+
+.kandidati-vypis {
+}	
+
+.kandidati-vypis ul {
+	white-space: nowrap;
+	margin: 0 !important;
+}
+
+.kandidati-vypis ul li {
+	list-style: none;
+	float: left; 
+	width: 316px;
+	margin: 0 12px 12px 0;
+}
+
+.kandidati-vypis ul li a {
+	color: #262626; text-decoration: none;
+	border: 1px solid #D6D6D8;
+	border-radius: 2px;
+	padding: 12px 18px 26px 18px;
+	display: block; height: 90px;
+	background: url('../images/ostatni/neznamy-kandidat.PNG') right bottom no-repeat;
+}
+
+
+.kandidati-vypis ul li a:hover {
+	color: #005340;
+	border-color: #005F49;
+}
+
+.kandidati-vypis ul li a span {
+	color: #005340;
+	font-size: 22px;
+}
+
+.kandidati-vypis ul li a strong {
+	display: block;
+	font-size: 36px;
+	display: none;
+}
+
+.kandidati-lidr-box {
+	color: #262626;
+	width: 970px;
+	position: relative;
+	margin: 0 12px 12px 0;
+}
+
+.kandidati-lidr-box a {
+	text-decoration: none;
+	display: block; height: 190px;
+	padding: 12px 200px 18px 18px;
+	border: 1px solid transparent; border-radius: 2px;
+}
+
+.kandidati-lidr-box a:hover {
+	border-color: #005F49;
+}
+
+.kandidati-lidr-box a:hover strong {
+}
+
+.kandidati-lidr-box strong {
+	font-size: 38px;
+	text-transform: uppercase;
+	display: block;
+}
+
+.kandidati-lidr-box a:hover strong {
+	text-decoration: underline;
+}
+
+
+.kandidati-lidr-box em {
+	font-size: 18px; color: #262626; font-style: normal;
+	display: block; margin: 6px 0 12px 0;
+}
+
+.kandidati-lidr-box span {
+	display: block;
+	color: #262626;
+}
+
+
+
+.kandidati-lidr-box a img {
+	text-align: right;
+	margin: 12px 0 0 0;
+	display: block; width: 155px;
+	position: absolute; bottom: 1px; right: 1px;
+}
+
+
+/* ---------- FORMULÁŘ ------------------------------------------------------------------------------------------------------------------------------------------- */
+
+.formular td,.formular th {
+	border: none;
+	padding: 6px 6px;
+}
+
+.formular th {
+	width: 200px;
+	text-align: right;
+	vertical-align: top;
+}
+
+.formular input {
+	font-family: roboto, sans-serif; font-size: 15px;
+	padding: 3px 6px;
+}
+
+.formular .submit-row input {
+	text-transform: uppercase;
+	margin: 18px 0 0 0; text-align: right;
+	color: white; font-weight: bold; text-decoration: none;
+	background: #005F49 url('../images/ostatni/dalsi-a-bg.PNG') left top no-repeat;
+	padding: 9px 18px 9px 30px;
+	text-transform: uppercase;
+	margin: 18px 0 0 0; text-align: right;
+	cursor: pointer;
+}
+
+.formular .submit-row input:hover {
+	background-position: left bottom;
+}
+
+.formular td .pozn {
+	font-size: 12px;
+	display: none;
+}
+
+.formular td:hover .pozn {
+	display: inline;
+}
+
+.dar-wrapper  {
+	border: 1px solid #BFBFBF;	
+	border-radius: 2px;
+	padding: 0 26px 3px 26px;
+	margin: 0 0 12px 0;
+	background: #F1F1F2;
+}
+
+.dar-wrapper:hover  {
+	background: white;
+	border-color: #BFBFBF;
+	cursor: default;
+}
+
+
+.dar-wrapper.active  {
+	border: 1px solid #005F49 !important;
+	background: white;
+}
+
+.dar-wrapper input[type="text"] {	
+	border: 1px solid #262626;
+	width: 100px;
+	color: #012369;
+	margin-right: 5px;
+}
+
+.dar-wrapper input[type="text"].delka3 {
+	width: 320px;
+}
+
+.dar-form {
+	display: none;
+	text-align: center;
+	padding: 15px;
+}
+
+.dar-form form table {
+	margin: auto !important;
+}
+
+.money-for {
+	margin: 0; padding: 0;
+}
+
+.money-for li {
+	margin: 0 6px 3px 0 !important;
+	display: block; float: left;
+}
+
+.money-for input[type="button"] {
+	background-color: #E9E9EA; 
+	color: black; font-weight: bold; 
+	/*border-radius: 14px; */ border-radius: 2px;
+	border: 1px solid #BFBFBF; 
+	border-left: none; 
+	border-top: none;
+	padding: 4px 9px; 
+}
+
+.money-for input[type="button"]:hover {
+	background-color: #D6D6D8; 
+}
+
+	.money-checkbox input[type="button"] {
+	font-weight: normal;
+}
+
+.s-jinou li:last-child input[type="button"] {
+	background: none;
+	border: none;
+	color: #262626;
+	font-weight: normal;
+	padding: 4px 9px !important; 
+	
+}
+	
+.money-for input[type="button"].active {
+	background-color: #267664; 
+	color: white;
+	padding: 3px 9px 5px 9px;
+	border: 1px solid #004636; border-right: none; border-bottom: none;
+}
+
+.vybrano {
+	width: 100%;
+	display: block;
+	padding: 4px;
+	border: 1px solid green;
+	display: none;
+}
+
+.vybrano.vybrano-vse {
+	border-color: orange;
+}
+
+.vybrano-in {
+	height: 20px;
+	display: block;
+	background-color: red;
+}
+
+
+/* ---------- PATKA  ------------------------------------------------------------------------------------------------------------------------------------------- */
+.fb-box {
+	margin: 20px 0 0 0;
+	border-top: 6px solid #EAEAEB;
+}
+
+.fb-box iframe {
+	margin: 10px 20px 0 20px;
+}
+
+#patka {
+	position: relative;
+	height: 100px;
+	padding: 40px 40px 0px 40px;
+	font-size: 0.95em;
+	clear: both;
+	border-top: 1px solid #BFBFBF;
+}
+
+#patka a {
+	position: relative;
+}
+
+#patka a.first {
+	margin: 0 5px;
+	/*top: -1px;*/
+}
+
+#patka span.down {
+	position: relative;
+	
+}
+
+#patka p {
+	position: absolute; top: 30px; right: 40px;
+	display: inline;
+}
+
+#patka p a{
+	margin: 0;
+}
+
+
+/* ---------- ÚVOD, VÝPISY  ------------------------------------------------------------------------------------------------------------------------------------------- */
+
+.intro-banner {
+
+}
+
+.intro-banner img {
+	margin: 0; padding: 0;
+	display: block;
+}
+
+.aktualne-box, .aktualne-vypis, .udalosti-box, .kandidati-box {
+	border-top: 6px solid #005F49;
+	margin-right: 1px;
+	margin-top: 0;
+}
+
+.aktualne-box, .aktualne-vypis {
+	background: #F1F1F2;
+	padding: 0 0 12px 0;
+}
+
+.aktualne-vypis {
+	background: #F1F1F2;
+	padding: 6px 0 12px 0;
+	border-top: 6px solid #F1F1F2;
+}
+
+.udalosti-box, .kandidati-box {
+	background: white;
+	padding: 0;
+	position: relative;
+}
+
+.aktualne-box h3, .udalosti-box h3, .kandidati-box h3 {
+	text-transform: uppercase;
+	color: #262626;
+	margin: 12px 0 12px 33px;
+	font-size: 32px;
+}
+
+.lidr-box {
+	text-transform: uppercase; font-family: robotobold;
+	color: #262626;
+	margin: 17px 0 0 33px;
+	position: relative;
+}
+
+.lidr-box a {
+	text-decoration: none;
+}
+
+.lidr-box a:hover {
+	text-decoration: underline;
+}
+
+
+.lidr-box strong {
+	font-size: 32px;
+}
+
+.lidr-box a img {
+	text-align: right;
+	margin: 6px 0 0 0;
+}
+
+.lidr-box a:hover img {
+	opacity: 0.91;
+}
+
+.lidr-box .dalsi {
+	position: absolute; right: 0; bottom: 0;
+}
+
+
+#kraje-mapa {padding: 0; margin: 0 30px; margin-top: -20px; }
+#kraje-mapa-in .img {border: 0px none; padding: 0px; margin: 0px; }
+#kraje-mapa-in {background: #B1B1B1 url('../images/ostatni/mapa-cr-hover.gif') top left no-repeat; width: 200px; font-size: 1px; }
+
+/* ---------- PROC  ------------------------------------------------------------------------------------------------------------------------------------------- */
+#mozaika {
+}
+
+#mozaika li {
+	list-style: none;
+	width: 34px; height: 34px;
+	display: block;
+	float: left;
+	position: relative;
+}
+
+#mozaika li.big {
+	width: 69px; height: 69px;
+}
+
+#mozaika li a {
+	height: 100% 
+}
+
+#mozaika li img {
+	height: 100%;
+	border: 1px solid white;
+}
+
+#mozaika li a span {
+	display: none; width: 250px; padding: 10px 20px;
+	position: absolute; left: 34px; top: 34px;
+	background: white; border: 1px solid silver;
+	z-index: 100;
+	padding-right: 118px;
+	min-height: 86px;
+}
+
+#mozaika li.big a span {
+	left: 69px; top: 69px;
+}
+
+#mozaika li a:hover span {
+	display: block;
+	background-position: left bottom;
+}
+
+#mozaika li a span img {
+	display: block; position: absolute; top: 6px; right: 6px;
+	height: 80px; width: 80px;
+}
+
+
+/* ---------- MOZ  ------------------------------------------------------------------------------------------------------------------------------------------- */
+#hlavicka, #vyhledavani, #kosik a, #nabidka, #blok-1, #blok-2, #blok-3, .menu, #blok-1-2, #patka {
+}
+
+
+/* special. format */
+.obsah {line-height: 1.4; }
+.tblok {padding-bottom: 13px; }
+.mapa-stranek {}
+.mapa-stranek ul {margin-left: 23px; }
+
+.skryvany {display: none; }
+
+/* bonusovky */
+.pozor1 {color: red; font-variant: Small-caps; text-align: center; }
+div.pozor1 {font-weight: bold; text-transform: ; margin: 15px 0px; padding: 10px; border-top: 3px solid crimson;  border-bottom: 3px solid crimson  }
+span.pozor1 {font-weight: bold;}
+.pozor1 a {color: Crimson; font-variant: normal; }
+.pozor1 .normal {color: black; font-variant: normal; }
+
+.oznameni1 {color: blue; font-variant: Small-caps; text-align: center;}
+div.oznameni1 {font-weight: bold; text-transform: ; margin: 15px 0px; padding: 10px; border-top: 3px solid navy;  border-bottom: 3px solid navy  }
+span.oznameni1 {font-weight: bold; }
+.oznameni1 a {color: navy; font-variant: normal; }
+.oznameni1 .normal {color: black; font-variant: normal; }
+
+#megatlacitka {letter-spacing: 1px;}
+
+
+
+
+
+
+#slider-homepage {
+	margin: 0px; padding: 0px;
+	width: 770px;
+	height: 366px;
+	list-style: none;
+	
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+
+.anythingSlider-svobodni-volby2013 ul {
+	position: absolute;
+	right: 20px;
+	bottom: 10px;
+}
+
+.anythingSlider-svobodni-volby2013 li {
+	margin: 0px; padding: 0px;
+	float: left;
+}
+
+.anythingSlider-svobodni-volby2013 ul.thumbNav li {
+	display: inline;
+	list-style-type: none;
+	width: 14px;
+	height: 12px;
+	margin: 0px 0px 0px 2px;
+}
+
+.anythingSlider-svobodni-volby2013 ul.thumbNav li a {	
+	display: block;
+/*	border: 1px solid black;*/
+	height: 12px;
+	background: transparent URL('../images/uvod/banner-buttons.png') no-repeat 0px 0px;
+}
+
+.anythingSlider-svobodni-volby2013 ul.thumbNav li a.cur {
+	background-position: -15px 0px;
+}
+
+.anythingSlider-svobodni-volby2013 ul.thumbNav li a span {	
+	/*visibility: hidden;*/
+	display: none;
+}
+
+/**/
+
+.fb-box-uvod {
+	width: 635px;
+	position: relative;
+	float: left;
+	border-top: 6px solid #005F49; 
+}
+
+.fb-box-uvod iframe {
+	margin: 18px;
+}
+
+#DOMWindow {
+	position: relative;
+}
+
+.closeDOMWindow {
+	font-size: 40px;
+	text-decoration: none;
+	position: absolute; right: 12px; top: 0px;
+}
+
+.text-hide-and-show {
+	border: 1px solid #D6D6D8; border-radius: 2px;
+	padding: 0 18px; margin: 0 0 6px 0;
+	cursor: default;
+}
+
+.text-hide-and-show h3,.text-hide-and-show h4 {
+	cursor: pointer; 
+	cursor: hand; 
+}
+
+.text-hide-and-show-content {
+	margin: 0 0 26px 0;
+	/*padding: 0px 0px 26px 0px;*/
+	/*background-color: red;*/
+}
+
+.text-hide-and-show-content p {
+	margin: 0px 0;
+	padding: 10px 0;
+}
+
+.text-hide-and-show:hover {
+	border: 1px solid #005F49;
+}
+
+.active {
+	background: white;
+}
+
+.thumbNav {
+	background: white !important;
+	padding: 2px;
+	border-radius: 8px;
+}
+
+
+.paginator {
+	text-align: center;
+	margin: 20px 0px 0px 0px;
+	height: 30px;
+}
+
+.paginator a {
+	text-decoration: none;
+}
+
+.paginator a span {
+	background-color: #F1F1F2;
+	padding: 2px 10px 3px 10px;
+	color: black;
+	margin: 0px 3px 0px 3px;
+}
+
+.paginator a.active span,
+.paginator a:hover span {
+	background-color: #005340;
+	color: white;
+}
+
+.paginator a.active span b {
+	font-family: robotoregular;
+}

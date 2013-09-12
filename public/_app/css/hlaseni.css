@@ -1,0 +1,128 @@
+/* ====================================================== */
+.pozor {color: red; font-variant: small-caps; text-align: center; font-weight: bold; }
+div.pozor {text-transform: ; margin: 15px 0px; padding: 10px; border-top: 3px solid crimson;  border-bottom: 3px solid crimson; background-color: white; }
+span.pozor {}
+.pozor a {color: Crimson; font-variant: normal; }
+.pozor .normal {color: black; font-variant: normal; }
+
+.oznameni-1 {color: blue; font-variant: small-caps;text-align: center;font-weight: bold; }
+div.oznameni-1 {text-transform: ; margin: 15px 0px; padding: 10px; border-top: 3px solid navy;  border-bottom: 3px solid navy; background-color: white; }
+span.oznameni-1 {}
+.oznameni-1 a {color: navy; font-variant: normal; }
+.oznameni-1 .normal {color: black; font-variant: normal; }
+
+
+/* ================== HLÁŠENÍ ================== */
+ul.hlaseni {
+	margin: 6px 0px 0px 0px;
+	padding: 0px;
+	font-weight: bold;
+	text-align: left;
+	list-style-type: circ;	
+}
+
+.hlaseni-container ul.hlaseni {
+	margin: 12px auto 0px auto !important;
+	padding: 0px !important;
+	/*min-width: 600px;
+	width: 50%;*/
+	width: 100%;
+	list-style-type: none !important;	
+}
+
+
+.hlaseni-container ul.hlaseni li {
+	border: 2px solid #000000;
+	padding: 5px;
+	margin: 0px;
+	background-color: #FFFFFF;
+	margin-bottom: 6px;
+	font-size: 14px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.hlaseni-container-small  ul.hlaseni {
+	margin-left: 0px;
+	margin-right: 0px;
+	width: 100%;
+}
+
+.hlaseni-container-small  ul.hlaseni li {
+	font-size: 13px;
+	border: 2px solid #000000;
+	padding: 4px;
+	background-color: #FFFFFF;
+	margin-bottom: 5px;
+	
+}
+
+ul.hlaseni li a {
+	text-decoration: underline;
+}
+
+ul.hlaseni li a:hover {
+	text-decoration: none;
+}
+
+
+ul.hlaseni li.ok {
+	color: black;
+}
+
+ul.hlaseni li.ok a {
+	color: white;
+}
+
+
+ul.hlaseni li.ok,
+.hlaseni-container > ul.hlaseni li.ok {
+	color: white;
+	border-color: ForestGreen;
+	background-color: ForestGreen;
+}
+
+ul.hlaseni .ok a, ul.hlaseni .ok a:hover {
+	color: white !important;
+}
+
+ul.hlaseni .info {
+	color: black;
+}
+
+/*ul.hlaseni li.info,*/
+.hlaseni-container > ul.hlaseni li.info  {
+	border-color: LightSkyBlue;
+	background-color: LightSkyBlue;
+}
+
+
+ul.hlaseni li.ko {
+	color: #ff0000;
+}
+
+/*ul.hlaseni li.ko, */
+.hlaseni-container > ul.hlaseni li.ko {
+	color: black;
+	border-color: #f29da0;
+	background-color: #f29da0;
+}
+
+ul.hlaseni li.err {
+	border-color: black;
+	color: white;
+	background-color: red !important;
+}
+
+ul.hlaseni .err a, ul.hlaseni .err a:hover {
+	color: white !important;
+}
+
+
+ul.hlaseni li.hard {
+	color: yellow;
+	font-weight: bold;	
+	background-color: black;
+	border-color: yellow;
+	font-size: 23px;
+}
