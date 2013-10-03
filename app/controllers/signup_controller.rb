@@ -28,7 +28,11 @@ class SignupController < ApplicationController
   def update
     @town_hall = TownHall.find(params[:commisary][:town_hall_id])
     @commisary = @town_hall.commisaries.build(commisary_params)
-    render_wizard @commisary
+    if !@town_hall.region.registration_ends_at.blank? && @town_hall.region.registration_ends_at < Time.now
+      render(:text=>"Registrace jsou jiz uzavreny!")
+    else
+      render_wizard @commisary
+    end
   end
 
   private

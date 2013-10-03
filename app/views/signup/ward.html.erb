@@ -4,6 +4,9 @@
 
 <%#= image_tag(@town_hall.flag_path, width: '100px') %>
 
+<% if !@town_hall.region.registration_ends_at.blank? && @town_hall.region.registration_ends_at < Time.now %>
+<strong>Registrace do okrskových volebních komisí jsou již uzavřeny.</strong>
+<% else %> 
 <% if @commisary.errors.any? %>
   <div id="error_explanation">
     <h2>Prosím, opravte <%= @commisary.errors.count %> chyb ve formuláři:</h2>
@@ -125,3 +128,4 @@
 <p>Všechny okrsky v této obci máme již obsazeny. Zkuste se zaregistrovat jako dobrovolník přímo na úřadě.</p>
 <% end %>
 
+<% end %>

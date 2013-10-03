@@ -21,7 +21,7 @@ pdf.text town_hall.address
 end
 pdf.move_down 40
 pdf.text "Naše značka: VS2012-OVK-#{town_hall.id}"
-pdf.text "Vyřizuje: Ing. Jiří Kubíček, kubicek@svobodni.cz, tel.: 605 058 092"
+pdf.text "Vyřizuje: Ing. Jiří Kubíček, kubicek@svobodni.cz, tel.: 220 199 282"
 pdf.move_down 20
 
 pdf.text "Seznam delegovaných členů do okrskové(-ých) volební(-ch) komise(-í) pro volby do Poslanecké sněmovny Parlamentu České republiky, které  se uskuteční ve dnech 25. a 26. října 2013.", :style => :bold
@@ -45,6 +45,7 @@ end
 pdf.text "
                                                                   .......................................................
                                                                   podpis zmocněnce politické strany
+                                                                  "+ town_hall.region.assignee_name+"
 
                                                                   Strana svobodných občanů
                                                                   Perucká 14
