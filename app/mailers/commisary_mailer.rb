@@ -12,4 +12,8 @@ class CommisaryMailer < ActionMailer::Base
     mail(to: commisary.email, bcc: 'kubicek@svobodni.cz', subject: "[PSP2013-OVK#{@commisary.id}] Potvrzení přijetí registrace člena okrskové volební komise")
   end
 
+  def final(commisary)
+    mail(to: commisary.email, bcc: 'kubicek@svobodni.cz', subject: "[PSP2013-OVK#{commisary.id}] Odeslání delegací, zasedání, voličský průkaz a odměna")
+  end
+
 end

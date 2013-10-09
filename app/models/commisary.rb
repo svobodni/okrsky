@@ -20,4 +20,18 @@ class Commisary < ActiveRecord::Base
   	postal_address.blank? ? address : postal_address
   end
 
+  def self.send_final_emails
+    errors=[]
+    all.order(:id).each{|commisary|
+      begin
+        CommisaryMailer.final(commisary).deliver
+        puts "#{commisary.id} delivered"
+      rescue Net::SMTPAuthenticationError, Net::SMTPServerBusy, Net::SMTPSyntaxError, Net::SMTPFatalError, Net::SMTPUnknownError => e
+        puts "Mail for #{commisary.email} (#{commisary.id}) could not be sent"
+        errors << commisary.id
+      end
+    }
+    errors
+  end
+
 end
