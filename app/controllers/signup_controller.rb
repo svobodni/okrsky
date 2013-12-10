@@ -8,6 +8,7 @@ class SignupController < ApplicationController
     case step
     when :region
       @regions = Region.all
+      redirect_to(wizard_path(:municipality, region_id: @regions.first.id)) and return nil if @regions.count==1
     when :municipality
       @municipalities = Region.find(params[:region_id]).municipalities
       redirect_to(wizard_path(:district, municipality_id: 554782)) and return nil if params[:region_id].to_i==19 # kraj Praha == obec Praha
