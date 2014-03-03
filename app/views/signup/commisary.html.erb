@@ -3,9 +3,10 @@
   breadcrumb :ward, @commisary.ward
 %>
 
-<p>Na základě vyplněné registrace Vás Strana svobodných občanů bude delegovat do okrskové volební komise. Do okrskových volebních komisí se mohou přihlašovat pouze občané České republiky starší 18 let. </p>
+<div class="col-md-9" role="main">
 
-<%= image_tag(@commisary.ward.town_hall.flag_path, width: '100px') %>
+
+<%#= image_tag(@commisary.ward.town_hall.flag_path, width: '100px') %>
 
 <% if !@commisary.ward.town_hall.region.registration_ends_at.blank? && @commisary.ward.town_hall.region.registration_ends_at < Time.now %>
 <strong>Registrace do okrskových volebních komisí jsou již uzavřeny.</strong>
@@ -21,7 +22,7 @@
     </ul>
   </div>
 <% else %>
-<table id="tablex">
+<table class="table">
 <tbody>
 <tr>
 	<td><em>Kraj:</th>
@@ -36,7 +37,7 @@
 </tr>
 
 <% if @commisary.ward.district %>
-<tr><td><em>Městská část / obvod:</em></td><td><%= @commisary.ward.district.name %></td></tr>
+<tr><td><em>Městská část / obvod:</em></td><td><%= @commisary.ward.district.name %></td><td></td></tr>
 <% end %>
 
 <tr>
@@ -56,69 +57,51 @@
 
 <% end %>
 
-  <div class="form">
-    <%= form_for @commisary, url: wizard_path, method: :put   do |f| %>
+  <div class="forxm">
+    <%= form_for @commisary, url: wizard_path, method: :put, html: { role: :form } do |f| %>
     <%= f.hidden_field :ward_id %>
-      <table class="formular">
 
-        <tr>
-          <th><label for="commisary_name">Jméno a příjmení:</label></th>
-          <td>
-            <%= f.text_field :name, class: 'delka3' %>
-            <span class="pozn">(vzor: Petr Mach)</span>            
-          </td>
-        </tr>
+<div class="form-group">
+    <label for="commisary_name">Jméno a příjmení:</label>
+    <%= f.text_field :name, class: 'form-control' %>
+    <p class="help-block">(vzor: Petr Mach)</p>
+  </div>
 
-        <tr>
-          <th><label for="commisary_birth_number">Datum narození:</label></th>
-          <td>
-            <%= f.text_field :birth_number, class: 'delka3' %>
-            <span class="pozn">(vzor: 24.12.1930)</span>            
-          </td>
-        </tr>
+    <div class="form-group">
+      <label for="commisary_birth_number">Datum narození:</label>
+      <%= f.text_field :birth_number, class: 'form-control' %>
+      <p class="help-block">(vzor: 24.12.1930)</p>
+    </div>
 
-        <tr>
-          <th><label for="commisary_address">Adresa trvalého bydliště:</label></th>
-          <td>
-            <%= f.text_field :address, class: 'delka3' %>
-            <span class="pozn"><strong>Dle občanky!</strong> (vzor: Perucká 2196, 120 00 Praha 2)</span>            
-          </td>
-        </tr>
+    <div class="form-group">
+      <label for="commisary_address">Adresa trvalého bydliště:</label>
+      <%= f.text_field :address, class: 'form-control' %>
+      <p class="help-block"><strong>Dle občanky!</strong> (vzor: Perucká 2196, 120 00 Praha 2)</p>
+    </div>
 
-        <tr>
-          <th><label for="commisary_phone">Telefon:</label></th>
-          <td>
-            <%= f.text_field :phone, class: 'delka3' %>
-            <span class="pozn">(vzor: 773697983)</span>            
-          </td>
-        </tr>
+    <div class="form-group">
+      <label for="commisary_phone">Telefon:</label>
+      <%= f.text_field :phone, class: 'form-control' %>
+      <p class="help-block">(vzor: 773697983)</p>
+    </div>
 
-        <tr>
-          <th><label for="commisary_email">Email:</label></th>
-          <td>
-            <%= f.text_field :email, class: 'delka3' %>
-            <span class="pozn">(vzor: mach@svobodni.cz)</span>            
-          </td>
-        </tr>
+    <div class="form-group">
+      <label for="commisary_email">Email:</label>
+      <%= f.text_field :email, class: 'form-control' %>
+      <p class="help-block">(vzor: mach@svobodni.cz)</p>
+    </div>
 
-        <tr>
-          <th><label for="commisary_postal_address">Korespondenční adresa:</label></th>
-          <td>
-            <%= f.text_field :postal_address, class: 'delka3' %>
-            <span class="pozn"><strong>Vyplňujte jen pokud se liší od trvalého bydliště</strong></span>            
-          </td>
-        </tr>
+    <div class="form-group">
+      <label for="commisary_postal_address">Korespondenční adresa:</label>
+      <%= f.text_field :postal_address, class: 'form-control' %>
+      <p class="help-block"><strong>Vyplňujte jen pokud se liší od trvalého bydliště</strong></p>
+    </div>
 
-        <tr class="submit-row">
-          <td colspan="2">
-            <div class="submit-row-inner center">
-              <%= f.submit "Odeslat přihlášku" %>
-              <div class="cleaner"></div>
-            </div>
-          </td>
-        </tr>
+<p>Na základě vyplněné registrace Vás Strana svobodných občanů bude delegovat do okrskové volební komise. Do okrskových volebních komisí se mohou přihlašovat pouze občané České republiky starší 18 let. </p>
 
-      </table>
+<%= f.submit "Odeslat přihlášku", class: "btn btn-default" %>
     <% end %>
 
 <% end %>
+
+</div>
