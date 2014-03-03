@@ -89,4 +89,10 @@ Okrsky::Application.configure do
     ssl: true
   }
 
+  config.middleware.use ExceptionNotification::Rack,
+  :email => {
+    :email_prefix => "[OKRSKY] ",
+    :sender_address => %{"notifier" <kubicek@svobodni.cz>},
+    :exception_recipients => %w{kubicek@svobodni.cz}
+  }
 end

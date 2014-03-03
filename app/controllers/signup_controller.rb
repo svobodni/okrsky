@@ -1,3 +1,4 @@
+# encoding: utf-8
 class SignupController < ApplicationController
 
   include Wicked::Wizard

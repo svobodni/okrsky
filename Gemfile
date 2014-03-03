@@ -52,3 +52,4 @@ gem "prawn"
 gem "prawn-format"
 gem 'prawn_rails'
 
+gem 'exception_notification'
