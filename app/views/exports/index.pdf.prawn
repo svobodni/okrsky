@@ -33,7 +33,7 @@ pdf.move_down 20
 pdf.text "Členové :", :style => :bold
 for commisary in commisaries.sort{|a, b| a.ward_number.to_i<=>b.ward_number.to_i} do
   pdf.text "Jméno a příjmení: " + commisary.name
-  pdf.text "Rodné číslo: " + commisary.birth_number
+  pdf.text "Datum narození: " + commisary.birth_number
   pdf.text "Místo, kde je člen přihlášen k trvalému pobytu: " + commisary.address
   pdf.text "Telefon: " + commisary.phone
   pdf.text "Email: " + commisary.email

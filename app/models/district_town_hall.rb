@@ -3,6 +3,8 @@ class DistrictTownHall < TownHall
   belongs_to :district
   delegate :municipality, :to => :district
 
+  has_many :wards, foreign_key: :district_id, primary_key: :district_id
+
   def heraldry_path
   	"http://vdp.cuzk.cz/vdp/ruian/mestskecasti/#{district.id}/znak"
   end

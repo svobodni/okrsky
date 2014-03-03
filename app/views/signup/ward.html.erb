@@ -1,131 +1,26 @@
-<h3>Registrace do okrskové volební komise</h3>
+<h3>Registrace - výběr okrsku</h3>
 
-<p>Na základě vyplněné registrace Vás Strana svobodných občanů bude delegovat do okrskové volební komise. Do okrskových volebních komisí se mohou přihlašovat pouze občané České republiky starší 18 let. </p>
+Vyberte si prosím volný okrsek, ve kterém chcete delegovat do okrskové komise:
 
-<%#= image_tag(@town_hall.flag_path, width: '100px') %>
+<% all_taken = true %>
+<% for ward in @town_hall.wards.sort{|a,b| a.external_id<=>b.external_id} %>
 
-<% if !@town_hall.region.registration_ends_at.blank? && @town_hall.region.registration_ends_at < Time.now %>
-<strong>Registrace do okrskových volebních komisí jsou již uzavřeny.</strong>
-<% else %> 
-<% if @commisary.errors.any? %>
-  <div id="error_explanation">
-    <h2>Prosím, opravte <%= @commisary.errors.count %> chyb ve formuláři:</h2>
- 
-    <ul>
-    <% @commisary.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
+<ul>
+<li><% if ward.taken? %>
+	<span style="text-decoration:line-through">č. <%= ward.external_id %></span>
 <% else %>
-<table id="tablex">
-<tbody>
-<tr>
-	<td><em>Kraj:</th>
-	<td><%= @town_hall.region.name %></td>
-	<td>[<%=link_to "Změnit", wizard_path(:region)%>]</td>
-</tr>
-
-<tr>
-	<td><em>Obec:</th>
-	<td><%= @town_hall.municipality.name %></td>
-	<td>[<%=link_to "Změnit", wizard_path(:municipality, region_id: @town_hall.region)%>]</td>
-</tr>
-
-<% if @town_hall.kind_of?(DistrictTownHall) %>
-<tr><td><em>Městská část / obvod:</em></td><td><%= @town_hall.district.name %></td></tr>
+	<%= link_to "č. #{ward.external_id}", next_wizard_path(ward_id: ward.id) %></li>
+	<% all_taken = false %>
 <% end %>
-
-<tr>
-	<td><em>Úřad:</em></td>
-	<td><%= @town_hall.name %><br><%= @town_hall.address.gsub(/\n/,'<br />').html_safe %></td>
-	<td><%= image_tag(@town_hall.heraldry_path, width: '50px') %></td>
-</tr>
-
-<tr><td><em>Počet okrsků celkem:</em></td><td><%= @town_hall.wards_count %></td></tr>
-<tr><td><em>Počet obsazených okrsků:</em></td><td><%= @town_hall.taken_wards_count %></td></tr>
-<tr><td><em>Čísla již obsazených okrsků:</em></td><td><%= @town_hall.taken_wards_numbers.reject{|a| a.to_s.empty?}.sort{|a,b| a.to_i<=>b.to_i}.join(", ") %></td></tr>
-</tbody>
-</table>
+</ul>
 
 <% end %>
 
-<% if @town_hall.taken_wards_count < @town_hall.wards_count %>
-  <div class="form">
-    <%= form_for @commisary, url: wizard_path, method: :put   do |f| %>
-    <%= f.hidden_field :town_hall_id %>
-      <table class="formular">
-
-        <tr>
-          <th><label for="commisary_ward_number">Číslo okrsku:</label></th>
-          <td>
-            <%= f.text_field :ward_number, class: 'delka3' %>
-            <span class="pozna">Čísla okrsků naleznete <% if @town_hall.wards_list_uri.blank? %>na úřední desce příslušného úřadu<% else %><%=link_to "zde", @town_hall.wards_list_uri %><% end %>. Pokud nevyplníte, přidělí Vám úřad nějaký volný okrsek v příslušné obci.</span>
-          </td>
-        </tr>
-        
-        <tr>
-          <th><label for="commisary_name">Jméno a příjmení:</label></th>
-          <td>
-            <%= f.text_field :name, class: 'delka3' %>
-            <span class="pozn">(vzor: Petr Mach)</span>            
-          </td>
-        </tr>
-
-        <tr>
-          <th><label for="commisary_birth_number">Rodné číslo:</label></th>
-          <td>
-            <%= f.text_field :birth_number, class: 'delka3' %>
-            <span class="pozn">(vzor: 700218/0461)</span>            
-          </td>
-        </tr>
-
-        <tr>
-          <th><label for="commisary_address">Adresa trvalého bydliště:</label></th>
-          <td>
-            <%= f.text_field :address, class: 'delka3' %>
-            <span class="pozn"><strong>Dle občanky!</strong> (vzor: Perucká 2196, 120 00 Praha 2)</span>            
-          </td>
-        </tr>
-
-        <tr>
-          <th><label for="commisary_phone">Telefon:</label></th>
-          <td>
-            <%= f.text_field :phone, class: 'delka3' %>
-            <span class="pozn">(vzor: 773697983)</span>            
-          </td>
-        </tr>
-
-        <tr>
-          <th><label for="commisary_email">Email:</label></th>
-          <td>
-            <%= f.text_field :email, class: 'delka3' %>
-            <span class="pozn">(vzor: mach@svobodni.cz)</span>            
-          </td>
-        </tr>
-
-        <tr>
-          <th><label for="commisary_postal_address">Korespondenční adresa:</label></th>
-          <td>
-            <%= f.text_field :postal_address, class: 'delka3' %>
-            <span class="pozn"><strong>Vyplňujte jen pokud se liší od trvalého bydliště</strong></span>            
-          </td>
-        </tr>
-
-        <tr class="submit-row">
-          <td colspan="2">
-            <div class="submit-row-inner center">
-              <%= f.submit "Odeslat přihlášku" %>
-              <div class="cleaner"></div>
-            </div>
-          </td>
-        </tr>
-
-      </table>
-    <% end %>
-
-<% else %>
+<% if all_taken %>
 <p>Všechny okrsky v této obci máme již obsazeny. Zkuste se zaregistrovat jako dobrovolník přímo na úřadě.</p>
 <% end %>
 
-<% end %>
+<p>Čísla okrsků naleznete <%# if @town_hall.wards_list_uri.blank? %>na úřední desce příslušného úřadu<%# else %><%#=link_to "zde", @town_hall.wards_list_uri %><%# end %>.</p>
+
+<p>Jako kandidující politická strana máme ze zákona možnost delegovat do každé okrskové volební komise pouze jednu osobu. Pokud chcete být ve stejné komisi s nějakým svým známým, musí se jeden z vás nechat delegovat jinou politickou stranou nebo se může zkusit domluvit jako dobrovolník na úřadě.</p>
+

@@ -2,7 +2,7 @@ class SignupController < ApplicationController
 
   include Wicked::Wizard
 
-  steps :region, :municipality, :district, :ward, :confirm
+  steps :region, :municipality, :district, :ward, :commisary, :confirm
 
   def show
     case step
@@ -21,16 +21,16 @@ class SignupController < ApplicationController
       else
         @town_hall = Municipality.find(params[:municipality_id]).town_hall
       end
-      @commisary = Commisary.new(:town_hall_id=>@town_hall.id)
+    when :commisary
+      @commisary = Commisary.new(:ward_id=>params[:ward_id])
     end
     render_wizard
   end
 
   def update
-    @town_hall = TownHall.find(params[:commisary][:town_hall_id])
-    @commisary = @town_hall.commisaries.build(commisary_params)
-    if !@town_hall.region.registration_ends_at.blank? && @town_hall.region.registration_ends_at < Time.now
-      render(:text=>"Registrace jsou jiz uzavreny!")
+    @commisary = Commisary.new(commisary_params)
+    if !@commisary.ward.town_hall.region.registration_ends_at.blank? && @commisary.ward.town_hall.region.registration_ends_at < Time.now
+      render(:text=>"Registrace jsou již uzavřeny!")
     else
       render_wizard @commisary
     end
@@ -41,7 +41,7 @@ class SignupController < ApplicationController
     # since you'll be able to reuse the same permit list between create and update. Also, you
     # can specialize this method with per-user checking of permissible attributes.
     def commisary_params
-      params.require(:commisary).permit(:town_hall_id, :ward_number, :name, :birth_number, :address, :phone, :email, :postal_address)
+      params.require(:commisary).permit(:ward_id, :name, :birth_number, :address, :phone, :email, :postal_address)
     end
 
 end

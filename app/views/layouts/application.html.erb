@@ -1,119 +1,382 @@
 <!DOCTYPE html>
-<html lang="cs">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Registrace do okrskových volebních komisí za Stranu svobodných občanů" lang="cs">
-    <meta name="keywords" content="okrsková volební komise" lang="cs">
-    <meta name="author" content="Jiří Kubíček" lang="cs">
-    <link rel="shortcut icon" href="http://www.svobodni.cz/favicon.png">
+<html>
+<head>
 
-    <title>Registrace do okrskových volebních komisí</title>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
 
-    <link rel="stylesheet" type="text/css" href="/_app/css/reset.css?&amp;ver=20130827" media="all" />
-    <link rel="stylesheet" type="text/css" href="/_app/css/hlaseni.css?&amp;ver=20130827" media="all" />
-    <link rel="stylesheet" type="text/css" href="/_app/css/style.css?&amp;ver=20130827" media="all" />
-    <link rel="stylesheet" type="text/css" href="/_skin/index/css/style.css?&amp;ver=20130827" media="all" />
-    <link rel="stylesheet" type="text/css" href="/_skin/index/css/print.css?&amp;ver=20130827" media="print" />
-    <link rel="stylesheet" type="text/css" href="/_app/css/jquery.fancybox-1.3.4.css?&amp;ver=20130827" media="all" />
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300,400italic,300italic,700italic&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css' />
 
-    <script type="text/javascript" src="/_app/js/jquery-1.8.3.min.js?&amp;ver=20130827"></script>
-    <script type="text/javascript" src="/_app/js/jquery.DOMWindow.js?&amp;ver=20130827"></script>
-    <script type="text/javascript" src="/_app/js/fancybox/jquery.mousewheel-3.0.4.pack.js?&amp;ver=20130827"></script>
-    <script type="text/javascript" src="/_app/js/fancybox/jquery.fancybox-1.3.4.patch.js?&amp;ver=20130827"></script>
-    <script type="text/javascript" src="/_app/js/app.js?&amp;ver=20130827"></script>
-    <script type="text/javascript" src="/_skin/index/js/main.js?&amp;ver=20130827"></script>
+<link rel="stylesheet" type="text/css" media="screen" href="http://web.svobodni.cz/cache/cssloader-cc79f631bd89.css?0" />
 
-  <script type="text/javascript" src="/_skin/index/js/mapa.js"></script>
+<script type="text/javascript" src="http://web.svobodni.cz/cache/jsloader-782ca37df4fb.js?0"></script>
 
-<script type="text/javascript">
-ADRESAR_X = "http://volby.svobodni.cz/";
-</script>
+    <link rel="stylesheet" href="http://web.svobodni.cz/resources/siteModule/font-awesome/css/font-awesome.css" />
 
-<!-- EDIT -->
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="robots" content="index, follow" />
 
-    <!--[if lt IE 9]>
-            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
+<link rel="stylesheet" type="text/css" href="http://web.svobodni.cz/cache/cssloader-d41d8cd98f00.css?0" />
 
-        <meta name="robots" content="all, follow" />
-        <meta name="googlebot" content="index, follow, snippet, archive" />
+<script type="text/javascript" src="http://web.svobodni.cz/cache/jsloader-d41d8cd98f00.js?0"></script>
 
-<!-- /EDIT -->
+  <link rel="alternate" title="Články" href="http://web.svobodni.cz/rss/clanky" type="application/rss+xml" />
+  <link rel="alternate" title="Události" href="http://web.svobodni.cz/rss/udalosti" type="application/rss+xml" />
+  <link rel="alternate" title="TV" href="http://web.svobodni.cz/rss/tv" type="application/rss+xml" />
+  <link rel="alternate" title="Celý web" href="http://web.svobodni.cz/rss/cely-web" type="application/rss+xml" />
 
-<style>
-.field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table;
-}
-</style>
+  <title>External | Svobodní</title>
+
+  <link rel="shortcut icon" href="http://web.svobodni.cz/resources/siteModule/favicon.png" />
+  <!--[if IE]><link rel="shortcut icon" href="http://web.svobodni.cz/resources/siteModule/favicon.ico"/><![endif]-->
+
+  
 </head>
+<body>
+
+    <!-- Google Tag Manager -->
+    <noscript><iframe src="http://web.svobodni.cz//www.googletagmanager.com/ns.html?id=GTM-MXB8S8"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MXB8S8');</script>
+    <!-- End Google Tag Manager -->
+
+  <div class="container header-container">
+    <div class="row">
+      <div class="col-md-12 col-wb">
+        <div class="header-logo"><a href="http://web.svobodni.cz/"></a></div>
+
+        <ul>
+          <li><a class="btn btn-default" href="http://web.svobodni.cz/registrace/prispet-financne" title="Přispět finančně Straně svobodných občanů">Přispět</a></li>
+
+          <li><a class="btn btn-social btn-f" href="https://www.facebook.com/svobodni" title="Přidejte se ke Svobodným na Facebooku"></a></li>
+          <li><a class="btn btn-social btn-g" href="https://plus.google.com/u/0/+svobodn%C3%AD" title="Přidejte si Svobodné do kruhů Google+"></a></li>
+          <li><a class="btn btn-social btn-t" href="https://twitter.com/svobodni" title="Sledujte Svobodné na Twitteru"></a></li>
+          <li><a class="btn btn-social btn-y" href="http://www.youtube.com/user/svobodni?gl=CZ&amp;hl=cs" title="Sledujte videa Svobodných na YouTube"></a></li>
+
+                  </ul>
+
+        <div class="control-search">
 
 
-<body id="nahoru" class="page-62 page-prispet page-parent-0 page-group-1">
-  <div id="telo">
-    <div id="obal"><div id="obal-in">
-    <a href="#blok-4" class="pristupnost">Přeskočit navigaci</a>
-      <div id="hlavicka"><div id="hlavicka-in">
-      <h1><a href="http://volby.svobodni.cz/" title="Na Úvodní stránku Svobodni.cz">Strana svobodných občanů<span> </span></a></h1>
-      <hr class="cistic">
-      <div class="prispet"><a href="http://volby.svobodni.cz/prispet/" title="Přispět finančně Straně svobodných občanů">Přispět</a></div>
-      <div id="spojeni">
-      <ul>
-      <li class="f"><a href="https://www.facebook.com/svobodni" title="Přidejte se ke Svobodným na Facebooku">Facebook<span> </span></a></li>
-      <li class="g"><a href="https://plus.google.com/u/0/+svobodn%C3%AD" title="Přidejte si Svobodné do kruhů Google+">Google+<span> </span></a></li>
-      <li class="t"><a href="https://twitter.com/svobodni" title="Sledujte Svobodné na Twitteru">Twitter<span> </span></a></li>
-      <li class="y"><a href="http://www.youtube.com/user/svobodni?gl=CZ&amp;hl=cs" title="Sledujte videa Svobodných na YouTube">YouTube<span> </span></a></li>
-      </ul>
+      <form class="navbar-form navbar-left" action="/vyhledat" method="get">
+        <input name="search" type="text" id="search_myTypeahead" class="form-control" placeholder="Vyhledat" autocomplete="off" />
+      </form>
+
+      <script type="text/javascript">
+        $(function () {
+          $('#search_myTypeahead').typeahead({
+            name: 'countries',
+            remote: "\/?do=search-search" + '&search-query=%QUERY&search-limit=8',
+            template: [
+              '<div onClick="window.location = \'{{url}}\';">',
+              '{{#photo}}<img class="tt-suggestion-photo" src="{{photo}}" />{{/photo}}',
+              '<p class="tt-suggestion-name">{{{name}}}</p>',
+              '<p class="tt-suggestion-description">{{{description}}}</p>',
+              '</div>'
+            ].join(''),
+            engine: Hogan,
+            limit: 8
+          }).on('typeahead:selected', function(ev, data){
+                window.location = data.url;
+              });
+        });
+      </script>
+
+        </div>
       </div>
-      <div class="eshop-odkaz"><a href="http://eshop.svobodni.cz/">E-shop</a></div>
-      <!-- <div class="stary-odkaz"><a href="http://svobodni.cz/">Původní web</a></div> -->
-      <hr class="cistic">
-      <div id="nabidka">
-          <nav>
-          
-    <ul>
-      <li><a href="http://volby.svobodni.cz/" title="Přejít na stránku Úvod"><span>Úvod</span></a></li>
-      <li><a href="http://volby.svobodni.cz/program/" title="Přejít na stránku Program"><span>Program</span></a></li>
-      <li><a href="http://volby.svobodni.cz/kandidati/" title="Přejít na stránku Kandidáti"><span>Kandidáti</span></a></li>
-      <li><a href="http://volby.svobodni.cz/aktualne/" title="Přejít na stránku Aktuálně"><span>Aktuálně</span></a></li>
-      <li><a href="http://volby.svobodni.cz/udalosti/" title="Přejít na stránku Události"><span>Události</span></a></li>
-    </ul>
-          </nav>
-      </div>
-      <!-- /#nabidka -->
-      <hr class="cistic">
-      </div> <!-- /#hlavicka-in --> </div> <!-- /#hlavicka -->
+    </div>
+  </div>
+
+      <div class="navigation-container navbar navbar-default navbar-static-top" role="navigation">
+        <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="http://web.svobodni.cz/">
+            <img src="http://web.svobodni.cz/resources/siteModule/img/logo_panel_dark.png" alt="Strana svobodných občanů" />
+          </a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <!-- navigation.begin -->
+
+
+
+
+
+      <ul class="nav navbar-nav">
+  <li class="">
+    <a href="http://web.svobodni.cz/">Úvod</a>
+
+  </li>
+
+  <li class="">
+    <a href="http://web.svobodni.cz/clanky">Články</a>
+
+  </li>
+
     
 
-<div id="blok-3">
-  <div class="obsah">
-    <h2>Okrskové volební komise</h2>
+  <li class=" dropdown">
+    <a href="http://web.svobodni.cz/program" class="dropdown-toogle" data-toggle="dropdown">Program</a>
 
-    <div class="module-ovk-registrace">
-      <div class="dar-wrapper">
-        <%= yield %>
-      </div><!-- /.dar-wrapper .dar-wrapper-1 -->
-      <hr class="cleaner" />
+      <ul class="dropdown-menu">
+
+  <li class="">
+    <a href="http://web.svobodni.cz/program/politicka-filosofie">Politická filosofie</a>
+
+  </li>
+
+    
+
+  <li class="">
+    <a href="http://web.svobodni.cz/program/politicky-program">Politický program</a>
+
+  </li>
+
+    
+
+  <li class="">
+    <a href="http://web.svobodni.cz/program/otazky-a-odpovedi">Otázky a odpovědi</a>
+
+  </li>
+
+    
+
+  <li class="">
+    <a href="http://web.svobodni.cz/program/archiv-programovych-dokumentu">Archiv programových dokumentů</a>
+
+  </li>
+
+    
+
+  <li class="">
+    <a href="http://web.svobodni.cz/program/ustavujici-projevy">Ustavující projevy</a>
+
+  </li>
+
+    </ul>
+  </li>
+
+    
+
+  <li class=" dropdown">
+    <a href="http://web.svobodni.cz/lide" class="dropdown-toogle" data-toggle="dropdown">Lidé</a>
+
+      <ul class="dropdown-menu">
+
+  <li class="">
+    <a href="http://web.svobodni.cz/lide/republikove-predsednictvo">Republikové předsednictvo</a>
+
+  </li>
+
+    
+
+  <li class="">
+    <a href="http://web.svobodni.cz/lide/republikovy-vybor">Republikový výbor</a>
+
+  </li>
+
+    
+
+  <li class="">
+    <a href="http://web.svobodni.cz/lide/krajska-predsednictva">Krajská předsednictva</a>
+
+  </li>
+
+    
+
+  <li class="">
+    <a href="http://web.svobodni.cz/lide/zvoleni-zastupitele">Zvolení zastupitelé</a>
+
+  </li>
+
+    </ul>
+  </li>
+
+    
+
+  <li class="">
+    <a href="http://web.svobodni.cz/udalosti">Události</a>
+
+  </li>
+
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+    
+
+  <li class="">
+    <a href="http://web.svobodni.cz/kontakty">Kontakty</a>
+
+  </li>
+
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+    </ul>
+
+          <!-- navigation.end -->
+        </div><!--/.nav-collapse -->
+        </div>
+      </div>
+
+  
+
+  <div class="container">
+    <div class="row row-title">
+      <div class="col-md-12">
+        <div class="page-header">
+          <div class="pull-right">
+
+
+
+
+<ul class="breadcrumb">
+
+
+
+  <li><a href="http://web.svobodni.cz/">Úvod</a></li>
+
+
+
+
+  <li>External</li>
+
+</ul>
+          </div>
+          <h1>Okrskové volební komise</h1>
+        </div>
+      </div>
     </div>
-    <div class="clear"></div>
-  </div> <!-- /.obsah -->
-</div>  <!-- /#blok-3 -->
 
-﻿<div id="patka">
-<div id="patka-in">
-<a href="http://svobodni.cz" title="Na Úvodní stránku Svobodni.cz">Svobodni.cz</a> &copy; 2013
-<p><strong><a href="mailto:kubicek@svobodni.cz">kubicek@svobodni.cz</a></strong></p>
-</div> <!-- /#patka-in --> </div> <!-- /#patka -->
-</div> <!-- /#obal-in --> </div> <!-- /#obal --> 
-</div> <!-- /#telo -->
+    <div class="row">
+<div class="col-md-12">
+  <%= yield %>
+</div>
+    </div>
+  </div>
 
-</body>
-</html>
+<footer>
+  <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-sm-4">
+          <h4>Důležité odkazy</h4>
+
+          <ul class="list-unstyled">
+            <li><a href="http://web.svobodni.cz/kontakty"><i class="fa fa-envelope"></i> Kontakty</a></li>
+            <li><a href="http://web.svobodni.cz/mapa-webu"><i class="fa fa-sitemap"></i> Mapa webu</a></li>
+            <li><a href="http://web.svobodni.cz/rss"><i class="fa fa-rss"></i> RSS</a></li>
+            <li><a href="http://eshop.svobodni.cz"><i class="fa fa-shopping-cart"></i> E-shop</a></li>
+            <li><a href=""><a title="Zobrazit původní web" href="http://svobodni.cz/"><i class="glyphicon glyphicon-globe"></i> původní web</a></a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 col-sm-4">
+          <h4>Svobodní na sociálních sítích</h4>
+
+          <ul class="list-unstyled">
+            <li><a href="https://www.facebook.com/svobodni"><i class="fa fa-facebook"></i> Facebook</a></li>
+            <li><a href="https://plus.google.com/u/0/+svobodn%C3%AD"><i class="fa fa-google-plus"></i> Google+</a></li>
+            <li><a href="https://twitter.com/svobodni"><i class="fa fa-twitter"></i> Twitter</a></li>
+            <li><a href="http://www.youtube.com/user/svobodni?gl=CZ&hl=cs"><i class="fa fa-youtube"></i> Youtube</a></li>
+            <li><a href="http://github.com/svobodni"><i class="fa fa-github"></i> GitHub</a></li>
+          </ul>
+        </div>
+        <div class="col-md-2 col-sm-4">
+          <h4>Po přihlášení</h4>
+
+          <ul class="list-unstyled">
+            <li><a href="http://forum.svobodni.cz/default.aspx"><i class="fa fa-comments"></i> Stranické fórum</a></li>
+            <li><a href="http://wiki.svobodni.cz/"><i class="fa fa-users"></i> Wiki</a></li>
+            <li><a href="https://www.svobodni.cz/po-prihlaseni/volebni-mistnost/"><i class="fa fa-thumbs-up"></i> Volební místnost</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <div class="fb_iframe_widget">
+          <span>
+            <iframe src="http://web.svobodni.cz//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fsvobodni&amp;width=590&amp;height=258&amp;colorscheme=light&amp;show_faces=true&amp;header=false&amp;stream=false&amp;show_border=false" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:940px; height:258px;" allowtransparency="true"></iframe>
+          </span>
+            </div>
+        </div>
+      </div>
+
+      <hr />
+
+      <p class="pull-left">
+        <a href="http://svobodni.cz" title="Na Úvodní stránku Svobodni.cz">Svobodni.cz</a> &copy; 2014
+      </p>
+
+      <p class="pull-right">
+        Powered by <a href="http://www.venne.cz">Venne:CMS</a> &nbsp;
+        · &nbsp; <a rel="nofollow" href="http://web.svobodni.cz/admin">Administrace</a>
+      </p>
+
+  </div>
+
+  <a class="puvodni-web" title="Zobrazit původní web" href="http://svobodni.cz/"><img style="position: fixed; top: 0; right: 0; border: 0; z-index: 99999;" src="http://web.svobodni.cz/resources/siteModule/img/puvodni_web.png" alt="Původní web" /></a>
+  </footer>
+
+<script type="text/javascript" src="http://web.svobodni.cz/cache/jsloader-9668792b02b5.js?0"></script>
+
+
+<script type="text/javascript" src="http://web.svobodni.cz/cache/jsloader-a4452d971a87.js?0"></script>
+
+</body></html>

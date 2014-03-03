@@ -1,0 +1,121 @@
+<h3>Registrace do okrskové volební komise</h3>
+
+<p>Na základě vyplněné registrace Vás Strana svobodných občanů bude delegovat do okrskové volební komise. Do okrskových volebních komisí se mohou přihlašovat pouze občané České republiky starší 18 let. </p>
+
+<%= image_tag(@commisary.ward.town_hall.flag_path, width: '100px') %>
+
+<% if !@commisary.ward.town_hall.region.registration_ends_at.blank? && @commisary.ward.town_hall.region.registration_ends_at < Time.now %>
+<strong>Registrace do okrskových volebních komisí jsou již uzavřeny.</strong>
+<% else %> 
+<% if @commisary.errors.any? %>
+  <div id="error_explanation">
+    <h2>Prosím, opravte <%= @commisary.errors.count %> chyb ve formuláři:</h2>
+ 
+    <ul>
+    <% @commisary.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% else %>
+<table id="tablex">
+<tbody>
+<tr>
+	<td><em>Kraj:</th>
+	<td><%= @commisary.ward.municipality.region.name %></td>
+	<td>[<%=link_to "Změnit", wizard_path(:region)%>]</td>
+</tr>
+
+<tr>
+	<td><em>Obec:</th>
+	<td><%= @commisary.ward.municipality.name %></td>
+	<td>[<%=link_to "Změnit", wizard_path(:municipality, region_id: @commisary.ward.town_hall.region)%>]</td>
+</tr>
+
+<% if @commisary.ward.district %>
+<tr><td><em>Městská část / obvod:</em></td><td><%= @commisary.ward.district.name %></td></tr>
+<% end %>
+
+<tr>
+	<td><em>Úřad:</em></td>
+	<td><%= @commisary.ward.town_hall.name %><br><%= @commisary.ward.town_hall.address.gsub(/\n/,'<br />').html_safe %></td>
+	<td><%= image_tag(@commisary.ward.town_hall.heraldry_path, width: '50px') %></td>
+</tr>
+
+<tr>
+  <td><em>Číslo okrsku:</th>
+  <td><%= @commisary.ward.external_id %></td>
+  <td>[<%=link_to "Změnit", wizard_path(:ward, municipality_id: @commisary.ward.municipality, district_id: @commisary.ward.district)%>]</td>
+</tr>
+
+</tbody>
+</table>
+
+<% end %>
+
+  <div class="form">
+    <%= form_for @commisary, url: wizard_path, method: :put   do |f| %>
+    <%= f.hidden_field :ward_id %>
+      <table class="formular">
+
+        <tr>
+          <th><label for="commisary_name">Jméno a příjmení:</label></th>
+          <td>
+            <%= f.text_field :name, class: 'delka3' %>
+            <span class="pozn">(vzor: Petr Mach)</span>            
+          </td>
+        </tr>
+
+        <tr>
+          <th><label for="commisary_birth_number">Datum narození:</label></th>
+          <td>
+            <%= f.text_field :birth_number, class: 'delka3' %>
+            <span class="pozn">(vzor: 24.12.1930)</span>            
+          </td>
+        </tr>
+
+        <tr>
+          <th><label for="commisary_address">Adresa trvalého bydliště:</label></th>
+          <td>
+            <%= f.text_field :address, class: 'delka3' %>
+            <span class="pozn"><strong>Dle občanky!</strong> (vzor: Perucká 2196, 120 00 Praha 2)</span>            
+          </td>
+        </tr>
+
+        <tr>
+          <th><label for="commisary_phone">Telefon:</label></th>
+          <td>
+            <%= f.text_field :phone, class: 'delka3' %>
+            <span class="pozn">(vzor: 773697983)</span>            
+          </td>
+        </tr>
+
+        <tr>
+          <th><label for="commisary_email">Email:</label></th>
+          <td>
+            <%= f.text_field :email, class: 'delka3' %>
+            <span class="pozn">(vzor: mach@svobodni.cz)</span>            
+          </td>
+        </tr>
+
+        <tr>
+          <th><label for="commisary_postal_address">Korespondenční adresa:</label></th>
+          <td>
+            <%= f.text_field :postal_address, class: 'delka3' %>
+            <span class="pozn"><strong>Vyplňujte jen pokud se liší od trvalého bydliště</strong></span>            
+          </td>
+        </tr>
+
+        <tr class="submit-row">
+          <td colspan="2">
+            <div class="submit-row-inner center">
+              <%= f.submit "Odeslat přihlášku" %>
+              <div class="cleaner"></div>
+            </div>
+          </td>
+        </tr>
+
+      </table>
+    <% end %>
+
+<% end %>

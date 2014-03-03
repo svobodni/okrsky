@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  municipality_id: 1
+  district_id: 1
+  commisary_id: 1
+
+two:
+  municipality_id: 1
+  district_id: 1
+  commisary_id: 1

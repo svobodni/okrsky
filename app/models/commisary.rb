@@ -7,8 +7,9 @@ class Commisary < ActiveRecord::Base
   validates :birth_number, length: { minimum: 9 }, uniqueness: true
   validates :address, length: { minimum: 12 }
   validates :email, presence: true, length: { minimum: 5 }
-  validates :town_hall, presence: true
-  validates :ward_number, uniqueness: { scope: :town_hall, message: "okrsek je již obsazen" }, unless: "ward_number.empty?"
+  validates :ward, presence: true
+
+  belongs_to :ward
 
   after_create :send_confirmation_email
 
