@@ -48,8 +48,8 @@ gem 'rails_admin'
 gem 'devise'
 gem 'wicked'
 gem 'google_drive', group: :development
-gem "prawn"
-gem "prawn-format"
+gem 'prawn'
+gem 'prawn-format'
 gem 'prawn_rails'
-
+gem 'gretel'
 gem 'exception_notification'

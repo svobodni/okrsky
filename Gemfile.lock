@@ -58,6 +58,8 @@ GEM
       nokogiri (>= 1.4.4, != 1.5.2, != 1.5.1)
       oauth (>= 0.3.6)
       oauth2 (>= 0.5.0)
+    gretel (3.0.5)
+      rails (>= 3.2.0)
     haml (4.0.3)
       tilt
     hashery (2.1.1)
@@ -201,6 +203,7 @@ DEPENDENCIES
   devise
   exception_notification
   google_drive
+  gretel
   jbuilder (~> 1.2)
   jquery-rails
   prawn

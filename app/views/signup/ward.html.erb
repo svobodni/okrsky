@@ -1,4 +1,11 @@
-<h3>Registrace - výběr okrsku</h3>
+<%
+  page_title "Registrace - výběr okrsku"
+  if @town_hall.kind_of? DistrictTownHall
+  	breadcrumb :district, @town_hall.district
+  else
+  	breadcrumb :municipality, @town_hall.municipality
+  end
+%>
 
 Vyberte si prosím volný okrsek, ve kterém chcete delegovat do okrskové komise:
 
