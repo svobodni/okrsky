@@ -7,7 +7,7 @@
   end
 %>
 
-Vyberte si prosím volný okrsek, ve kterém chcete delegovat do okrskové komise:
+<p>Vyberte si prosím volný okrsek, ve kterém chcete delegovat do okrskové komise:</p>
 
 <% all_taken = true %>
 <% for ward in @town_hall.wards.sort{|a,b| a.external_id<=>b.external_id} %>
@@ -27,7 +27,9 @@ Vyberte si prosím volný okrsek, ve kterém chcete delegovat do okrskové komis
 <p>Všechny okrsky v této obci máme již obsazeny. Zkuste se zaregistrovat jako dobrovolník přímo na úřadě.</p>
 <% end %>
 
-<p>Čísla okrsků naleznete <%# if @town_hall.wards_list_uri.blank? %>na úřední desce příslušného úřadu<%# else %><%#=link_to "zde", @town_hall.wards_list_uri %><%# end %>.</p>
+<p>Sídla okrsků naleznete <%# if @town_hall.wards_list_uri.blank? %>od 8. dubna 2014 na úřední desce příslušného úřadu<%# else %><%#=link_to "zde", @town_hall.wards_list_uri %><%# end %>.</p>
+
+<p>Pokud si chcete najít číslo okrsku, do kterého spadáte podle svého bydliště, můžete využít <a href="http://vdp.cuzk.cz/vdp/ruian/overeniadresy/vyhledej">službu</a> pro ověřování adresy v základních registrech.</p>
 
 <p>Jako kandidující politická strana máme ze zákona možnost delegovat do každé okrskové volební komise pouze jednu osobu. Pokud chcete být ve stejné komisi s nějakým svým známým, musí se jeden z vás nechat delegovat jinou politickou stranou nebo se může zkusit domluvit jako dobrovolník na úřadě.</p>
 
