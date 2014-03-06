@@ -1,0 +1,14 @@
+cs:
+  activerecord:
+    attributes: 
+      commisary:
+        ward: "Okrsek"
+        address: "Adresa"
+        birth_numbr: "Datum narození"
+        name: "Jméno a příjmení"
+    errors:
+      models:
+        commisary:
+          attributes:
+            ward:
+              taken: "je již obsazen"

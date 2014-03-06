@@ -7,7 +7,7 @@ class Commisary < ActiveRecord::Base
   validates :birth_number, length: { minimum: 9 }
   validates :address, length: { minimum: 12 }
   validates :email, presence: true, length: { minimum: 5 }
-  validates :ward, presence: true
+  validates :ward, presence: true, uniqueness: true
 
   belongs_to :ward
 
