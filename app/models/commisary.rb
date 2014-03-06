@@ -4,7 +4,7 @@ class Commisary < ActiveRecord::Base
   belongs_to :town_hall
 
   validates :name, length: { minimum: 5 }
-  validates :birth_number, length: { minimum: 9 }
+  validates :birth_number, length: { minimum: 8 }
   validates :address, length: { minimum: 12 }
   validates :email, presence: true, length: { minimum: 5 }
   validates :ward, presence: true, uniqueness: true
