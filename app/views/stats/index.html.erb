@@ -6,6 +6,6 @@
 		<tr><td><%= region.name %></td><td><%= commisaries.count %></td></tr>
 		<% end %>
 		<tr><th>Celkem osob</th><th><%= Commisary.count %></th></tr>
-		<tr><th>Celkem radnic</th><th><%= TownHall.joins(:commisaries).uniq.size %></th></tr>
+		<tr><th>Celkem radnic</th><th><%= Commisary.all.group_by{|c| c.ward.town_hall}.size %></th></tr>
 	</tbody>
 </table>
