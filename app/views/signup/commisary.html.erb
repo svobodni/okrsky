@@ -5,7 +5,6 @@
 
 <div class="col-md-9" role="main">
 
-
 <%#= image_tag(@commisary.ward.town_hall.flag_path, width: '100px') %>
 
 <% if !@commisary.ward.town_hall.region.registration_ends_at.blank? && @commisary.ward.town_hall.region.registration_ends_at < Time.now %>
@@ -22,6 +21,7 @@
     </ul>
   </div>
 <% end %>
+
 <table class="table">
 <tbody>
 <tr>
@@ -38,6 +38,7 @@
 
 <% if @commisary.ward.district %>
 <tr><td><em>Městská část / obvod:</em></td><td><%= @commisary.ward.district.name %></td><td></td></tr>
+<% end %>
 
 <tr>
 	<td><em>Úřad:</em></td>
@@ -54,7 +55,6 @@
 </tbody>
 </table>
 
-<% end %>
 
   <div class="forxm">
     <%= form_for @commisary, url: wizard_path, method: :put, html: { role: :form } do |f| %>
