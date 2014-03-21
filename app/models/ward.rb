@@ -4,7 +4,7 @@ class Ward < ActiveRecord::Base
   has_one :commisary
 
   def taken?
-    commisary
+    commisary ? true : false
   end
 
   def town_hall

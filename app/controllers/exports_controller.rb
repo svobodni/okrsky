@@ -10,4 +10,17 @@ class ExportsController < ApplicationController
       render :text=>"Auth fail"
     end    
   end
+
+  def regions
+    @regions = Region.all
+  end
+
+  def municipalities
+    @municipalities = Municipality.all
+  end
+
+  def wards
+    @wards = Ward.includes(:commisary, :municipality)
+  end
+
 end
