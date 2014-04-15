@@ -5,9 +5,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300,400italic,300italic,700italic&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css' />
 
-<link rel="stylesheet" type="text/css" media="screen" href="//web.svobodni.cz/cache/cssloader-cc79f631bd89.css?0" />
+<link rel="stylesheet" type="text/css" media="screen" href="//web.svobodni.cz/cache/cssloader-42e8906c3e00.css?0" />
 
-<script type="text/javascript" src="//web.svobodni.cz/cache/jsloader-782ca37df4fb.js?0"></script>
+<script type="text/javascript" src="//web.svobodni.cz/cache/jsloader-eed39b02cf61.js?0"></script>
 
 		<link rel="stylesheet" href="//web.svobodni.cz/resources/siteModule/font-awesome/css/font-awesome.css" />
 
@@ -127,6 +127,9 @@
 
 		
 
+
+		
+
 	<li class=" dropdown">
 		<a href="//web.svobodni.cz/program" class="dropdown-toogle" data-toggle="dropdown">Program</a>
 
@@ -162,6 +165,13 @@
 
 	<li class="">
 		<a href="//web.svobodni.cz/program/ustavujici-projevy">Ustavující projevy</a>
+
+	</li>
+
+		
+
+	<li class="">
+		<a href="//web.svobodni.cz/program/volebni-priority-pro-eurovolby">Volební priority pro eurovolby</a>
 
 	</li>
 
@@ -264,8 +274,18 @@
 
 	</li>
 
+		
+
+	<li class="">
+		<a href="//web.svobodni.cz/pro-media/grafika">Grafika</a>
+
+	</li>
+
 		</ul>
 	</li>
+
+		
+
 
 		
 
@@ -333,11 +353,11 @@
 					<h4>Důležité odkazy</h4>
 
 					<ul class="list-unstyled">
-						<li><a href="//web.svobodni.cz/kontakty"><i class="fa fa-envelope"></i> Kontakty</a></li>
+						<li><a href="//web.svobodni.cz/pro-media/kontakty"><i class="fa fa-envelope"></i> Kontakty</a></li>
 						<li><a href="//web.svobodni.cz/mapa-webu"><i class="fa fa-sitemap"></i> Mapa webu</a></li>
 						<li><a href="//web.svobodni.cz/rss"><i class="fa fa-rss"></i> RSS</a></li>
 						<li><a href="http://eshop.svobodni.cz"><i class="fa fa-shopping-cart"></i> E-shop</a></li>
-						<li><a href=""><a title="Zobrazit původní web" href="http://svobodni.cz/"><i class="glyphicon glyphicon-globe"></i> původní web</a></a></li>
+						<li><a title="Zobrazit původní web" href="http://svobodni.cz/"><i class="glyphicon glyphicon-globe"></i> původní web</a></li>
 					</ul>
 				</div>
 				<div class="col-md-3 col-sm-4">
@@ -347,7 +367,7 @@
 						<li><a href="https://www.facebook.com/svobodni"><i class="fa fa-facebook"></i> Facebook</a></li>
 						<li><a href="https://plus.google.com/u/0/+svobodn%C3%AD"><i class="fa fa-google-plus"></i> Google+</a></li>
 						<li><a href="https://twitter.com/svobodni"><i class="fa fa-twitter"></i> Twitter</a></li>
-						<li><a href="http://www.youtube.com/user/svobodni?gl=CZ&hl=cs"><i class="fa fa-youtube"></i> Youtube</a></li>
+						<li><a href="http://www.youtube.com/user/svobodni?gl=CZ&amp;hl=cs"><i class="fa fa-youtube"></i> Youtube</a></li>
 						<li><a href="http://github.com/svobodni"><i class="fa fa-github"></i> GitHub</a></li>
 					</ul>
 				</div>
@@ -363,7 +383,8 @@
 				<div class="col-md-4 col-sm-12">
 						<div class="fb_iframe_widget">
 					<span>
-						<iframe src="//web.svobodni.cz//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fsvobodni&amp;width=590&amp;height=258&amp;colorscheme=light&amp;show_faces=true&amp;header=false&amp;stream=false&amp;show_border=false" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:940px; height:258px;" allowtransparency="true"></iframe>
+						<iframe id="iframe-likebox" src="//web.svobodni.cz//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fsvobodni&amp;width=590&amp;height=258&amp;colorscheme=light&amp;show_faces=true&amp;header=false&amp;stream=false&amp;show_border=false" style="border:none; overflow:hidden; width:940px; height:258px; background-color:transparent;"></iframe>
+						<!--[if lt IE 9]><script> $("#iframe-likebox").attr("allowTransparency", "true"); </script><![endif]-->
 					</span>
 						</div>
 				</div>
@@ -373,6 +394,8 @@
 
 			<p class="pull-left">
 				<a href="http://svobodni.cz" title="Na Úvodní stránku Svobodni.cz">Svobodni.cz</a> &copy; 2014
+				 &nbsp; · &nbsp; <a href="https://github.com/svobodni/web/tree/ea197f29719c39e82d2af7bfae231af2b92a0734
+">Verze webu: <small>ea197f2971</small></a>
 			</p>
 
 			<p class="pull-right">
@@ -382,12 +405,13 @@
 
 	</div>
 
-	<a class="puvodni-web" title="Zobrazit původní web" href="http://svobodni.cz/"><img style="position: fixed; top: 0; right: 0; border: 0; z-index: 99999;" src="//web.svobodni.cz/resources/siteModule/img/puvodni_web.png" alt="Původní web" /></a>
 	</footer>
+	<a class="puvodni-web" title="Zobrazit původní web" href="http://svobodni.cz/"><img style="position: fixed; top: 0; left: 0; border: 0; z-index: 99999;" src="//web.svobodni.cz/resources/siteModule/img/puvodni_web.png" alt="Původní web" /></a>
+	<div title="Volte číslo 24" ><img style="position: fixed; top: 0; right: 0; border: 0; z-index: 99999;" src="//web.svobodni.cz/resources/siteModule/img/stuzka-volte24.png" alt="Volte číslo 24" /></div>
 
 <script type="text/javascript" src="//web.svobodni.cz/cache/jsloader-9668792b02b5.js?0"></script>
 
 
-<script type="text/javascript" src="//web.svobodni.cz/cache/jsloader-a4452d971a87.js?0"></script>
+<script type="text/javascript" src="//web.svobodni.cz/cache/jsloader-1c077fefee04.js?0"></script>
 
 </body></html>
