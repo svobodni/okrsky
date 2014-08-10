@@ -79,20 +79,11 @@ Okrsky::Application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    address:              'mail.dotnethosting.cz',
-    port:                 465,
-    domain:               'svobodni.cz',
-    user_name:            'kubicek@svobodni.cz',
-    password:             'sean78:cams',
-    authentication:       'login',
-    ssl: true
-  }
 
   config.middleware.use ExceptionNotification::Rack,
   :email => {
     :email_prefix => "[OKRSKY] ",
-    :sender_address => %{"notifier" <kubicek@svobodni.cz>},
+    :sender_address => %{"notifier" <okrsky@svobodni.cz>},
     :exception_recipients => %w{kubicek@svobodni.cz}
   }
 end

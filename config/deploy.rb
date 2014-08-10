@@ -15,6 +15,7 @@ set :use_sudo, false
 
 task :create_symlinks  do
   run "ln -nfs #{shared_path}/production.sqlite3 #{release_path}/db/production.sqlite3"
+  run "ln -nfs #{shared_path}/production.rb #{release_path}/config/configatron/production.rb"
 end
 
 after "deploy:finalize_update", "create_symlinks"

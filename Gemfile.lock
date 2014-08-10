@@ -47,6 +47,8 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
+    configatron (2.13.0)
+      yamler (>= 0.1.0)
     devise (3.0.3)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -201,12 +203,14 @@ GEM
       rack (>= 1.0)
     wicked (1.0.0)
       rails (>= 3.0.7)
+    yamler (0.1.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
+  configatron
   devise
   exception_notification
   google_drive

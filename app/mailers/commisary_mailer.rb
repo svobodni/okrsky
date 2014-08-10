@@ -1,6 +1,6 @@
 # encoding: utf-8
 class CommisaryMailer < ActionMailer::Base
-  default from: "kubicek@svobodni.cz"
+  default from: configatron.our_email
 
   def signup_confirmation(commisary)
     @commisary = commisary
@@ -9,11 +9,11 @@ class CommisaryMailer < ActionMailer::Base
 		'entry.917885295'  => commisary.shipping_address})
     @url = "https://docs.google.com/forms/d/1bkN-w1JgvpQpdM-0Os_Q-cjcbaOg_uR-NE1Tx_mc870/viewform?#{options}"
 
-    mail(to: commisary.email, bcc: 'kubicek@svobodni.cz', subject: "[EP2014-OVK#{@commisary.id}] Potvrzení přijetí registrace člena okrskové volební komise")
+    mail(to: commisary.email, bcc: configatron.admin_email, subject: "[K2014-OVK#{@commisary.id}] Potvrzení přijetí registrace člena okrskové volební komise")
   end
 
   def final(commisary)
-    mail(to: commisary.email, bcc: 'kubicek@svobodni.cz', subject: "[EP2014-OVK#{commisary.id}] Odeslání delegací, zasedání, voličský průkaz a odměna")
+    mail(to: commisary.email, bcc: configatron.admin_email, subject: "[K2014-OVK#{commisary.id}] Odeslání delegací, zasedání, voličský průkaz a odměna")
   end
 
 end
