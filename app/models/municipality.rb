@@ -6,7 +6,7 @@ class Municipality < ActiveRecord::Base
   has_many :town_halls, through: :districts
   has_many :wards
 
-  scope :allowed, -> { where(registration_allowed: 1) }
+  scope :allowed, -> { where(registration_allowed: 't') }
 
   default_scope { order("#{self.table_name}.name ASC") }
 
