@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140302225700) do
+ActiveRecord::Schema.define(version: 20140810063814) do
 
   create_table "commisaries", force: true do |t|
     t.string   "name"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20140302225700) do
     t.integer  "region_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "registration_allowed"
   end
 
   create_table "rails_admin_histories", force: true do |t|

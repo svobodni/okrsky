@@ -1,8 +1,11 @@
 <%
   page_title "Registrace - výběr obce"
-  breadcrumb :region, @municipalities.first.region
+  breadcrumb :region, @region
 %>
 
+<% if @municipalities.empty? %>
+V tomto kraji jsme zatím neotevřeli možnost delegace. Zkuste prosím později.
+<% else %>
 Vyberte si prosím obec, ve které chcete delegovat do okrskové komise.
 
 <% for municipality in @municipalities.sort{|a,b| ActiveSupport::Inflector.transliterate(a.name)<=>ActiveSupport::Inflector.transliterate(b.name)} %>
@@ -11,4 +14,5 @@ Vyberte si prosím obec, ve které chcete delegovat do okrskové komise.
 <li><%= link_to municipality.name, next_wizard_path(municipality_id: municipality.id) %></li>
 </ul>
 
+<% end %>
 <% end %>

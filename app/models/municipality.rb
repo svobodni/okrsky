@@ -4,6 +4,9 @@ class Municipality < ActiveRecord::Base
   has_many :districts
   has_one :town_hall
   has_many :town_halls, through: :districts
+  has_many :wards
+
+  scope :allowed, -> { where(registration_allowed: 1) }
 
   default_scope { order("#{self.table_name}.name ASC") }
 

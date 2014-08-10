@@ -11,7 +11,8 @@ class SignupController < ApplicationController
       @regions = Region.all
       redirect_to(wizard_path(:municipality, region_id: @regions.first.id)) and return nil if @regions.count==1
     when :municipality
-      @municipalities = Region.find(params[:region_id]).municipalities
+      @region = Region.find(params[:region_id])
+      @municipalities = @region.municipalities.allowed
       redirect_to(wizard_path(:district, municipality_id: 554782)) and return nil if params[:region_id].to_i==19 # kraj Praha == obec Praha
     when :district
       @districts = Municipality.find(params[:municipality_id]).districts
@@ -20,6 +21,7 @@ class SignupController < ApplicationController
       unless params[:district_id].nil?
         @town_hall = District.find(params[:district_id]).town_hall
       else
+        redirect_to(wizard_path(:district, municipality_id: 554782)) and return nil if params[:municipality_id]=="554782"
         @town_hall = Municipality.find(params[:municipality_id]).town_hall
       end
     when :commisary
