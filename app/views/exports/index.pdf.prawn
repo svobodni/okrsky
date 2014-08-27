@@ -20,32 +20,37 @@ pdf.text "k rukám starosty"
 pdf.text town_hall.address
 end
 pdf.move_down 40
-pdf.text "Naše značka: VS2014-OVK-#{town_hall.id}"
-pdf.text "Vyřizuje: Jana Remešová, jreme@seznam.cz, tel.: 737 002 707"
+pdf.text "Naše značka: KV2014-OVK-#{town_hall.id}"
+pdf.text "Vyřizuje: kancelar@svobodni.cz, tel.: 773 697 985"
 pdf.move_down 20
 
-pdf.text "Seznam delegovaných členů do okrskové(-ých) volební(-ch) komise(-í) pro doplňovací volby do Senátu Parlamentu České republiky, které se uskuteční ve dnech 10. a 11. ledna 2014.", :style => :bold
+pdf.text "Seznam delegovaných členů do okrskových volebních komisí pro volby do zastupitelstva obce / města, které se uskuteční ve dnech 10. a 11. října 2014.", :style => :bold
 
-pdf.text "V souladu s ustanovením § 14e odst. 3 a 4 zákona č. 247/1995 Sb. o volbách do Parlamentu České republiky a o změně a doplnění některých dalších zákonů, ve znění pozdějších předpisů tímto politická strana Strana svobodných občanů, jejíž kandidátní listina byla zaregistrována pro volby do Senátu Parlamentu ČR, deleguje níže uvedené členy do okrskové(-ých) volební(ích) komise(-í) vaší obce - města."
+pdf.text "V souladu s ust. § 17 odst. 2 a 3 zákona č. 491/2001 Sb., o volbách do zastupitelstev obcí a o změně některých zákonů, ve znění pozdějších předpisů tímto politická strana Strana svobodných občanů, jejíž kandidátní listina byla zaregistrována pro volby do do zastupitelstva obce/města, deleguje níže uvedené členy do okrskových volebních komisí vaší obce/města."
 
 pdf.move_down 20
 
 pdf.text "Členové :", :style => :bold
-for commisary in commisaries.sort{|a, b| a.ward_number.to_i<=>b.ward_number.to_i} do
+for commisary in commisaries.sort{|a, b| a.ward.external_id.to_i<=>b.ward.external_id.to_i} do
   pdf.text "Jméno a příjmení: " + commisary.name
   pdf.text "Datum narození: " + commisary.birth_number
   pdf.text "Místo, kde je člen přihlášen k trvalému pobytu: " + commisary.address
   pdf.text "Telefon: " + commisary.phone
   pdf.text "Email: " + commisary.email
   pdf.text "Korespondenční adresa: " + commisary.postal_address unless commisary.postal_address.blank?
-  pdf.text "Údaj, do které okrskové volební komise má být delegovaný člen zařazen: č. #{commisary.ward_number}" unless commisary.ward_number.blank?
+  pdf.text "Údaj, do které okrskové volební komise má být delegovaný člen zařazen: č. #{commisary.ward.external_id}"
   pdf.move_down 20
 end
   pdf.move_down 40
 pdf.text "
                                                                   .......................................................
                                                                   podpis zmocněnce politické strany
-                                                                  "+ town_hall.region.assignee_name+"
+
+                                                                  .......................................................
+                                                                  jméno zmocněnce politické strany
+
+                                                                  .......................................................
+                                                                  kontaktní údaje zmocněnce politické strany
 
                                                                   Strana svobodných občanů
                                                                   Perucká 14
