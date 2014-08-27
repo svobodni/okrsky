@@ -4,6 +4,7 @@ Okrsky::Application.routes.draw do
   get 'exports/municipalities'
   get 'exports/wards'
   get '/exports/:region_id/index', to: 'exports#index'
+  get '/exports/:region_id/senat', to: 'exports#senat'
   devise_for :users
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
