@@ -1,4 +1,4 @@
-Okrsky::Application.routes.draw do
+Rails.application.routes.draw do
   get "exports/index"
   get 'exports/regions'
   get 'exports/municipalities'
