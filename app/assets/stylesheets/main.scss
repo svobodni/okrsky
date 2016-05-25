@@ -1,0 +1,265 @@
+$icon-font-path: '../fonts/';
+
+$brand-primary:         #00654E; //darken(#00654E, 6.5%);
+$headings-color:        $brand-primary;
+// $xgray-base:             $brand-primary;
+//
+// // $gray-base:              #000 !default;
+// $gray-darker:            lighten($xgray-base, 13.5%) !default; // #222
+// $gray-dark:              lighten($xgray-base, 20%) !default;   // #333
+// $gray:                   lighten($xgray-base, 33.5%) !default; // #555
+// $gray-light:             lighten($xgray-base, 46.7%) !default; // #777
+// $gray-lighter:           lighten($xgray-base, 93.5%) !default; // #eee
+
+$font-family-base:      "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$headings-font-family:  "Roboto-Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-size-base:        14px;
+$font-size-h1:          floor(($font-size-base * 2.4)) !default; // ~36px
+$font-size-h2:          floor(($font-size-base * 1.6)) !default; // ~30px
+$font-size-h3:          ceil(($font-size-base * 1.2)) !default; // ~24px
+$navbar-height: 15px;
+// $panel-default-heading-bg:                    $brand-primary;
+// $panel-footer-bg:                    $brand-primary;
+
+// bower:scss
+// @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+// endbower
+
+
+.marginBottom-0 {margin-bottom:0;}
+
+.dropdown-submenu{position:relative;}
+.dropdown-submenu>.dropdown-menu{top:0;left:100%;margin-top:-6px;margin-left:-1px;-webkit-border-radius:0 6px 6px 6px;-moz-border-radius:0 6px 6px 6px;border-radius:0 6px 6px 6px;}
+.dropdown-submenu>a:after{display:block;content:" ";float:right;width:0;height:0;border-color:transparent;border-style:solid;border-width:5px 0 5px 5px;border-left-color:#cccccc;margin-top:5px;margin-right:-10px;}
+.dropdown-submenu:hover>a:after{border-left-color:#555;}
+.dropdown-submenu.pull-left{float:none;}.dropdown-submenu.pull-left>.dropdown-menu{left:-100%;margin-left:10px;-webkit-border-radius:6px 0 6px 6px;-moz-border-radius:6px 0 6px 6px;border-radius:6px 0 6px 6px;}
+
+
+$bgDefault      : #00654e;
+$bgHighlight    : #ffffff;
+$colDefault     : #ffffff;
+$colHighlight   : #eee;
+$dropDown       : true;
+.navbar-default {
+  background-color: $bgDefault;
+  border-color: $bgHighlight;
+  .navbar-brand {
+    color: $colDefault;
+    &:hover, &:focus {
+      color: $colHighlight; }}
+  .navbar-text {
+    color: $colDefault; }
+  .navbar-nav {
+    > li {
+      > a {
+        color: $colDefault;
+        &:hover,  &:focus {
+          color: $colHighlight; }}
+      @if $dropDown {
+        > .dropdown-menu {
+          background-color: $bgDefault;
+          > li {
+            > a {
+              color: $colDefault;
+              &:hover,  &:focus {
+                color: $bgDefault;
+                background-color: $bgHighlight; }}
+            > .divider {
+              background-color: $bgHighlight;}}}}}
+    @if $dropDown {
+      .open .dropdown-menu > .active {
+        > a, > a:hover, > a:focus {
+          color: $colHighlight;
+          background-color: $bgHighlight; }}}
+    > .active {
+      > a, > a:hover, > a:focus {
+        color: $bgDefault;
+        background-color: $bgHighlight; }}
+    > .open {
+      > a, > a:hover, > a:focus {
+        color: $bgDefault;
+        background-color: $bgHighlight; }}}
+  .navbar-toggle {
+    border-color: $bgHighlight;
+    &:hover, &:focus {
+      background-color: $bgHighlight; }
+    .icon-bar {
+      background-color: $colDefault; }}
+  .navbar-collapse,
+  .navbar-form {
+    border-color: $colDefault; }
+  .navbar-link {
+    color: $colDefault;
+    &:hover {
+      color: $colHighlight; }}}
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu {
+    > li > a {
+      color: $colDefault;
+      &:hover, &:focus {
+        color: $colHighlight; }}
+    > .active {
+      > a, > a:hover, > a:focus {
+        color: $colHighlight;
+        background-color: $bgHighlight; }}}
+}
+//
+// nav.navbar{
+//   // $navbar-default-link-color: white;
+//   // $navbar-bg: red;
+//    // Animation
+//    -webkit-transition: all 0.4s ease;
+//    transition: all 0.4s ease;
+//    $a-tags: 'a, a:active, a:hover, a:visited';
+//    $a-tags-hover: 'a:active, a:hover';
+//
+//   #{$a-tags} {
+//     color: red;
+//     text-decoration: none;
+//   }
+//   #{$a-tags-hover} {
+//     color: blue;
+//   }
+//   background-color: $brand-primary;
+// }
+//
+// nav.navbar.shrink {
+//   // max-height: 15px;
+//   // background-color: red;
+// }
+
+.perex {
+  font-size:      floor(($font-size-base * 1.4));
+  color:          $brand-primary;
+}
+
+.content, .footer {
+  ol, ul {
+    counter-reset: level1;
+    list-style: none;
+    margin-left: 0px;
+    padding-left: 0;
+  }
+
+  // li {
+  //     // padding-left: 1.7em;
+  //     // text-indent: -1em;
+  // }
+
+  ul li:before {
+    font-size: $font-size-h3;
+    color: $brand-primary;
+    margin-right: 14px;
+    content: "\002022";
+  }
+
+  ol li:before {
+    // font-size: $font-size-h3;
+    color: $brand-primary;
+    // margin-right: 14px;
+    // content: ")";
+    content: counter(level1) ") "; /*Instead of ". " */
+    counter-increment: level1;
+    margin-right: 8px;
+  }
+
+}
+
+.browserupgrade {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+/* Space out content a bit */
+body {
+  border-top: 15px solid #00654e;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Custom page header */
+.header {
+  // border-bottom: 1px solid #e5e5e5;
+  min-height: 90px;
+  /* Make the masthead heading the same height as the navigation */
+  h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 40px;
+    padding-bottom: 19px;
+  }
+}
+
+/* Custom page footer */
+.footer {
+  margin-top: 20px;
+  padding-top: 19px;
+  margin-left: 14px;
+  // color: #777;
+  // border-top: 1px solid #e5e5e5;
+}
+
+.footer .row div{
+  border-left: 1px solid $brand-primary;
+  margin-bottom: 19px;
+  min-height: 50px;
+  // margin-left: 14px;
+  // margin-right: -14px;
+  // padding-left: 14px;
+}
+// .container-narrow > hr {
+//   margin: 30px 0;
+// }
+
+// /* Main marketing message and sign up button */
+// .jumbotron {
+//   text-align: center;
+//   border-bottom: 1px solid #e5e5e5;
+//   .btn {
+//     font-size: 21px;
+//     padding: 14px 24px;
+//   }
+// }
+
+// /* Supporting marketing content */
+// .marketing {
+//   margin: 40px 0;
+//   p + h4 {
+//     margin-top: 28px;
+//   }
+// }
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
+
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
+}

@@ -1,417 +1,111 @@
-<!DOCTYPE html>
-<html>
-<head>
-
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300,400italic,300italic,700italic&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css' />
-
-<link rel="stylesheet" type="text/css" media="screen" href="//web.svobodni.cz/cache/cssloader-42e8906c3e00.css?0" />
-
-<script type="text/javascript" src="//web.svobodni.cz/cache/jsloader-eed39b02cf61.js?0"></script>
-
-		<link rel="stylesheet" href="//web.svobodni.cz/resources/siteModule/font-awesome/css/font-awesome.css" />
-
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="robots" content="index, follow" />
-
-<link rel="stylesheet" type="text/css" href="//web.svobodni.cz/cache/cssloader-d41d8cd98f00.css?0" />
-
-<script type="text/javascript" src="//web.svobodni.cz/cache/jsloader-d41d8cd98f00.js?0"></script>
-
-	<link rel="alternate" title="Články" href="//web.svobodni.cz/rss/clanky" type="application/rss+xml" />
-	<link rel="alternate" title="Události" href="//web.svobodni.cz/rss/udalosti" type="application/rss+xml" />
-	<link rel="alternate" title="TV" href="//web.svobodni.cz/rss/tv" type="application/rss+xml" />
-	<link rel="alternate" title="Celý web" href="//web.svobodni.cz/rss/cely-web" type="application/rss+xml" />
-
-	<title><%= @page_title || "Svobodní" %></title>
-
-	<link rel="shortcut icon" href="//web.svobodni.cz/resources/siteModule/favicon.png" />
-	<!--[if IE]><link rel="shortcut icon" href="//web.svobodni.cz/resources/siteModule/favicon.ico"/><![endif]-->
-
-	
-
-     <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-     <%= csrf_meta_tags %>
-    
-</head>
-<body>
-
-    <!-- Google Tag Manager -->
-    <noscript><iframe src="//web.svobodni.cz//www.googletagmanager.com/ns.html?id=GTM-MXB8S8"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-MXB8S8');</script>
-    <!-- End Google Tag Manager -->
-
-	<div class="container header-container">
-		<div class="row">
-			<div class="col-md-12 col-wb">
-				<div class="header-logo"><a href="//web.svobodni.cz/"></a></div>
-
-				<ul>
-					<li><a class="btn btn-default" href="//web.svobodni.cz/registrace/prispet-financne" title="Přispět finančně Straně svobodných občanů">Přispět</a></li>
-
-					<li><a class="btn btn-social btn-f" href="https://www.facebook.com/svobodni" title="Přidejte se ke Svobodným na Facebooku"></a></li>
-					<li><a class="btn btn-social btn-g" href="https://plus.google.com/u/0/+svobodn%C3%AD" title="Přidejte si Svobodné do kruhů Google+"></a></li>
-					<li><a class="btn btn-social btn-t" href="https://twitter.com/svobodni" title="Sledujte Svobodné na Twitteru"></a></li>
-					<li><a class="btn btn-social btn-y" href="http://www.youtube.com/user/svobodni?gl=CZ&amp;hl=cs" title="Sledujte videa Svobodných na YouTube"></a></li>
-
-									</ul>
-
-				<div class="control-search">
-
-
-			<form class="navbar-form navbar-left" action="/vyhledat" method="get">
-				<input name="search" type="text" id="search_myTypeahead" class="form-control" placeholder="Vyhledat" autocomplete="off" />
-			</form>
-
-			<script type="text/javascript">
-				$(function () {
-					$('#search_myTypeahead').typeahead({
-						name: 'countries',
-						remote: "\/?do=search-search" + '&search-query=%QUERY&search-limit=8',
-						template: [
-							'<div onClick="window.location = \'{{url}}\';">',
-							'{{#photo}}<img class="tt-suggestion-photo" src="{{photo}}" />{{/photo}}',
-							'<p class="tt-suggestion-name">{{{name}}}</p>',
-							'<p class="tt-suggestion-description">{{{description}}}</p>',
-							'</div>'
-						].join(''),
-						engine: Hogan,
-						limit: 8
-					}).on('typeahead:selected', function(ev, data){
-								window.location = data.url;
-							});
-				});
-			</script>
-
-				</div>
-			</div>
-		</div>
-	</div>
-
-			<div class="navigation-container navbar navbar-default navbar-static-top" role="navigation">
-				<div class="container">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="//web.svobodni.cz/">
-						<img src="//web.svobodni.cz/resources/siteModule/img/logo_panel_dark.png" alt="Strana svobodných občanů" />
-					</a>
-				</div>
-				<div class="collapse navbar-collapse">
-					
-
-
-
-
-
-			<ul class="nav navbar-nav">
-	<li class="">
-		<a href="//web.svobodni.cz/">Úvod</a>
-
-	</li>
-
-	<li class="">
-		<a href="//web.svobodni.cz/clanky">Články</a>
-
-	</li>
-
-		
-
-
-		
-
-	<li class=" dropdown">
-		<a href="//web.svobodni.cz/program" class="dropdown-toogle" data-toggle="dropdown">Program</a>
-
-			<ul class="dropdown-menu">
-
-	<li class="">
-		<a href="//web.svobodni.cz/program/politicka-filosofie">Politická filosofie</a>
-
-	</li>
-
-		
-
-	<li class="">
-		<a href="//web.svobodni.cz/program/politicky-program">Politický program</a>
-
-	</li>
-
-		
-
-	<li class="">
-		<a href="//web.svobodni.cz/program/otazky-a-odpovedi">Otázky a odpovědi</a>
-
-	</li>
-
-		
-
-	<li class="">
-		<a href="//web.svobodni.cz/program/archiv-programovych-dokumentu">Archiv programových dokumentů</a>
-
-	</li>
-
-		
-
-	<li class="">
-		<a href="//web.svobodni.cz/program/ustavujici-projevy">Ustavující projevy</a>
-
-	</li>
-
-		
-
-	<li class="">
-		<a href="//web.svobodni.cz/program/volebni-priority-pro-eurovolby">Volební priority pro eurovolby</a>
-
-	</li>
-
-		</ul>
-	</li>
-
-		
-
-	<li class=" dropdown">
-		<a href="//web.svobodni.cz/lide" class="dropdown-toogle" data-toggle="dropdown">Lidé</a>
-
-			<ul class="dropdown-menu">
-
-	<li class="">
-		<a href="//web.svobodni.cz/lide/kandidati-v-eurovolbach">Kandidáti v eurovolbách</a>
-
-	</li>
-
-		
-
-	<li class="">
-		<a href="//web.svobodni.cz/lide/republikove-predsednictvo">Republikové předsednictvo</a>
-
-	</li>
-
-		
-
-	<li class="">
-		<a href="//web.svobodni.cz/lide/republikovy-vybor">Republikový výbor</a>
-
-	</li>
-
-		
-
-	<li class="">
-		<a href="//web.svobodni.cz/lide/krajska-predsednictva">Krajská předsednictva</a>
-
-	</li>
-
-		
-
-	<li class="">
-		<a href="//web.svobodni.cz/lide/zvoleni-zastupitele">Zvolení zastupitelé</a>
-
-	</li>
-
-		</ul>
-	</li>
-
-		
-
-	<li class="">
-		<a href="//web.svobodni.cz/udalosti">Události</a>
-
-	</li>
-
-		
-
-
-		
-
-
-		
-
-
-		
-
-
-		
-
-
-		
-
-
-		
-
-
-		
-
-
-		
-
-
-		
-
-	<li class=" dropdown">
-		<a href="//web.svobodni.cz/pro-media" class="dropdown-toogle" data-toggle="dropdown">Pro média</a>
-
-			<ul class="dropdown-menu">
-
-	<li class="">
-		<a href="//web.svobodni.cz/pro-media/fotobanka">Fotobanka</a>
-
-	</li>
-
-		
-
-	<li class="">
-		<a href="//web.svobodni.cz/pro-media/kontakty">Kontakty</a>
-
-	</li>
-
-		
-
-	<li class="">
-		<a href="//web.svobodni.cz/pro-media/grafika">Grafika</a>
-
-	</li>
-
-		</ul>
-	</li>
-
-		
-
-
-		
-
-
-		
-
-
-		
-
-
-		
-
-
-		
-
-
-		
-
-
-		
-
-
-		
-
-
-		
-
-
-		</ul>
-
-					
-				</div><!--/.nav-collapse -->
-				</div>
-			</div>
-
-	
-
-	<div class="container">
-		<div class="row row-title">
-			<div class="col-md-12">
-				<div class="page-header">
-					<div class="pull-right">
-
-
-
-
-<ul class="breadcrumb"><br><br><br><%= breadcrumbs separator: " / " %></ul>
-					</div>
-					<h1><%= @page_title || "Svobodní" %></h1>
-				</div>
-			</div>
-		</div>
-
-		<div class="row">
-<div class="col-md-12">
-	<%= yield %>
-</div>
-		</div>
-	</div>
-
-<footer>
-	<div class="container">
-			<div class="row">
-				<div class="col-md-3 col-sm-4">
-					<h4>Důležité odkazy</h4>
-
-					<ul class="list-unstyled">
-						<li><a href="//web.svobodni.cz/pro-media/kontakty"><i class="fa fa-envelope"></i> Kontakty</a></li>
-						<li><a href="//web.svobodni.cz/mapa-webu"><i class="fa fa-sitemap"></i> Mapa webu</a></li>
-						<li><a href="//web.svobodni.cz/rss"><i class="fa fa-rss"></i> RSS</a></li>
-						<li><a href="http://eshop.svobodni.cz"><i class="fa fa-shopping-cart"></i> E-shop</a></li>
-						<li><a title="Zobrazit původní web" href="http://svobodni.cz/"><i class="glyphicon glyphicon-globe"></i> původní web</a></li>
-					</ul>
-				</div>
-				<div class="col-md-3 col-sm-4">
-					<h4>Svobodní na sociálních sítích</h4>
-
-					<ul class="list-unstyled">
-						<li><a href="https://www.facebook.com/svobodni"><i class="fa fa-facebook"></i> Facebook</a></li>
-						<li><a href="https://plus.google.com/u/0/+svobodn%C3%AD"><i class="fa fa-google-plus"></i> Google+</a></li>
-						<li><a href="https://twitter.com/svobodni"><i class="fa fa-twitter"></i> Twitter</a></li>
-						<li><a href="http://www.youtube.com/user/svobodni?gl=CZ&amp;hl=cs"><i class="fa fa-youtube"></i> Youtube</a></li>
-						<li><a href="http://github.com/svobodni"><i class="fa fa-github"></i> GitHub</a></li>
-					</ul>
-				</div>
-				<div class="col-md-2 col-sm-4">
-					<h4>Po přihlášení</h4>
-
-					<ul class="list-unstyled">
-						<li><a href="http://forum.svobodni.cz/default.aspx"><i class="fa fa-comments"></i> Stranické fórum</a></li>
-						<li><a href="http://wiki.svobodni.cz/"><i class="fa fa-users"></i> Wiki</a></li>
-						<li><a href="https://www.svobodni.cz/po-prihlaseni/volebni-mistnost/"><i class="fa fa-thumbs-up"></i> Volební místnost</a></li>
-					</ul>
-				</div>
-				<div class="col-md-4 col-sm-12">
-						<div class="fb_iframe_widget">
-					<span>
-						<iframe id="iframe-likebox" src="//web.svobodni.cz//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fsvobodni&amp;width=590&amp;height=258&amp;colorscheme=light&amp;show_faces=true&amp;header=false&amp;stream=false&amp;show_border=false" style="border:none; overflow:hidden; width:940px; height:258px; background-color:transparent;"></iframe>
-						<!--[if lt IE 9]><script> $("#iframe-likebox").attr("allowTransparency", "true"); </script><![endif]-->
-					</span>
-						</div>
-				</div>
-			</div>
-
-			<hr />
-
-			<p class="pull-left">
-				<a href="http://svobodni.cz" title="Na Úvodní stránku Svobodni.cz">Svobodni.cz</a> &copy; 2014
-				 &nbsp; · &nbsp; <a href="https://github.com/svobodni/web/tree/ea197f29719c39e82d2af7bfae231af2b92a0734
-">Verze webu: <small>ea197f2971</small></a>
-			</p>
-
-			<p class="pull-right">
-				Powered by <a href="http://www.venne.cz">Venne:CMS</a> &nbsp;
-				· &nbsp; <a rel="nofollow" href="//web.svobodni.cz/admin">Administrace</a>
-			</p>
-
-	</div>
-
-	</footer>
-	<a class="puvodni-web" title="Zobrazit původní web" href="http://svobodni.cz/"><img style="position: fixed; top: 0; left: 0; border: 0; z-index: 99999;" src="//web.svobodni.cz/resources/siteModule/img/puvodni_web.png" alt="Původní web" /></a>
-	<div title="Volte číslo 24" ><img style="position: fixed; top: 0; right: 0; border: 0; z-index: 99999;" src="//web.svobodni.cz/resources/siteModule/img/stuzka-volte24.png" alt="Volte číslo 24" /></div>
-
-<script type="text/javascript" src="//web.svobodni.cz/cache/jsloader-9668792b02b5.js?0"></script>
-
-
-<script type="text/javascript" src="//web.svobodni.cz/cache/jsloader-1c077fefee04.js?0"></script>
-
-</body></html>
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>layout</title>
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- <link href='http://fonts.googleapis.com/css?family=Adelle' rel='stylesheet' type='text/css'> -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <!-- build:css styles/main.css -->
+    <!-- <link rel="stylesheet" href="styles/main.css"> -->
+    <!-- endbuild -->
+
+		<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+	  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+	  <%= csrf_meta_tags %>
+
+    <!-- build:js scripts/vendor/modernizr.js -->
+    <!-- <script src="/bower_components/modernizr/modernizr.js"></script> -->
+    <!-- endbuild -->
+  </head>
+  <body>
+    <!--[if lt IE 10]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <div class="container">
+      <div class="header">
+        <!-- <nav class="navbar navbar-default">
+          <div class="container-fluid"> -->
+
+        <ul class="nav nav-pills pull-right">
+					<%= breadcrumbs separator: " / " %>
+          <!-- <li><a href="#">Contact</a></li> -->
+        </ul>
+        <a class="navbar-brand" rel="home" href="#" title="Svobodní">
+				<%= image_tag '02_SVOBODNI_logo_tagline.png', style:
+        "height: 100px; margin-top: -20px; margin-left: -35px;" %>
+
+        </a>
+      </div>
+
+      <div class="content">
+        <div class="row">
+          <div class="col-sm-12">
+						<%= yield %>
+          </div>
+        </div>
+
+        <!-- <div class="jumbotron">
+          <h1>'Allo, 'Allo!</h1>
+          <p class="lead">Always a pleasure scaffolding your apps.</p>
+          <p><a class="btn btn-lg btn-success" href="#">Splendid!</a></p>
+        </div>
+   -->
+      </div>
+
+      <div class="footer">
+        <div class="row">
+          <div class="col-sm-4"><%=link_to "www.svobodni.cz", "https://web.svobodni.cz"%></div>
+          <div class="col-sm-4"><%=mail_to "kancelar@svobodni.cz", "kancelar@svobodni.cz"%></div>
+          <div class="col-sm-4"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+      e.src='https://www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+      ga('create','UA-XXXXX-X');ga('send','pageview');
+    </script>
+
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <!-- <script src="/bower_components/jquery/dist/jquery.js"></script> -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js scripts/plugins.js -->
+    <!-- <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/modal.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/transition.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/button.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/popover.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/carousel.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js"></script> -->
+    <!-- endbuild -->
+
+    <!-- build:js scripts/main.js -->
+    <script src="scripts/main.js"></script>
+    <!-- endbuild -->
+  </body>
+</html>
