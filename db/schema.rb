@@ -11,9 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140810063814) do
+ActiveRecord::Schema.define(version: 20160524221313) do
 
-  create_table "commisaries", force: true do |t|
+  create_table "commisaries", force: :cascade do |t|
     t.string   "name"
     t.string   "birth_number"
     t.string   "address"
@@ -27,14 +27,14 @@ ActiveRecord::Schema.define(version: 20140810063814) do
     t.integer  "ward_id"
   end
 
-  create_table "districts", force: true do |t|
+  create_table "districts", force: :cascade do |t|
     t.string   "name"
     t.integer  "municipality_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "municipalities", force: true do |t|
+  create_table "municipalities", force: :cascade do |t|
     t.string   "name"
     t.integer  "region_id"
     t.datetime "created_at"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20140810063814) do
     t.boolean  "registration_allowed"
   end
 
-  create_table "rails_admin_histories", force: true do |t|
+  create_table "rails_admin_histories", force: :cascade do |t|
     t.text     "message"
     t.string   "username"
     t.integer  "item"
@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 20140810063814) do
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], name: "index_rails_admin_histories"
 
-  create_table "regions", force: true do |t|
+  create_table "regions", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 20140810063814) do
     t.datetime "registration_ends_at"
   end
 
-  create_table "town_halls", force: true do |t|
+  create_table "town_halls", force: :cascade do |t|
     t.string   "type"
     t.string   "name"
     t.string   "address"
@@ -75,9 +75,11 @@ ActiveRecord::Schema.define(version: 20140810063814) do
     t.integer  "district_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "idds"
+    t.string   "ic"
   end
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -95,7 +97,7 @@ ActiveRecord::Schema.define(version: 20140810063814) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
-  create_table "wards", force: true do |t|
+  create_table "wards", force: :cascade do |t|
     t.integer  "external_id"
     t.integer  "municipality_id"
     t.integer  "district_id"
