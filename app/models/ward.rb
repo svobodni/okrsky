@@ -15,4 +15,7 @@ class Ward < ActiveRecord::Base
     end
   end
 
+  def name
+    "#{self.external_id}" + (taken? ? " (obsazený)" : "")
+  end
 end

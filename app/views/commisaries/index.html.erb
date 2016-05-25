@@ -1,0 +1,25 @@
+<%
+  page_title "Vaše registrace do komisí"
+  breadcrumb :commisaries
+%>
+
+<p class="perex">Do okrskových volebních komisí máte zaregistrovány tyto osoby. Uzávěrka je 1.9.2016, ihned poté odesíláme delegační dopisy jednotlivým starostům.</p>
+
+<% if @commisaries.empty? %>
+  <p class="alert alert-warning">Zatím jste nikoho nezaregistroval</p>
+<% end %>
+
+<%= link_to "+ Zaregistrovat novou osobu", new_commisary_path, class: "btn btn-primary pull-right" %>
+
+<% unless @commisaries.empty? %>
+<table class="table table-striped table-condensed">
+  <thead>
+    <tr><th>Jméno</th><th>Kraj</th><th>Obec</th><th>Číslo okrsku</th><th style="text-align: right;">Akce</th></tr>
+  </thead>
+  <tbody>
+    <% @commisaries.each do |commisary| %>
+    <tr><td><%=commisary.name%></td><td><%=commisary.ward.town_hall.region.name%><td><%=commisary.ward.town_hall.name%></td><td><%=commisary.ward.external_id%></td><td style="text-align: right;"><%= link_to "Detail", commisary, class: "btn btn-xs btn-default" %></td></tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>

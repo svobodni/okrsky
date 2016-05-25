@@ -1,0 +1,30 @@
+<%
+  @commisary = Commisary.new
+  page_title "Registrace do okrskové volební komise"
+  breadcrumb :ward, @commisary.ward
+%>
+
+<%# @town_hall = TownHall.first %>
+<%# @commisary = Commisary.new(ward: Ward.first) %>
+
+<div class="panel panel-default">
+  <div class="panel-heading">Výběr okrsku</div>
+  <div class="panel-body">
+
+<div class="col-md-12" role="main">
+  <% if 1==0 #!@commisary.ward.town_hall.region.registration_ends_at.blank? && @commisary.ward.town_hall.region.registration_ends_at < Time.now %>
+    <strong>Registrace do okrskových volebních komisí jsou již uzavřeny.</strong>
+  <% else %>
+    <%= simple_form_for(@commisary, url: new_commisary_registration_path, method: :get, html: { class: 'form-horizontal' }) do |f| %>
+      <%= f.input :region_id, as: :select, collection: Region.all, include_blank: false, prompt: true, input_html: {id: :region_id, class: 'step1'} %>
+      <%= f.input :municipality_id, as: :select, collection: [], include_blank: false, prompt: true, input_html: {id: :municipality_id, class: 'step2'} %>
+      <%= f.input :district_id, as: :select, collection: [], include_blank: false, prompt: false, input_html: {id: :district_id, class: 'step3'} %>
+      <%= f.input :ward_id, as: :select, collection: [], include_blank: false, prompt: true, input_html: {id: :ward_id, class: 'step4'} %>
+      <%= f.submit "Vyplnit přihlášku >", class: "btn btn-primary pull-right" %>
+    <% end %>
+  <% end %>
+</div>
+
+</div>
+</div>
+<script></script>

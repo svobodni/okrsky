@@ -1,0 +1,14 @@
+<% page_title "Detail registrace" %>
+<% breadcrumb :commisary, @commisary %>
+
+<p class="perex">Až do uzávěrky 1.9.2016 můžete opravovat a doplňovat své údaje. Poté je předáme na příslušnou radnici.</p>
+
+<table class="table">
+  <%= render partial: 'ward' %>
+<% [:name, :birth_number, :address, :phone, :email, :postal_address].each do |column|%>
+<tr><th><%= Commisary.human_attribute_name(column) %></th><td><%=@commisary.send(column)%></td></tr>
+<% end %>
+</table>
+
+<%= link_to "Zrušit registraci", @commisary, method: :delete, data: { confirm: 'Jste si jistý?' }, class: "btn btn-lg btn-danger" %>
+<%= link_to "Opravit údaje", edit_commisary_path(@commisary), class: "btn btn-lg btn-primary pull-right" %>

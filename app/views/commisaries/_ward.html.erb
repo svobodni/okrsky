@@ -1,0 +1,8 @@
+<tr><th>Kraj: </th><td><%=@commisary.region.name%></td></tr>
+<tr><th>Obec: </th><td><%=@commisary.municipality.name%>
+<span class="pull-right"><%= image_tag(@commisary.ward.town_hall.heraldry_path, width: '50px') %></span>
+</td></tr>
+<% if @commisary.ward.district %>
+<tr><th>Městská část / obvod:</th><td><%= @commisary.ward.district.name %></td></tr>
+<% end %>
+<tr><th>Okrsek: </th><td><%=@commisary.ward.external_id%></td></tr>

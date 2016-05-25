@@ -12,5 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap-sprockets
+//= require knockout-min
+//= require jquery.cascadingdropdown
 //= require turbolinks
+//= require commisaries
 //= require_tree .

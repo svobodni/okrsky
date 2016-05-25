@@ -1,11 +1,16 @@
 cs:
   activerecord:
-    attributes: 
+    attributes:
       commisary:
-        ward: "Okrsek"
-        address: "Adresa"
-        birth_numbr: "Datum narození"
+        ward_id: "Okrsek"
+        region_id: "Kraj"
+        municipality_id: "Obec"
+        district_id: "Městská část / obvod"
+        address: "Adresa trvalého bydliště"
+        birth_number: "Datum narození"
         name: "Jméno a příjmení"
+        phone: "Telefon"
+        postal_address: "Korespondenční adresa"
     errors:
       models:
         commisary:

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>layout</title>
+    <title><%=@page_title%></title>
 
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <!-- Place favicon.ico in the root directory -->
@@ -40,9 +40,9 @@
 
         <ul class="nav nav-pills pull-right">
 					<%= breadcrumbs separator: " / " %>
-          <!-- <li><a href="#">Contact</a></li> -->
         </ul>
-        <a class="navbar-brand" rel="home" href="#" title="Svobodní">
+
+        <a class="navbar-brand" rel="home" href="/" title="Svobodní">
 				<%= image_tag '02_SVOBODNI_logo_tagline.png', style:
         "height: 100px; margin-top: -20px; margin-left: -35px;" %>
 
@@ -50,8 +50,16 @@
       </div>
 
       <div class="content">
+        <%= bootstrap_flash %>
+        <div class="pull-right">
+        <% if person_signed_in? %>
+          Přihlášen <%= link_to current_person.email, current_person %>
+          <%= link_to('Odhlásit', destroy_session_path(current_person), method: :delete, class: "btn btn-default") %>
+        <% end %>
+        </div>
         <div class="row">
           <div class="col-sm-12">
+            <h1><%=@page_title%></h1>
 						<%= yield %>
           </div>
         </div>
@@ -68,7 +76,7 @@
         <div class="row">
           <div class="col-sm-4"><%=link_to "www.svobodni.cz", "https://web.svobodni.cz"%></div>
           <div class="col-sm-4"><%=mail_to "kancelar@svobodni.cz", "kancelar@svobodni.cz"%></div>
-          <div class="col-sm-4"></div>
+          <div class="col-sm-4">tel. 773 697 985</div>
         </div>
       </div>
     </div>
@@ -105,7 +113,7 @@
     <!-- endbuild -->
 
     <!-- build:js scripts/main.js -->
-    <script src="scripts/main.js"></script>
+    <!-- <script src="scripts/main.js"></script> -->
     <!-- endbuild -->
   </body>
 </html>

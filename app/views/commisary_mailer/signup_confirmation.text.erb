@@ -1,13 +1,13 @@
 Dobrý den,
 
-děkuji za Vaši registraci do okrskové volební komise prostřednictvím Strany svobodných občanů.
- 
+právě jste byl zaregistrován do okrskové volební komise prostřednictvím Strany svobodných občanů.
+
 Vaše jméno a níže uvedené údaje předáme starostovi příslušné obce a z obecního úřadu Vás budou sami kontaktovat a informovat o prvním zasedání okrskové volební komise, na kterém bude vylosován předseda komise. Delegační dopisy odesíláme najednou, po uzávěrce registrací.
- 
+
 Vaše účast ve volební komisi není jen obyčejným přivýdělkem, ale pomůžete chránit průběh voleb v České republice.
- 
+
 S pozdravem
- 
+
 Jiří Kubíček
 Strana svobodných občanů, www.svobodni.cz
 
@@ -21,8 +21,13 @@ Okrsek:             <%= @commisary.ward.external_id %>
 Jméno:              <%= @commisary.name %>
 Datum narození:     <%= @commisary.birth_number %>
 Adresa:             <%= @commisary.address %>
-Koresp. adresa:     <%= @commisary.shipping_address %>
+Koresp. adresa:     <%= @commisary.postal_address %>
 Telefon:            <%= @commisary.phone %>
 Email:              <%= @commisary.email %>
+
+Pokud nejsou uvedené údaje správné, můžete je sami opravit na https://okrsky.svobodni.cz , kde můžete svou registraci případně i zrušit.
+
+Vaše přihlašovací jméno: <%= @commisary.email %>
+Heslo: <%= @commisary.password %>
 
 Pokud není něco v pořádku, napište prosím na <%= configatron.our_email %> nejlépe v odpovědi na tento email.

@@ -40,7 +40,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'rails_admin'
 gem 'devise'
-gem 'wicked'
+gem 'omniauth-oauth2'
 gem 'google_drive', group: :development
 gem 'prawn'
 gem 'prawn-format'
@@ -49,6 +49,8 @@ gem 'gretel'
 gem 'exception_notification'
 gem 'svobodni_layout', git: 'https://github.com/svobodni/svobodni_layout.git'
 gem 'configatron'
+gem 'simple_form'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

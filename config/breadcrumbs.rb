@@ -1,5 +1,5 @@
 crumb :root do
-  link "Home", root_path
+  link "Úvod", root_path
 end
 
 crumb :regions do
@@ -22,10 +22,17 @@ crumb :district do |district|
 end
 
 crumb :ward do |ward|
-  link ward.external_id, wizard_path(:commisary, ward_id: ward.id)
-  if ward.district
-    parent :district, ward.district
-  else
-    parent :municipality, ward.municipality
-  end
+  link "Registrace", "#"
+  parent :commisaries
+end
+
+crumb :commisaries do |commisary|
+  link "Osoby", commisaries_path
+end
+
+crumb :commisary do |commisary|
+  link commisary.name, "#"
+  # commisary.name
+  parent :commisaries if current_user
+  parent :root if current_commisary
 end

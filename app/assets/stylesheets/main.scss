@@ -25,6 +25,7 @@ $navbar-height: 15px;
 // @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 // endbower
 
+@import "bootstrap";
 
 .marginBottom-0 {margin-bottom:0;}
 
@@ -262,4 +263,10 @@ body {
   .jumbotron {
     border-bottom: 0;
   }
+}
+
+
+.cascading-dropdown-loading {
+  cursor: wait;
+  background: url(image_path('ajax-loader.gif')) 85% center no-repeat transparent;
 }
