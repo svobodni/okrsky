@@ -6,7 +6,7 @@
 <p class="perex">pro krajské volby konané ve dnech 7. a 8. října 2016</p>
 <p>Strana svobodných občanů má jako kandidující strana ze zákona nárok na své zástupce v okrskových volebních komisích. Podmínkou je české občanství a plnoletost.</p>
 <p>Registrace do okrskových volebních komisí mohou provádět pouze členové a příznivci Svobodých. Tam, kde kandidujeme v koalici se Soukromníky může registrace provádět také pověřený zástupce Soukromníků.</p>
-<p>Zaregistrovaná osoba obdrží emailem vlastní přihlašovací údaje a může zde měnit své registrační údaje nebo svou registraci zrušit</p>
+<p>Zaregistrovaná osoba obdrží emailem vlastní přihlašovací údaje a může zde měnit své registrační údaje nebo svou registraci zrušit.</p>
 <p>V případě nejasností se na nás můžete obrátit emailem na adrese <%=mail_to configatron.our_email %> nebo telefonicky na čísle 773 697 985.</p>
 
 <% unless person_signed_in? %>
@@ -40,6 +40,7 @@
 <% else %>
   <% if user_signed_in? %>
     <%= link_to "Registrace >", commisaries_path, class: "btn btn-lg btn-primary pull-right" %>
+    <%= link_to "Dopisy", regions_path, class: "btn btn-lg btn-default" if can? :letter, Region %>
   <% elsif commisary_signed_in? %>
     <%= link_to "Registrace >", current_commisary, class: "btn btn-lg btn-primary pull-right" %>
   <% end %>

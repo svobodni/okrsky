@@ -1,0 +1,6 @@
+<% page_title "Delegační dopisy" %>
+<ul>
+  <% @regions.each do |region| %>
+    <li><%= link_to region.name, export_region_path(region, format: :pdf) %></li>
+  <% end %>
+</ul>
