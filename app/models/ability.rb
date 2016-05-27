@@ -22,7 +22,9 @@ class Ability
       end
       # Zmocnenec
       # ma pristup k delegacnim dopisum
-      can [:read, :letter], Region, user_id: person.id
+      unless person.represented_regions.empty?
+        can [:read, :letter], Region, representative_id: person.id
+      end
       # Kancelar
       # ma pristup ke vsemu
       if ["342"].member?(person.uid)

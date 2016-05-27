@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   devise :omniauthable, :omniauth_providers => [:registr]
 
   has_many :commisaries
+  has_many :represented_regions, class_name: "Region", foreign_key: "representative_id"
 
   def password_required?
     false

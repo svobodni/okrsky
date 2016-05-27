@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160527081200) do
+ActiveRecord::Schema.define(version: 20160527204020) do
 
   create_table "commisaries", force: :cascade do |t|
     t.string   "name",                   limit: 255
@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(version: 20160527081200) do
     t.string   "chairman_email",       limit: 255
     t.string   "assignee_name",        limit: 255
     t.datetime "registration_ends_at"
+    t.integer  "representative_id",    limit: 4
   end
 
   create_table "town_halls", force: :cascade do |t|
