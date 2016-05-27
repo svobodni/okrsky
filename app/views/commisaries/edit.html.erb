@@ -20,9 +20,7 @@
       <%= f.input :phone, hint: '(vzor: 773697983)' %>
       <%= f.input :email, placeholder: 'mach@svobodni.cz', hint: '(vzor: mach@svobodni.cz)', disabled: true %>
       <%= f.input :postal_address, placeholder: 'Ulice 536, 111 00 Praha 1', hint: '<strong>Vyplňujte jen pokud se liší od trvalého bydliště</strong>'.html_safe %>
-      <p>Na základě vyplněné registrace Vás Strana svobodných občanů bude delegovat do okrskové volební komise. Do okrskových volebních komisí se mohou přihlašovat pouze občané České republiky starší 18 let. </p>
-      <p>Uzávěrka registrací je dne <%#= @commisary.ward.town_hall.region.registration_ends_at.strftime("%d.%m.%Y ve %H:%M")%>.</p>
-      <%= f.submit "Uložit opravu", class: "btn btn-primary pull-right" %>
+      <%= f.submit "Uložit opravu", class: "btn btn-primary btn-block btn-lg" %>
     <% end %>
   <% end %>
 </div>
