@@ -27,7 +27,7 @@ class CommisariesController < ApplicationController
   end
 
   def index
-    @commisaries = current_user.commisaries
+    @commisaries = Commisary.accessible_by(current_ability)
   end
 
   def show
@@ -70,6 +70,6 @@ class CommisariesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def commisary_params
-      params.fetch(:commisary, {}).permit(:name)
+      params.fetch(:commisary, {}).permit(:name, :birth_number, :address, :phone, :postal_address)
     end
 end

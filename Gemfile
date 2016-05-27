@@ -41,6 +41,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rails_admin'
 gem 'devise'
 gem 'omniauth-oauth2'
+gem 'cancancan', '~> 1.10'
 gem 'google_drive', group: :development
 gem 'prawn'
 gem 'prawn-format'
