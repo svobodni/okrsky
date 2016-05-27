@@ -22,6 +22,7 @@ class Commisaries::RegistrationsController < Devise::RegistrationsController
     params[:commisary][:password_confirmation]=password
     build_resource(sign_up_params)
 
+    authorize! :create, resource
     resource.save
     yield resource if block_given?
     if resource.persisted?

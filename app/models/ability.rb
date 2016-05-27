@@ -15,10 +15,12 @@ class Ability
         # Svobodny
         # muze registrovat nove osoby ve vsech krajich
         can :create, Commisary, user_id: person.id
+        can :read, Region
       else
         # Soukromnik
         # muze registrovat nove osoby pouze v koalicnich krajich
-        can :create, Commisary, user_id: person.id, region_id: [19, 27]
+        can :create, Commisary, user_id: person.id, ward: { municipality: {region: { id: configatron.coalition_region_ids}}}
+        can :read, Region, id: configatron.coalition_region_ids
       end
       # Zmocnenec
       # ma pristup k delegacnim dopisum

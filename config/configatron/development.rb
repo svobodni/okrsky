@@ -7,3 +7,6 @@ configatron.registry.uri="https://registr.svobodni.cz"
 
 configatron.registr_oauth2_client_id='fc23b28d3f15d84c04177cd869b50d6e30ad6f03e6e256b380e4a036e352dda0'
 configatron.registr_oauth2_client_secret='f8546307e84c19cf77ea0767fa4ede742285ff22afa3e0711dec2314da67533e'
+
+# Středočeský, Pardubický, Zlínský, Jihomoravský, Královéhradecký, Karlovarský, Ústecký, Liberecký
+configatron.coalition_region_ids=[27, 94, 141, 116, 86, 51, 60, 78]
