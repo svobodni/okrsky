@@ -8,7 +8,7 @@ cs:
         municipality_id: "Obec"
         district_id: "Městská část / obvod"
         address: "Adresa trvalého bydliště"
-        birth_number: "Datum narození"
+        birth_number: "Rodné číslo"
         name: "Jméno a příjmení"
         phone: "Telefon"
         postal_address: "Korespondenční adresa"
