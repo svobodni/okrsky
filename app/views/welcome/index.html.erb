@@ -40,6 +40,7 @@
 <% else %>
   <% if user_signed_in? %>
     <%= link_to "Registrace >", commisaries_path, class: "btn btn-lg btn-primary pull-right" %>
+    <%= link_to "Události", events_path, class: "btn btn-lg btn-default" if can? :read, Event %>
     <%= link_to "Dopisy", regions_path, class: "btn btn-lg btn-default" if can? :letter, Region %>
   <% elsif commisary_signed_in? %>
     <%= link_to "Registrace >", current_commisary, class: "btn btn-lg btn-primary pull-right" %>

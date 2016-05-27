@@ -1,0 +1,14 @@
+<% unless data.blank? %>
+<table class="table table-condensed">
+  <thead>
+    <tr><th>Pole</th><th>Hodnota</th></tr>
+  </thead>
+  <tbody>
+<% data.each { |key, value|%>
+  <tr>
+    <th><%= key %></th>
+    <td><%= value.inspect%></td>
+<% } %>
+</tbody>
+</table>
+<% end %>
