@@ -3,31 +3,45 @@
   breadcrumb :ward, @commisary.ward
 %>
 
-<div class="panel panel-primary">
-          <div class="panel-heading">
-            <h3 class="panel-title">Registrace delegované osoby do okrskové volební komise</h3>
-          </div>
+<% if 1==0 #!@commisary.ward.town_hall.region.registration_ends_at.blank? && @commisary.ward.town_hall.region.registration_ends_at < Time.now %>
+  <strong>Registrace do okrskových volebních komisí jsou již uzavřeny.</strong>
+<% else %>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Registrace delegované osoby do okrskové volební komise</h3>
+    </div>
     <div class="panel-body">
-  <% if 1==0 #!@commisary.ward.town_hall.region.registration_ends_at.blank? && @commisary.ward.town_hall.region.registration_ends_at < Time.now %>
-    <strong>Registrace do okrskových volebních komisí jsou již uzavřeny.</strong>
-  <% else %>
-    <table class="table"><%=render partial: 'commisaries/ward'%>
-    <tr><td colspan="2"><%= link_to "Změnit", new_commisary_path, class: "btn btn-default btn-sm pull-right"%></td></tr>
-    </table>
-    <%= simple_form_for(resource) do |f| %>
-      <%= f.input :ward_id, as: :hidden %>
-      <h2>Osobní údaje</h2>
-      <p class="perex">Tyto osobní údaje jsou vyžadovány ze zákona a musí být zcela přesné. Bez nich odmítne úřad delegovat osobu do komise.</p>
-      <%= f.input :name, hint: '(vzor: Petr Mach)' %>
-      <%= f.input :birth_number, hint: '(vzor: 24.12.1930)' %>
-      <%= f.input :address, placeholder: 'Ulice 536, 111 00 Praha 1', hint: '<strong>Dle občanky!</strong> (vzor: Perucká 2196, 120 00 Praha 2)'.html_safe %>
-      <h2>Kontaktní údaje</h2>
-      <p class="perex">Pro spolehlivou komunikaci s úřadem je nutné uvést i další kontaktní údaje.</p>
-      <%= f.input :phone, hint: '(vzor: 773697983)' %>
-      <%= f.input :email, placeholder: 'mach@svobodni.cz', hint: 'Na email zašleme přihlašovací údaje' %>
-      <%= f.input :postal_address, placeholder: 'Ulice 536, 111 00 Praha 1', hint: '<strong>Vyplňujte jen pokud se liší od trvalého bydliště</strong>'.html_safe %>
-      <%= f.submit "Odeslat přihlášku", class: "btn btn-primary pull-right" %>
-    <% end %>
+      <table class="table">
+        <%=render partial: 'commisaries/ward'%>
+        <tr><td colspan="2"><%= link_to "Změnit", new_commisary_path, class: "btn btn-default btn-sm pull-right"%></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <%= simple_form_for(resource) do |f| %>
+    <%= f.input :ward_id, as: :hidden %>
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">Osobní údaje</h3>
+      </div>
+      <div class="panel-body">
+        <p class="perex">Tyto osobní údaje jsou vyžadovány ze zákona a musí být zcela přesné. Bez nich odmítne úřad delegovat osobu do komise.</p>
+        <%= f.input :name, hint: '(vzor: Petr Mach)' %>
+        <%= f.input :birth_number, hint: '(vzor: 24.12.1930)' %>
+        <%= f.input :address, placeholder: 'Ulice 536, 111 00 Praha 1', hint: '<strong>Dle občanky!</strong> (vzor: Perucká 2196, 120 00 Praha 2)'.html_safe %>
+      </div>
+    </div>
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">Kontaktní údaje</h3>
+      </div>
+      <div class="panel-body">
+        <p class="perex">Pro spolehlivou komunikaci s úřadem je nutné uvést i další kontaktní údaje.</p>
+        <%= f.input :phone, hint: '(vzor: 773697983)' %>
+        <%= f.input :email, placeholder: 'mach@svobodni.cz', hint: 'Na email zašleme přihlašovací údaje' %>
+        <%= f.input :postal_address, placeholder: 'Ulice 536, 111 00 Praha 1', hint: '<strong>Vyplňujte jen pokud se liší od trvalého bydliště</strong>'.html_safe %>
+      </div>
+    </div>
+    <%= f.submit "> Odeslat přihlášku <", class: "btn btn-primary btn-lg btn-block" %>
   <% end %>
-</div>
-</div>
+<% end %>

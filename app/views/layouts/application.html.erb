@@ -38,9 +38,12 @@
         <!-- <nav class="navbar navbar-default">
           <div class="container-fluid"> -->
 
-        <ul class="nav nav-pills pull-right">
-					<%= breadcrumbs separator: " / " %>
-        </ul>
+          <div class="pull-right">
+          <% if person_signed_in? %>
+            Přihlášen <%= link_to current_person.email, current_person %>
+            <%= link_to('Odhlásit', destroy_session_path(current_person), method: :delete, class: "btn btn-default") %>
+          <% end %>
+          </div>
 
         <a class="navbar-brand" rel="home" href="/" title="Svobodní">
 				<%= image_tag '02_SVOBODNI_logo_tagline.png', style:
@@ -51,12 +54,9 @@
 
       <div class="content">
         <%= bootstrap_flash %>
-        <div class="pull-right">
-        <% if person_signed_in? %>
-          Přihlášen <%= link_to current_person.email, current_person %>
-          <%= link_to('Odhlásit', destroy_session_path(current_person), method: :delete, class: "btn btn-default") %>
-        <% end %>
-        </div>
+        <ul class="nav nav-pills pull-right">
+          <%= breadcrumbs separator: " / " %>
+        </ul>
         <div class="row">
           <div class="col-sm-12">
             <h1><%=@page_title%></h1>

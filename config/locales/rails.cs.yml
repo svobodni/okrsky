@@ -2,6 +2,7 @@ cs:
   activerecord:
     attributes:
       commisary:
+        password: "Heslo"
         ward_id: "Okrsek"
         region_id: "Kraj"
         municipality_id: "Obec"
@@ -11,6 +12,8 @@ cs:
         name: "Jméno a příjmení"
         phone: "Telefon"
         postal_address: "Korespondenční adresa"
+      user:
+        password: "Heslo"
     errors:
       models:
         commisary:

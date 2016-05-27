@@ -1,8 +1,7 @@
 <%
-  page_title "Vstup pro registrované členy komisí"
+  page_title "Vstup pro Soukromníky"
   breadcrumb :sign_in
 %>
-
 
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-inputs">
@@ -16,4 +15,4 @@
   </div>
 <% end %>
 
-<%#= render "commisaries/shared/links" %>
+<%#= render "users/shared/links" %>

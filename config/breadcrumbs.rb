@@ -36,3 +36,12 @@ crumb :commisary do |commisary|
   parent :commisaries if current_user
   parent :root if current_commisary
 end
+
+crumb :commisary_edit do |commisary|
+  link "Oprava", "#"
+  parent :commisary, commisary
+end
+
+crumb :sign_in do
+  link "Přihlášení", "#"
+end

@@ -45,7 +45,7 @@ cs:
       send_paranoid_instructions: 'Pokud je e-mailová adresa v naší databázi, obdržíte na ní instrukce pro potvrzení vašeho účtu.'
       confirmed: 'Váš účet byl úspěšně potvrzen. Nyní jste přihlášen(a).'
     registrations:
-      signed_up: 'Vítejte! Registrace byla úspěšná.'
+      signed_up: 'Registrace byla úspěšná.'
       signed_up_but_unconfirmed: 'Na váš email by měla přijít zpráva s odkazem pro aktivaci účtu.'
       signed_up_but_inactive: 'Registrace byla úspěšná. Nicméně se nemůžete přihlásit, protože váš účet dosud nebyl aktivován.'
       signed_up_but_locked: 'Registrace byla úspěšná. Nicméně se nemůžete přihlásit, protože váš účet je uzamčen.'

@@ -39,8 +39,8 @@
   </div>
 <% else %>
   <% if user_signed_in? %>
-    <%= link_to "Registrace >", commisaries_path, class: "btn btn-lg btn-primary" %>
+    <%= link_to "Registrace >", commisaries_path, class: "btn btn-lg btn-primary pull-right" %>
   <% elsif commisary_signed_in? %>
-    <%= link_to "Registrace >", current_commisary, class: "btn btn-lg btn-primary" %>
+    <%= link_to "Registrace >", current_commisary, class: "btn btn-lg btn-primary pull-right" %>
   <% end %>
 <% end %>
