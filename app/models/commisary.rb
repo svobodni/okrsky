@@ -19,12 +19,22 @@ class Commisary < ActiveRecord::Base
 
   belongs_to :ward
 
-  after_create :send_confirmation_email
+  after_create :send_signup_confirmation_email
+  after_update :send_update_confirmation_email
+  before_destroy :send_destroy_confirmation_email
 
   attr_accessor :region_id, :municipality_id, :district_id
 
-  def send_confirmation_email
+  def send_signup_confirmation_email
     CommisaryMailer.signup_confirmation(self).deliver
+  end
+
+  def send_update_confirmation_email
+    CommisaryMailer.update_confirmation(self).deliver
+  end
+
+  def send_destroy_confirmation_email
+    CommisaryMailer.destroy_confirmation(self).deliver
   end
 
   def shipping_address

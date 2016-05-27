@@ -1,14 +1,12 @@
-právě jste byl zaregistrován do okrskové volební komise prostřednictvím Strany svobodných občanů.
+na základě žádosti <%#= @requestor.name %> byly opraveny Vaše registrační údaje pro delegaci do okrskové volební komise.
 
-Vaše jméno a níže uvedené údaje předáme starostovi příslušné obce a z obecního úřadu Vás budou sami kontaktovat a informovat o prvním zasedání okrskové volební komise, na kterém bude vylosován předseda komise. Delegační dopisy odesíláme najednou, po uzávěrce registrací.
-
-Vaše účast ve volební komisi není jen obyčejným přivýdělkem, ale pomůžete chránit průběh voleb v České republice.
-
-Vyplněné údaje pro delegaci:
+Opravené údaje pro delegaci:
 
 Kraj:               <%= @commisary.ward.town_hall.region.name %>
 Obec:               <%= @commisary.ward.municipality.name %>
+<% if @commisary.ward.district %>
 Městská část/obvod: <%= @commisary.ward.district.try(:name) %>
+<% end %>
 Okrsek:             <%= @commisary.ward.external_id %>
 
 Jméno:              <%= @commisary.name %>
@@ -20,5 +18,4 @@ Email:              <%= @commisary.email %>
 
 Pokud nejsou uvedené údaje správné, můžete je sami opravit na https://okrsky.svobodni.cz , kde můžete svou registraci případně i zrušit.
 
-Vaše přihlašovací jméno: <%= @commisary.email %>
-Heslo: <%= @commisary.password %>
+Přihlašovací údaje jsme Vám zaslali v emailu potvrzujícím registraci.
