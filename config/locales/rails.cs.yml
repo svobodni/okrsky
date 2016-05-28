@@ -18,5 +18,15 @@ cs:
       models:
         commisary:
           attributes:
+            name:
+              too_short: "je příliš krátké (mělo by mít alespoň %{count} znaků)"
+            address:
+              too_short: "je příliš krátká (měla by mít alespoň %{count} znaků)"
+            postal_address:
+              too_short: "je příliš krátká (měla by mít alespoň %{count} znaků)"
             ward:
               taken: "je již obsazen"
+            email:
+              taken: "je již použit u jiné registrace"
+            birth_number:
+              invalid: "nevypadá jako rodné číslo"

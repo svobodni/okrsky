@@ -18,7 +18,7 @@
     </div>
   </div>
 
-  <%= simple_form_for(resource) do |f| %>
+  <%= simple_form_for(resource, html: {autocomplete: :on}) do |f| %>
     <%= f.input :ward_id, as: :hidden %>
     <div class="panel panel-primary">
       <div class="panel-heading">
@@ -39,7 +39,7 @@
         <p class="perex">Pro spolehlivou komunikaci s úřadem je nutné uvést i další kontaktní údaje.</p>
         <%= f.input :phone, hint: '(vzor: 773697983)' %>
         <%= f.input :email, placeholder: 'mach@svobodni.cz', hint: 'Na email zašleme přihlašovací údaje' %>
-        <%= f.input :postal_address, placeholder: 'Ulice 536, 111 00 Praha 1', hint: '<strong>Vyplňujte jen pokud se liší od trvalého bydliště</strong>'.html_safe %>
+        <%= f.input :postal_address, input_html: {autocomplete: 'off'}, placeholder: 'Ulice 536, 111 00 Praha 1', hint: '<strong>Vyplňujte jen pokud se liší od trvalého bydliště</strong>'.html_safe %>
       </div>
     </div>
     <%= f.submit "> Odeslat přihlášku <", class: "btn btn-primary btn-lg btn-block" %>

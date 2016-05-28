@@ -7,13 +7,16 @@ class Commisary < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :trackable, :validatable
 
+  before_validation :fix_params
+
   belongs_to :user
   belongs_to :town_hall
   has_many :events, as: :eventable
 
   validates :name, length: { minimum: 5 }
-  validates :birth_number, length: { minimum: 8 }
+  validates :birth_number, length: { minimum: 8 }, format: /\A(\d{6})\/(\d{3,4})\z/
   validates :address, length: { minimum: 12 }
+  validates :postal_address, length: { minimum: 12 }, allow_blank: true
   # validates :email, presence: true, length: { minimum: 5 }
   validates :ward, presence: true, uniqueness: true
 
@@ -24,6 +27,22 @@ class Commisary < ActiveRecord::Base
   before_destroy :send_destroy_confirmation_email
 
   attr_accessor :region_id, :municipality_id, :district_id
+
+  def fix_params
+    fix_birth_number
+    fix_phone
+  end
+
+  def fix_birth_number
+    parts = birth_number.match(/\A(\d{6})\/?(\d{3,4})\z/)
+    if parts
+      self.birth_number=[parts[1],parts[2]].join('/')
+    end
+  end
+
+  def fix_phone
+    self.phone = phone.gsub(/ /,'').match(/\A(\+420)?(.*)\z/)[2]
+  end
 
   def send_signup_confirmation_email
     CommisaryMailer.signup_confirmation(self).deliver
