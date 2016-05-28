@@ -14,7 +14,7 @@ class Commisary < ActiveRecord::Base
   has_many :events, as: :eventable
 
   validates :name, length: { minimum: 5 }
-  validates :birth_number, length: { minimum: 8 }, format: /\A(\d{6})\/(\d{3,4})\z/
+  validates :birth_number, format: /\A(\d{6})\/(\d{3,4})\z/
   validates :address, length: { minimum: 12 }
   validates :postal_address, length: { minimum: 12 }, allow_blank: true
   # validates :email, presence: true, length: { minimum: 5 }

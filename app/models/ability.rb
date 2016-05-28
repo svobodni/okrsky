@@ -33,6 +33,7 @@ class Ability
         can :manage, Commisary
         can [:read, :letter], Region
         can :read, Event
+        can :read, User
       end
     end
 

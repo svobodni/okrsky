@@ -43,6 +43,13 @@
             Přihlášen <%= link_to current_person.name, current_person %>
             <%= link_to('Odhlásit', destroy_session_path(current_person), method: :delete, class: "btn btn-default") %>
           <% end %>
+          <% if user_signed_in? %>
+          <div style="margin-top: 10px">
+            <%= link_to "Události", events_path, class: "btn btn-sm btn-default" if can? :read, Event %>
+            <%= link_to "Uživatelé", users_path, class: "btn btn-sm btn-default" if can? :read, User %>
+            <%= link_to "Dopisy", regions_path, class: "btn btn-sm btn-primary" if can? :letter, Region %>
+          </div>
+          <% end %>
           </div>
 
         <a class="navbar-brand" rel="home" href="/" title="Svobodní">

@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :commisaries, only: [:index, :show, :new, :destroy, :edit, :update]
   resources :events, only: [:index]
   resources :regions, only: [:index]
+  resources :users, only: [:index]
 
   # mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
   get '/users/:id' => "commisaries#index", as: "user"

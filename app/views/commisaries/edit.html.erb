@@ -15,7 +15,7 @@
     <!-- <h2>Údaje osoby</h2> -->
     <%= simple_form_for(@commisary) do |f| %>
       <%= f.input :name, hint: '(vzor: Petr Mach)' %>
-      <%= f.input :birth_number, hint: '(vzor: 24.12.1930)' %>
+      <%= f.input :birth_number, hint: '(vzor: 801111/0234)' %>
       <%= f.input :address, placeholder: 'Ulice 536, 111 00 Praha 1', hint: '<strong>Dle občanky!</strong> (vzor: Perucká 2196, 120 00 Praha 2)'.html_safe %>
       <%= f.input :phone, hint: '(vzor: 773697983)' %>
       <%= f.input :email, placeholder: 'mach@svobodni.cz', hint: '(vzor: mach@svobodni.cz)', disabled: true %>

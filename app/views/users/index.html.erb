@@ -1,0 +1,17 @@
+<%
+  page_title "Uživatelé"
+  breadcrumb :users
+%>
+
+<table class="table">
+  <tr>
+    <th>Jméno</th>
+    <th>Počet registrací</th>
+  </tr>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%=user.name%></td>
+      <td><%=user.commisaries.count%></td>
+    </tr>
+  <% end %>
+</table>

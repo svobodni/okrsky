@@ -1,4 +1,7 @@
-<% page_title "Delegační dopisy" %>
+<%
+  page_title "Delegační dopisy"
+  breadcrumb :letters
+%>
 <ul>
   <% @regions.each do |region| %>
     <li><%= link_to region.name, export_region_path(region, format: :pdf) %></li>

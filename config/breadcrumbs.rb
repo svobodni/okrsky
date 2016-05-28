@@ -45,3 +45,15 @@ end
 crumb :sign_in do
   link "Přihlášení", "#"
 end
+
+crumb :users do
+  link "Uživatelé", "#"
+end
+
+crumb :letters do
+  link "Dopisy", "#"
+end
+
+crumb :events do
+  link "Události", "#"
+end
