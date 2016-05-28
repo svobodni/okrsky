@@ -111,12 +111,20 @@ typy = ovm.collect{|o|
     "Statutární města (Magistráty) a jejich obvody"
   ].member?(data["TypSubjektu"])
     hall=TownHall.find_by_ic(data["ICO"])
-    hall.update_attributes(
-      idds: data["IdDS"],
-      name: data["Nazev"],
-      address: "#{data['AdresaUradu']['Ulice']} #{data['AdresaUradu']['CisloDomovni']}<br />#{data['AdresaUradu']['PSC']} #{data['AdresaUradu']['ObecNazev']}"
-    ) unless ["BOLETICE", "BRDY", "LIBAVA"].member?(o["Zkratka"])
+    unless ["BOLETICE", "BRDY", "LIBAVA"].member?(o["Zkratka"])
+      if data['AdresaUradu']['Ulice'].blank?
+        ulice = "č.p."
+      else
+        ulice = data['AdresaUradu']['Ulice']
+      end
+      address = "#{ulice} #{data['AdresaUradu']['CisloDomovni']}\n#{data['AdresaUradu']['PSC']} #{data['AdresaUradu']['ObecNazev']}"
+      hall.update_attributes(
+        idds: data["IdDS"],
+        name: data["Nazev"],
+        address: address
+      )
     end
+  end
   progressbar.increment
 }
 
