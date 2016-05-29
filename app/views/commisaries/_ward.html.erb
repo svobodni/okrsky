@@ -1,7 +1,5 @@
 <tr><th>Kraj: </th><td><%=@commisary.region.name%></td></tr>
-<tr><th>Obec: </th><td><%=@commisary.municipality.name%>
-<span class="pull-right"><%= image_tag(@commisary.ward.town_hall.heraldry_path, width: '50px') %></span>
-</td></tr>
+<tr><th>Obec: </th><td><span class="pull-right"><%= image_tag(@commisary.ward.town_hall.heraldry_path, width: '50px') %></span><%=@commisary.municipality.name%><br/><%=@commisary.ward.town_hall.address.gsub("\n",', ')%></td></tr>
 <% if @commisary.ward.district %>
 <tr><th>Městská část / obvod:</th><td><%= @commisary.ward.district.name %></td></tr>
 <% end %>

@@ -18,5 +18,11 @@
   </div>
 </div>
 
-<%= link_to "Zrušit registraci", @commisary, method: :delete, data: { confirm: 'Jste si jistý?' }, class: "btn btn-lg btn-danger" if can? :destroy, @commisary%>
-<%= link_to "Opravit údaje", edit_commisary_path(@commisary), class: "btn btn-lg btn-primary pull-right" if can? :edit, @commisary %>
+<div class="row">
+  <div class="col-sm-6 col-sm-push-6">
+    <%= link_to "Opravit údaje", edit_commisary_path(@commisary), class: "btn btn-lg btn-primary btn-block" if can? :edit, @commisary %>
+  </div>
+  <div class="col-sm-6 col-sm-pull-6">
+    <%= link_to "Zrušit registraci", @commisary, method: :delete, data: { confirm: 'Jste si jistý?' }, class: "btn btn-lg btn-danger btn-block" if can? :destroy, @commisary%>
+  </div>
+</div>
