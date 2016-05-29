@@ -9,24 +9,13 @@
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <!-- Place favicon.ico in the root directory -->
 
-    <!-- build:css styles/vendor.css -->
-    <!-- bower:css -->
-    <!-- endbower -->
-    <!-- endbuild -->
-
-    <!-- <link href='http://fonts.googleapis.com/css?family=Adelle' rel='stylesheet' type='text/css'> -->
     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-    <!-- build:css styles/main.css -->
-    <!-- <link rel="stylesheet" href="styles/main.css"> -->
-    <!-- endbuild -->
+
 
 		<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
 	  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 	  <%= csrf_meta_tags %>
 
-    <!-- build:js scripts/vendor/modernizr.js -->
-    <!-- <script src="/bower_components/modernizr/modernizr.js"></script> -->
-    <!-- endbuild -->
   </head>
   <body>
     <!--[if lt IE 10]>
@@ -35,30 +24,44 @@
 
     <div class="container">
       <div class="header">
-        <!-- <nav class="navbar navbar-default">
-          <div class="container-fluid"> -->
-
-          <div class="pull-right">
-          <% if person_signed_in? %>
-            Přihlášen <%= link_to current_person.name, current_person %>
-            <%= link_to('Odhlásit', destroy_session_path(current_person), method: :delete, class: "btn btn-default") %>
-          <% end %>
-          <% if user_signed_in? %>
-          <div style="margin-top: 10px">
-            <%= link_to "Události", events_path, class: "btn btn-sm btn-default" if can? :read, Event %>
-            <%= link_to "Uživatelé", users_path, class: "btn btn-sm btn-default" if can? :read, User %>
-            <%= link_to "Dopisy", regions_path, class: "btn btn-sm btn-default" if can? :letter, Region %>
+      <header class="navbar navbar-default navbar-fixed-top bs-docs-nav" role="banner">
+        <div class="container">
+          <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" rel="home" href="/" title="Svobodní">
+            <%= image_tag '02_SVOBODNI_logo_tagline.png'%>
+            </a>
           </div>
-          <% end %>
-          </div>
-
-        <a class="navbar-brand" rel="home" href="/" title="Svobodní">
-				<%= image_tag '02_SVOBODNI_logo_tagline.png', style:
-        "height: 100px; margin-top: -20px; margin-left: -35px;" %>
-
-        </a>
-      </div>
-
+          <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+            <% if person_signed_in? %>
+              <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+        	        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%=current_person.name%> <b class="caret"></b></a>
+        	        <ul class="dropdown-menu">
+                    <% if user_signed_in? %>
+                      <li><%= link_to "Registrace", commisaries_path %></li>
+                      <% if can? :read, Event %><li><%= link_to "Události", events_path %></li><% end %>
+                      <% if can? :read, User %><li><%= link_to "Uživatelé", users_path %></li><% end %>
+                      <% if can? :read, User %><li><%= link_to "Statistiky", stats_path %></li><% end %>
+                      <% if can? :read, Region %><li><%= link_to "Dopisy", regions_path %></li><% end %>
+                    <% elsif commisary_signed_in? %>
+                      <li><%= link_to "Registrace", current_commisary %></li>
+                    <% end %>
+                    <li role="presentation" class="divider"></li>
+        	          <li><%= link_to('Odhlásit se', destroy_session_path(current_person), method: :delete) %></li>
+        	        </ul>
+        	      </li>
+            </ul>
+            <% end %>
+          </nav>
+        </div>
+      </header>
+    </div>
       <div class="content">
         <%= bootstrap_flash %>
         <ul class="nav nav-pills pull-right">
@@ -98,29 +101,5 @@
       ga('create','UA-XXXXX-X');ga('send','pageview');
     </script>
 
-    <!-- build:js scripts/vendor.js -->
-    <!-- bower:js -->
-    <!-- <script src="/bower_components/jquery/dist/jquery.js"></script> -->
-    <!-- endbower -->
-    <!-- endbuild -->
-
-    <!-- build:js scripts/plugins.js -->
-    <!-- <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/modal.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/transition.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/button.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/popover.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/carousel.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js"></script> -->
-    <!-- endbuild -->
-
-    <!-- build:js scripts/main.js -->
-    <!-- <script src="scripts/main.js"></script> -->
-    <!-- endbuild -->
   </body>
 </html>

@@ -57,3 +57,7 @@ end
 crumb :events do
   link "Události", "#"
 end
+
+crumb :stats do
+  link "Statistiky", "#"
+end
