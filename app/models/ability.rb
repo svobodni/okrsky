@@ -3,25 +3,36 @@ class Ability
 
   def initialize(person)
     return unless person
+    if configatron.registration_allowed
+      if person.kind_of?(Commisary)
+        # registrovany clen okrskove volebni komis
+        # muze opravovat a rusit svou registraci
+        can [:update, :destroy], Commisary, id: person.id
+      elsif person.kind_of?(User)
+        # Svobodny nebo Soukromnik
+        # muze opravovat a rusit registraci jim registrovanych osob
+        can [:update, :destroy], Commisary, user_id: person.id
+        if person.provider=="registr"
+          # Svobodny
+          # muze registrovat nove osoby ve vsech krajich
+          can :create, Commisary, user_id: person.id
+          can :read, Region
+        else
+          # Soukromnik
+          # muze registrovat nove osoby pouze v koalicnich krajich
+          can :create, Commisary, user_id: person.id, ward: { municipality: {region: { id: configatron.coalition_region_ids}}}
+          can :read, Region, id: configatron.coalition_region_ids
+        end
+      end
+    end
+
     if person.kind_of?(Commisary)
       # registrovany clen okrskove volebni komis
-      # muze opravovat a rusit svou registraci
-      can [:read, :update, :destroy], Commisary, id: person.id
+      # muze prohlizet svou registraci
+      can :read, Commisary, id: person.id
     elsif person.kind_of?(User)
-      # Svobodny nebo Soukromnik
-      # muze opravovat a rusit registraci jim registrovanych osob
-      can [:read, :update, :destroy], Commisary, user_id: person.id
-      if person.provider=="registr"
-        # Svobodny
-        # muze registrovat nove osoby ve vsech krajich
-        can :create, Commisary, user_id: person.id
-        can :read, Region
-      else
-        # Soukromnik
-        # muze registrovat nove osoby pouze v koalicnich krajich
-        can :create, Commisary, user_id: person.id, ward: { municipality: {region: { id: configatron.coalition_region_ids}}}
-        can :read, Region, id: configatron.coalition_region_ids
-      end
+      can :read, Commisary, user_id: person.id
+
       # Zmocnenec
       # ma pristup k delegacnim dopisum
       unless person.represented_regions.empty?

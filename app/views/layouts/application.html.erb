@@ -47,7 +47,7 @@
           <div style="margin-top: 10px">
             <%= link_to "Události", events_path, class: "btn btn-sm btn-default" if can? :read, Event %>
             <%= link_to "Uživatelé", users_path, class: "btn btn-sm btn-default" if can? :read, User %>
-            <%= link_to "Dopisy", regions_path, class: "btn btn-sm btn-primary" if can? :letter, Region %>
+            <%= link_to "Dopisy", regions_path, class: "btn btn-sm btn-default" if can? :letter, Region %>
           </div>
           <% end %>
           </div>

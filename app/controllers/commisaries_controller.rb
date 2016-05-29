@@ -4,9 +4,11 @@ class CommisariesController < ApplicationController
   before_action :set_commisary, only: [:show, :edit, :update]
 
   def new
+    authorize! :create, Commisary
   end
 
   def edit
+    authorize! :update, @commisary
   end
 
   def update

@@ -43,7 +43,12 @@ for commisary in commisaries.sort{|a, b| a.ward.external_id.to_i<=>b.ward.extern
   pdf.text "Údaj, do které okrskové volební komise má být delegovaný člen zařazen: č. #{commisary.ward.external_id}"
   pdf.move_down 20
 end
-  pdf.move_down 40
+pdf.move_down 40
+
+if configatron.registration_ends_at>Time.now
+  pdf.text "Tištěno před uzávěrkou, neposílat!", style: :bold, size: 20
+end
+
 pdf.text "
                                                                   .......................................................
                                                                   podpis zmocněnce politické strany

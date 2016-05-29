@@ -3,13 +3,17 @@
   breadcrumb :commisaries
 %>
 
-<p class="perex">Do okrskových volebních komisí máte zaregistrovány tyto osoby. Uzávěrka je 1.9.2016, ihned poté odesíláme delegační dopisy jednotlivým starostům.</p>
+<% if configatron.registration_allowed %>
+  <p class="perex">Do okrskových volebních komisí máte zaregistrovány tyto osoby. Uzávěrka registrací je <%=l configatron.registration_ends_at %>, ihned poté odesíláme delegační dopisy jednotlivým starostům.</p>
+<% else %>
+  <p class="perex">Registrace jsou uzavřeny, údaje jsme odeslali starostům. Registrace nelze měnit. Pokud potřebujete registraci zrušit, můžete písemně na radnici.</p>
+<% end %>
 
 <% if @commisaries.empty? %>
   <p class="alert alert-warning">Zatím jste nikoho nezaregistroval</p>
 <% end %>
 
-<%= link_to "+ Zaregistrovat novou osobu", new_commisary_path, class: "btn btn-primary pull-right" %>
+<%= link_to("+ Zaregistrovat novou osobu", new_commisary_path, class: "btn btn-primary pull-right") if can? :create, Commisary %>
 
 <% unless @commisaries.empty? %>
 <table class="table table-striped table-condensed">

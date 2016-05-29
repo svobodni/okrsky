@@ -1,7 +1,11 @@
 <% page_title "Detail registrace" %>
 <% breadcrumb :commisary, @commisary %>
 
-<p class="perex">Až do uzávěrky 1.9.2016 můžete opravovat a doplňovat své údaje. Poté je předáme na příslušnou radnici.</p>
+<% if configatron.registration_allowed %>
+  <p class="perex">Až do uzávěrky <%=l configatron.registration_ends_at%> můžete opravovat a doplňovat své údaje. Poté je předáme na příslušnou radnici.</p>
+<% else %>
+  <p class="perex">Registrace jsou uzavřeny, údaje jsme odeslali starostům. Pokud potřebujete registraci zrušit, můžete písemně na radnici.</p>
+<% end %>
 
 <div class="panel panel-primary">
   <div class="panel-body">
@@ -14,5 +18,5 @@
   </div>
 </div>
 
-<%= link_to "Zrušit registraci", @commisary, method: :delete, data: { confirm: 'Jste si jistý?' }, class: "btn btn-lg btn-danger" %>
-<%= link_to "Opravit údaje", edit_commisary_path(@commisary), class: "btn btn-lg btn-primary pull-right" %>
+<%= link_to "Zrušit registraci", @commisary, method: :delete, data: { confirm: 'Jste si jistý?' }, class: "btn btn-lg btn-danger" if can? :destroy, @commisary%>
+<%= link_to "Opravit údaje", edit_commisary_path(@commisary), class: "btn btn-lg btn-primary pull-right" if can? :edit, @commisary %>

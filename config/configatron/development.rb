@@ -10,3 +10,6 @@ configatron.registr_oauth2_client_secret='f8546307e84c19cf77ea0767fa4ede742285ff
 
 # Středočeský, Pardubický, Zlínský, Jihomoravský, Královéhradecký, Karlovarský, Ústecký, Liberecký
 configatron.coalition_region_ids=[27, 94, 141, 116, 86, 51, 60, 78]
+
+configatron.registration_ends_at=Date.parse("2016-09-01")
+configatron.registration_allowed = Configatron::Dynamic.new {configatron.registration_ends_at >= Time.now}
