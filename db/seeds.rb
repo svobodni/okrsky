@@ -112,10 +112,10 @@ typy = ovm.collect{|o|
   ].member?(data["TypSubjektu"])
     hall=TownHall.find_by_ic(data["ICO"])
     unless ["BOLETICE", "BRDY", "LIBAVA"].member?(o["Zkratka"])
-      if data['AdresaUradu']['Ulice'].blank?
+      if data['AdresaUradu']['UliceNazev'].blank?
         ulice = "č.p."
       else
-        ulice = data['AdresaUradu']['Ulice']
+        ulice = data['AdresaUradu']['UliceNazev']
       end
       address = "#{ulice} #{data['AdresaUradu']['CisloDomovni']}\n#{data['AdresaUradu']['PSC']} #{data['AdresaUradu']['ObecNazev']}"
       hall.update_attributes(
