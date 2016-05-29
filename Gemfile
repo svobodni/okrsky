@@ -10,6 +10,11 @@ gem 'mysql2'
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'font-awesome-sass'
+# gem 'sweet-alert'
+source 'https://rails-assets.org' do
+  gem 'rails-assets-sweetalert'
+end
+gem 'sweet-alert-confirm'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views

@@ -23,6 +23,15 @@
     <%= link_to "Opravit údaje", edit_commisary_path(@commisary), class: "btn btn-lg btn-primary btn-block" if can? :edit, @commisary %>
   </div>
   <div class="col-sm-6 col-sm-pull-6">
-    <%= link_to "Zrušit registraci", @commisary, method: :delete, data: { confirm: 'Jste si jistý?' }, class: "btn btn-lg btn-danger btn-block" if can? :destroy, @commisary%>
+    <%= link_to("Zrušit registraci", @commisary, method: :delete, data: {
+          confirm: 'Opravdu chcete zrušit registraci do okrskové volební komise?',
+          :'confirm-button-text' => 'Ano, chci zrušit',
+          :'cancel-button-text' => 'Omyl, nechci nic rušit',
+          :'confirm-button-color' => '#d9534f',
+          :'sweet-alert-type' => 'warning',
+          text: 'Registrace bude okamžitě zrušena'
+        }, class: "btn btn-lg btn-danger btn-block"
+      ) if can? :destroy, @commisary
+    %>
   </div>
 </div>
