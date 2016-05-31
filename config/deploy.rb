@@ -1,30 +1,52 @@
-require 'bundler/capistrano'
+# config valid only for current version of Capistrano
+lock '3.5.0'
 
-set :application, "okrsky"
-set :repository,  "."
-set :deploy_via, :copy
-set :local_repository, "."
+set :application, 'okrsky'
+set :repo_url, 'git@github.com:svobodni/okrsky.git'
 
-role :web, "server.kubicek.cz"                          # Your HTTP server, Apache/etc
-role :app, "server.kubicek.cz"                          # This may be the same as your `Web` server
-role :db,  "server.kubicek.cz", :primary => true # This is where Rails migrations will run
+# Default branch is :master
+# ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
-set :deploy_to, "/home/svobodni/okrsky/"
-set :user, "okrsky"
-set :use_sudo, false
+# Default deploy_to directory is /var/www/my_app_name
+set :deploy_to, '/home/svobodni/okrsky/'
 
-task :create_symlinks  do
-  run "ln -nfs #{shared_path}/production.sqlite3 #{release_path}/db/production.sqlite3"
-  run "ln -nfs #{shared_path}/production.rb #{release_path}/config/configatron/production.rb"
-end
+# Default value for :scm is :git
+# set :scm, :git
 
-after "deploy:finalize_update", "create_symlinks"
-after "deploy:restart", "deploy:cleanup"
+# Default value for :format is :airbrussh.
+# set :format, :airbrussh
+
+# You can configure the Airbrussh format using :format_options.
+# These are the defaults.
+# set :format_options, command_output: true, log_file: 'log/capistrano.log', color: :auto, truncate: :auto
+
+# Default value for :pty is false
+# set :pty, true
+
+# Default value for :linked_files is []
+set :linked_files, fetch(:linked_files, []).push('db/production.sqlite3', 'config/configatron/production.rb')
+
+# Default value for linked_dirs is []
+# set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system')
+
+# Default value for default_env is {}
+# set :default_env, { path: "/opt/ruby/bin:$PATH" }
+
+# Default value for keep_releases is 5
+# set :keep_releases, 5
 
 namespace :deploy do
-  task :start do ; end
-  task :stop do ; end
-  task :restart, :roles => :app, :except => { :no_release => true } do
-    run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
+
+  after :restart, :clear_cache do
+    on roles(:web), in: :groups, limit: 3, wait: 10 do
+      # Here we can do anything such as:
+      # within release_path do
+      #   execute :rake, 'cache:clear'
+      # end
+    end
   end
+
 end
+
+
+#require 'bundler/capistrano'

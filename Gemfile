@@ -1,4 +1,8 @@
-source 'https://rubygems.org'
+source 'https://rails-assets.org' do
+  gem 'rails-assets-sweetalert'
+end
+
+source 'https://rubygems.org' do
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -11,9 +15,6 @@ gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'font-awesome-sass'
 # gem 'sweet-alert'
-source 'https://rails-assets.org' do
-  gem 'rails-assets-sweetalert'
-end
 gem 'sweet-alert-confirm'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -57,6 +58,7 @@ gem 'svobodni_layout', git: 'https://github.com/svobodni/svobodni_layout.git'
 gem 'configatron'
 gem 'simple_form'
 
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -70,4 +72,14 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  gem 'capistrano'
+  gem 'capistrano-rails'
+  gem 'capistrano-passenger'
+
+  # gem 'factory_girl'
+  # gem 'factory_girl_rails'
+  # gem 'faker'
+end
+
 end
