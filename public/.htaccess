@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Registrace jeste nejsou spusteny"
+AuthUserFile /home/svobodni/okrsky/shared/.htpasswd
+Require valid-user
