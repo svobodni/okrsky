@@ -6,8 +6,8 @@ GIT
       rails (~> 4)
 
 GEM
-  remote: https://rails-assets.org/
   remote: https://rubygems.org/
+  remote: https://rails-assets.org/
   specs:
     actionmailer (4.2.6)
       actionpack (= 4.2.6)
@@ -312,40 +312,40 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootstrap-sass (~> 3.3.6)!
+  bootstrap-sass (~> 3.3.6)
   byebug
-  cancancan (~> 1.10)!
+  cancancan (~> 1.10)
   capistrano
   capistrano-passenger
   capistrano-rails
-  coffee-rails (~> 4.1.0)!
+  coffee-rails (~> 4.1.0)
   configatron
   crack
-  devise!
-  exception_notification!
-  font-awesome-sass!
-  google_drive!
-  gretel!
-  jbuilder (~> 2.0)!
-  jquery-rails!
-  mysql2!
-  omniauth-oauth2!
-  prawn!
-  prawn-format!
-  prawn_rails!
-  rails (= 4.2.6)!
+  devise
+  exception_notification
+  font-awesome-sass
+  google_drive
+  gretel
+  jbuilder (~> 2.0)
+  jquery-rails
+  mysql2
+  omniauth-oauth2
+  prawn
+  prawn-format
+  prawn_rails
+  rails (= 4.2.6)
   rails-assets-sweetalert!
-  rails_admin!
+  rails_admin
   ruby-progressbar
-  sass-rails (~> 5.0)!
-  sdoc (~> 0.4.0)!
+  sass-rails (~> 5.0)
+  sdoc (~> 0.4.0)
   simple_form
   spring
-  sqlite3!
+  sqlite3
   svobodni_layout!
-  sweet-alert-confirm!
-  turbolinks!
-  uglifier (>= 1.3.0)!
+  sweet-alert-confirm
+  turbolinks
+  uglifier (>= 1.3.0)
   web-console (~> 2.0)
 
 BUNDLED WITH

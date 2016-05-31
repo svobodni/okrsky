@@ -1,8 +1,5 @@
-source 'https://rails-assets.org' do
-  gem 'rails-assets-sweetalert'
-end
 
-source 'https://rubygems.org' do
+source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -82,4 +79,6 @@ group :development do
   # gem 'faker'
 end
 
+source 'https://rails-assets.org' do
+  gem 'rails-assets-sweetalert'
 end
