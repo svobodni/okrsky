@@ -39,7 +39,7 @@ data['UI_OBEC'].each{|o|
   Municipality.where(id: o[:kod]).first_or_create { |mun|
     okres = data['UI_OKRES'].detect{|okres| okres[:kod]==o[:okres_kod]}
     kraj = data['UI_VUSC'].detect{|kraj| kraj[:kod]==okres[:vusc_kod]}
-    mun.name="#{o[:nazev]} (#{okres[:nazev]})"
+    mun.name=o[:nazev]==okres[:nazev] ? okres[:nazev] : "#{o[:nazev]} (okres #{okres[:nazev]})"
     mun.region_id=kraj[:kod]
     mun.registration_allowed=true
   }
@@ -93,6 +93,7 @@ unless File.exist?("ovm.xml")
   `wget -O ovm.xml "https://seznam.gov.cz/ovm/datafile.do?format=xml&service=seznamovm"`
 end
 
+progressbar.log "Loading OVM"
 c=Crack::XML.parse(File.open("ovm.xml"))
 ovm = c["SeznamOvmIndex"]["Subjekt"].select{|d| d["TypDS"]=="OVM"}
 progressbar=ProgressBar.create(format: progressbar_format, progress_mark: ' ', remainder_mark: '･', title: "OVM", starting_at: 0, total: ovm.size)
@@ -103,7 +104,8 @@ typy = ovm.collect{|o|
   unless File.exist?(filename)
     `wget -O #{filename} "#{url}"`
   end
-  data = Crack::XML.parse(File.open(filename))["DetailSubjektu"]
+  file = File.open(filename)
+  data = Crack::XML.parse(file)["DetailSubjektu"]
   if [
     "Obec I. Typu",
     "Obec II. Typu",
@@ -125,6 +127,7 @@ typy = ovm.collect{|o|
       )
     end
   end
+  file.close
   progressbar.increment
 }
 
