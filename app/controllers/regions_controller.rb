@@ -27,7 +27,7 @@ class RegionsController < ApplicationController
   # end
   #
   def index
-    @regions = Region.accessible_by(current_ability)
+    @regions = Region.accessible_by(current_ability, :letter)
   end
   #
   # def show

@@ -48,7 +48,7 @@
                       <% if can? :read, Event %><li><%= link_to "Události", events_path %></li><% end %>
                       <% if can? :read, User %><li><%= link_to "Uživatelé", users_path %></li><% end %>
                       <% if can? :read, User %><li><%= link_to "Statistiky", stats_path %></li><% end %>
-                      <% if can? :read, Region %><li><%= link_to "Dopisy", regions_path %></li><% end %>
+                      <% if can? :letter, Region %><li><%= link_to "Dopisy", regions_path %></li><% end %>
                     <% elsif commisary_signed_in? %>
                       <li><%= link_to "Registrace", current_commisary %></li>
                     <% end %>
