@@ -13,7 +13,7 @@ for town_hall, commisaries in @town_halls do
 #  nil
 #else
 
-pdf.move_down 60 
+pdf.move_down 60
 pdf.indent(300) do
 pdf.text town_hall.name
 pdf.text "k rukám starosty"
@@ -21,7 +21,7 @@ pdf.text town_hall.address
 end
 pdf.move_down 40
 pdf.text "Naše značka: VS2014-OVK-#{town_hall.id}"
-pdf.text "Vyřizuje: kancelar@svobodni.cz, tel.: 773 697 985"
+pdf.text "Vyřizuje: kancelar@svobodni.cz, tel.: 773 697 986"
 pdf.move_down 20
 
 pdf.text "Seznam delegovaných členů do okrskové(-ých) volební(-ch) komise(-í) pro volby do Senátu Parlamentu České republiky, které se uskuteční ve dnech 10. a 11. října 2014.", :style => :bold

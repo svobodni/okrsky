@@ -23,7 +23,7 @@ pdf.text "IDDS #{town_hall.idds}"
 
 pdf.move_down 40
 pdf.text "Naše značka: K2016-OVK-D-#{town_hall.id}"
-pdf.text "Vyřizuje: kancelar@svobodni.cz, tel.: 773 697 985"
+pdf.text "Vyřizuje: kancelar@svobodni.cz, tel.: 773 697 986"
 pdf.move_down 20
 
 pdf.text "Seznam delegovaných členů do okrskových volebních komisí pro volby do zastupitelstev krajů konaných ve dnech 7. a 8. října 2016.", :style => :bold
