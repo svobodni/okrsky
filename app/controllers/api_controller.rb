@@ -12,6 +12,7 @@ class ApiController < ApplicationController
     @wards = @municipality.districts.find_by_id(params[:district_id]).try(:wards) if params[:district_id]
     @wards ||= @municipality.wards
     @wards ||= Ward.includes(:commisary)
+    @wards = @wards.order(:external_id)
     respond_to do |format|
       format.json { render json: @wards, only: :id, methods: :name }
     end
