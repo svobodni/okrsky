@@ -8,7 +8,7 @@ class Ward < ActiveRecord::Base
   end
 
   def town_hall
-    if district
+    if district && ![556904,555321].member?(district_id) # Liberec, Opava
       district.town_hall
     else
       municipality.town_hall
