@@ -3,9 +3,9 @@
   breadcrumb :root
 %>
 
-<p class="perex">pro krajské volby konané ve dnech 7. a 8. října 2016</p>
+<p class="perex">pro volby do Poslanecké sněmovny Parlamentu České republiky konané ve dnech 20. a 21. října 2017</p>
 <p>Strana svobodných občanů má jako kandidující strana ze zákona nárok na své zástupce v okrskových volebních komisích. Podmínkou je české občanství a plnoletost.</p>
-<p>Registrace do okrskových volebních komisí mohou provádět pouze členové a příznivci Svobodých. Tam, kde kandidujeme v koalici se Soukromníky může registrace provádět také pověřený zástupce Soukromníků.</p>
+<p>Registrace do okrskových volebních komisí mohou provádět pouze členové a příznivci Svobodých. Příznivci mohou zaregistrovat pouze sebe, členové i další osoby.</p>
 <p>Zaregistrovaná osoba obdrží emailem vlastní přihlašovací údaje a může zde měnit své registrační údaje nebo svou registraci zrušit.</p>
 <p>V případě nejasností se na nás můžete obrátit emailem na adrese <%=mail_to configatron.our_email %> nebo telefonicky na čísle 773 697 986.</p>
 
@@ -29,11 +29,11 @@
   </div>
 
   <div class="panel panel-default">
-    <div class="panel-heading">Vstup pro Svobodné a Soukromníky - registrace osob</div>
+    <div class="panel-heading">Vstup pro Svobodné - registrace osob</div>
     <div class="panel-body">
       <div class="row">
+        <div class="col-sm-3"></div>
         <div class="col-sm-6"><%= link_to image_tag('svobodni.png', style: "width: 300px;"), user_registr_omniauth_authorize_path %></div>
-        <div class="col-sm-6"><%= link_to image_tag('soukromnici.png', style: "width: 300px;"), new_user_session_path %></div>
       </div>
     </div>
   </div>

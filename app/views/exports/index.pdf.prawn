@@ -22,20 +22,20 @@ end
 pdf.text "IDDS #{town_hall.idds}"
 
 pdf.move_down 40
-pdf.text "Naše značka: K2016-OVK-D-#{town_hall.id}"
+pdf.text "Naše značka: PSP2017-OVK-D-#{town_hall.id}"
 pdf.text "Vyřizuje: kancelar@svobodni.cz, tel.: 773 697 986"
 pdf.move_down 20
 
-pdf.text "Seznam delegovaných členů do okrskových volebních komisí pro volby do zastupitelstev krajů konaných ve dnech 7. a 8. října 2016.", :style => :bold
+pdf.text "Seznam delegovaných členů do okrskových volebních komisí pro volby do Poslanecké sněmovny Parlamentu České republiky konané ve dnech 20. a 21. října 2017.", :style => :bold
 pdf.move_down 20
-pdf.text "V souladu s ust. § 17 odst. 2 a 3 zákona č. 130/2000 Sb., o volbách do zastupitelstev krajů a o změně některých zákonů, ve znění pozdějších předpisů tímto politická strana Strana svobodných občanů, jejíž kandidátní listina byla zaregistrována pro volby do zastupitelstva kraje, deleguje níže uvedené členy do okrskových volebních komisí vaší obce/města."
+pdf.text "V souladu s ust. § 14e odst. 3 a 4 zákona č. 247/1995 Sb., o volbách do Parlamentu České republiky a o změně a doplnění některých dalších zákonů, ve znění pozdějších předpisů tímto politická strana Strana svobodných občanů, jejíž kandidátní listina byla zaregistrována pro volby do Poslanecké sněmovny Parlamentu České republiky, deleguje níže uvedené členy do okrskových volebních komisí vaší obce/města."
 
 pdf.move_down 20
 
 pdf.text "Členové :", :style => :bold
 for commisary in commisaries.sort{|a, b| a.ward.external_id.to_i<=>b.ward.external_id.to_i} do
   pdf.text "Jméno a příjmení: " + commisary.name
-  pdf.text "Rodné číslo: " + commisary.birth_number
+  pdf.text "Datum narození: " + commisary.birth_number
   pdf.text "Místo, kde je člen přihlášen k trvalému pobytu: " + commisary.address
   pdf.text "Telefon: " + commisary.phone
   pdf.text "Email: " + commisary.email

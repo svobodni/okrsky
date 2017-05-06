@@ -8,7 +8,7 @@ cs:
         municipality_id: "Obec"
         district_id: "Městská část / obvod"
         address: "Adresa trvalého bydliště"
-        birth_number: "Rodné číslo"
+        birth_number: "Datum narození"
         name: "Jméno a příjmení"
         phone: "Telefon"
         postal_address: "Korespondenční adresa"
@@ -29,4 +29,4 @@ cs:
             email:
               taken: "je již použit u jiné registrace"
             birth_number:
-              invalid: "nevypadá jako rodné číslo"
+              invalid: "nevypadá jako datum narození"

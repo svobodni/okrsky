@@ -1,9 +1,9 @@
 $icon-font-path: '../fonts/';
 
-$brand-primary:         #00654E;
+$brand-primary:         #009681;
 $headings-color:        $brand-primary;
-$font-family-base:      "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
-$headings-font-family:  "Roboto-Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-base:      "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$headings-font-family:  "Montserrat-Black", "Helvetica Neue", Helvetica, Arial, sans-serif;
 $font-size-base:        14px;
 $font-size-h1:          floor(($font-size-base * 2.4)) !default; // ~36px
 $font-size-h2:          floor(($font-size-base * 1.6)) !default; // ~30px
@@ -158,10 +158,10 @@ $navbar-default-toggle-border-color:       #ddd !default;
 // }
 
 .navbar {
-  border-top: 15px solid #00654e;
+  border-top: 15px solid #009681;
 }
 .navbar-brand {
-  min-height: 100px;
+  min-height: 80px;
 }
 .navbar-brand {
   padding: 0px; /* firefox bug fix */
@@ -171,7 +171,6 @@ $navbar-default-toggle-border-color:       #ddd !default;
   height: 100%;
   padding: 15px; /* firefox bug fix */
   width: auto;
-  margin-left: -25px;
 }
 
 .perex {
@@ -220,7 +219,7 @@ $navbar-default-toggle-border-color:       #ddd !default;
 
 /* Space out content a bit */
 body {
-  border-top: 15px solid #00654e;
+  border-top: 15px solid #009681;
   padding-top: 20px;
   padding-bottom: 20px;
 }
