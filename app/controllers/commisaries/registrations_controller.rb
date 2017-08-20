@@ -16,7 +16,7 @@ class Commisaries::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    params[:commisary][:user_id]=current_user.id
+    params[:commisary][:user_id]=current_user.try(:id)
     password=Devise.friendly_token.first(8)
     params[:commisary][:password]=password
     params[:commisary][:password_confirmation]=password
@@ -32,6 +32,7 @@ class Commisaries::RegistrationsController < Devise::RegistrationsController
         changes: resource.previous_changes
       }))
       set_flash_message! :notice, :signed_up
+      sign_up(resource_name, resource)
       respond_with resource, location: after_sign_up_path_for(resource)
     else
       clean_up_passwords resource
@@ -47,7 +48,7 @@ class Commisaries::RegistrationsController < Devise::RegistrationsController
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :birth_number, :address, :postal_address, :phone, :email, :region_id, :municipality_id, :district_id, :ward_id, :user_id])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :birth_number, :address, :postal_address, :phone, :email, :region_id, :municipality_id, :district_id, :ward_id, :user_id, :party_member, :party_voter])
   end
 
 end

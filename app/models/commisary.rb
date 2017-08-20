@@ -20,6 +20,9 @@ class Commisary < ActiveRecord::Base
   # validates :email, presence: true, length: { minimum: 5 }
   validates :ward, presence: true, uniqueness: true
 
+  validates :party_member, acceptance: true, acceptance: { message: 'nesmíte být členem jiné strany' }
+  validates :party_voter, acceptance: true, acceptance: { message: 'musíte volit Svobodné' }
+
   belongs_to :ward
 
   after_create :send_signup_confirmation_email
@@ -79,6 +82,7 @@ class Commisary < ActiveRecord::Base
   end
 
   attr_accessor :municipality_id, :region_id, :district_id
+  attr_accessor :party_member, :party_voter
 
   def town_hall
     ward.try(:town_hall)

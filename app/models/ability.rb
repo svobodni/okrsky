@@ -2,6 +2,11 @@ class Ability
   include CanCan::Ability
 
   def initialize(person)
+    # registrace jsou otevreny pro vsechny
+    if configatron.registration_allowed
+      can :read, Region
+      can :create, Commisary
+    end
     return unless person
     if configatron.registration_allowed
       if person.kind_of?(Commisary)

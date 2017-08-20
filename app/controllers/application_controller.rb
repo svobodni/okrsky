@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
 
   def default_event_params
     {
-      requestor_id: current_person.id,
+      requestor_id: current_person.try(:id),
       requestor_type: current_person.class.to_s,
       params: params,
       controller_path: controller_path,

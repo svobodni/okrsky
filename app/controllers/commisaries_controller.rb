@@ -1,6 +1,6 @@
 class CommisariesController < ApplicationController
   before_action :authenticate_user!, only: :index
-  before_action :authenticate_person!
+  before_action :authenticate_person!, except: :new
   before_action :set_commisary, only: [:show, :edit, :update]
 
   def new
