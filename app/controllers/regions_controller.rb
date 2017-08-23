@@ -29,10 +29,13 @@ class RegionsController < ApplicationController
   def index
     @regions = Region.accessible_by(current_ability, :letter)
   end
-  #
-  # def show
-  # end
-  #
+
+  def show
+    @region = Region.find_by_id_and_password(params[:id],params[:token])
+    @town_halls=Commisary.all.group_by{|c| c.ward.town_hall}
+    @town_halls.reject!{|t,c| t.region.id!=@region.id}.sort{|a,b| a[0].name<=>b[0].name}
+  end
+
   # def destroy
   #   if current_commisary
   #     current_commisary.destroy

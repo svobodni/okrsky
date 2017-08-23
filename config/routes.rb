@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   devise_for :commisaries, :controllers => {:registrations => "commisaries/registrations"}
   resources :commisaries, only: [:index, :show, :new, :destroy, :edit, :update]
   resources :events, only: [:index]
-  resources :regions, only: [:index]
+  resources :regions, only: [:index, :show]
   resources :users, only: [:index]
 
   # mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'

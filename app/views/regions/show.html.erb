@@ -1,0 +1,12 @@
+<%
+  page_title @region.name
+%>
+
+<% @town_halls.each do |town_hall, commisaries| %>
+  <h2><%= town_hall.name %></h2>
+  <ul>
+    <% commisaries.sort{|a,b| a.ward.external_id<=>b.ward.external_id}.each do |commisary| %>
+    <li><%=commisary.name %> (okrsek <%=commisary.ward.external_id%>)</li>
+    <% end %>
+  </ul>
+<% end %>
