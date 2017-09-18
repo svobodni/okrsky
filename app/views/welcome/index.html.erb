@@ -3,47 +3,51 @@
   breadcrumb :root
 %>
 
-<p class="perex">pro volby do Poslanecké sněmovny Parlamentu České republiky konané ve dnech 20. a 21. října 2017</p>
-<p>Volíte Svobodné? Pojďte nám pomoci sečíst vaše hlasy.</p>
-<p>Strana svobodných občanů má jako kandidující strana ze zákona nárok na své zástupce v okrskových volebních komisích. Podmínkou je české občanství a plnoletost.</p>
-<p>Pokud jste se rozhodli pracovat v dny voleb ve volební komisi, zaregistrujte se prosím.</p>
-<p><%= link_to "Registrace do komisí pro voliče Svobodných >>", new_commisary_path, class: "btn btn-default btn-lg" %></p>
-<p>V případě nejasností se na nás můžete obrátit emailem na adrese <%=mail_to configatron.our_email %> nebo telefonicky na čísle 773 697 986.</p>
+<% if 1==1 %>
+  <strong>Registrace do okrskových volebních komisí jsou již uzavřeny.</strong>
+<% else %>
+  <p class="perex">pro volby do Poslanecké sněmovny Parlamentu České republiky konané ve dnech 20. a 21. října 2017</p>
+  <p>Volíte Svobodné? Pojďte nám pomoci sečíst vaše hlasy.</p>
+  <p>Strana svobodných občanů má jako kandidující strana ze zákona nárok na své zástupce v okrskových volebních komisích. Podmínkou je české občanství a plnoletost.</p>
+  <p>Pokud jste se rozhodli pracovat v dny voleb ve volební komisi, zaregistrujte se prosím.</p>
+  <p><%= link_to "Registrace do komisí pro voliče Svobodných >>", new_commisary_path, class: "btn btn-default btn-lg" %></p>
+  <p>V případě nejasností se na nás můžete obrátit emailem na adrese <%=mail_to configatron.our_email %> nebo telefonicky na čísle 773 697 986.</p>
 
-<% unless person_signed_in? %>
-  <div class="panel panel-default">
-    <div class="panel-heading">Vstup pro členy komisí - úprava svých údajů</div>
-    <div class="panel-body">
-      <p>Zaregistrovaná osoba obdrží emailem vlastní přihlašovací údaje a může zde měnit své registrační údaje nebo svou registraci zrušit.</p>
-      <%= form_for(Commisary.new, url: commisary_session_path, html: {class: "form-inline"}) do |f| %>
-        <div class="form-group">
-          <%= f.label :email, class: "sr-only" %>
-          <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Email" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :password, class: "sr-only"  %>
-          <label class="sr-only" for="exampleInputPassword3">Heslo</label>
-          <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Heslo" %>
-        </div>
-        <%= f.submit "Přihlásit", class: "btn btn-default" %>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="panel panel-default">
-    <div class="panel-heading">Vstup pro Svobodné - registrace osob</div>
-    <div class="panel-body">
-      <div class="row">
-        <div class="col-sm-3"></div>
-        <div class="col-sm-6"><%= link_to image_tag('svobodni.png', style: "width: 300px;"), user_registr_omniauth_authorize_path %></div>
+  <% unless person_signed_in? %>
+    <div class="panel panel-default">
+      <div class="panel-heading">Vstup pro členy komisí - úprava svých údajů</div>
+      <div class="panel-body">
+        <p>Zaregistrovaná osoba obdrží emailem vlastní přihlašovací údaje a může zde měnit své registrační údaje nebo svou registraci zrušit.</p>
+        <%= form_for(Commisary.new, url: commisary_session_path, html: {class: "form-inline"}) do |f| %>
+          <div class="form-group">
+            <%= f.label :email, class: "sr-only" %>
+            <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Email" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :password, class: "sr-only"  %>
+            <label class="sr-only" for="exampleInputPassword3">Heslo</label>
+            <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Heslo" %>
+          </div>
+          <%= f.submit "Přihlásit", class: "btn btn-default" %>
+        <% end %>
       </div>
     </div>
-  </div>
-<% else %>
-  <% if user_signed_in? %>
-    <%= link_to "Registrace >", commisaries_path, class: "btn btn-lg btn-primary pull-right" %>
-    <%= link_to "Dopisy pro zmocněnce", regions_path, class: "btn btn-lg btn-default btn-primary" if can? :letter, Region %>
-  <% elsif commisary_signed_in? %>
-    <%= link_to "Registrace >", current_commisary, class: "btn btn-lg btn-primary pull-right" %>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">Vstup pro Svobodné - registrace osob</div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-sm-3"></div>
+          <div class="col-sm-6"><%= link_to image_tag('svobodni.png', style: "width: 300px;"), user_registr_omniauth_authorize_path %></div>
+        </div>
+      </div>
+    </div>
+  <% else %>
+    <% if user_signed_in? %>
+      <%= link_to "Registrace >", commisaries_path, class: "btn btn-lg btn-primary pull-right" %>
+      <%= link_to "Dopisy pro zmocněnce", regions_path, class: "btn btn-lg btn-default btn-primary" if can? :letter, Region %>
+    <% elsif commisary_signed_in? %>
+      <%= link_to "Registrace >", current_commisary, class: "btn btn-lg btn-primary pull-right" %>
+    <% end %>
   <% end %>
 <% end %>
