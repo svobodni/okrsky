@@ -20,8 +20,8 @@ class Commisary < ActiveRecord::Base
   # validates :email, presence: true, length: { minimum: 5 }
   validates :ward, presence: true, uniqueness: true
 
-  validates :party_member, acceptance: true, acceptance: { message: 'nesmíte být členem jiné strany' }
-  validates :party_voter, acceptance: true, acceptance: { message: 'musíte volit Svobodné' }
+  #validates :party_member, acceptance: true, acceptance: { message: 'nesmíte být členem jiné strany' }
+  #validates :party_voter, acceptance: true, acceptance: { message: 'musíte volit Svobodné' }
 
   belongs_to :ward
 

@@ -42,8 +42,8 @@
         <%= f.input :postal_address, input_html: {autocomplete: 'off'}, placeholder: 'Ulice 536, 111 00 Praha 1', hint: '<strong>Vyplňujte jen pokud se liší od trvalého bydliště</strong>'.html_safe %>
       </div>
     </div>
-    <%= f.input :party_voter, as: :boolean, label: 'V těchto volbách budu volit Svobodné' %>
-    <%= f.input :party_member, as: :boolean, label: 'Nejsem členem jiné politické strany' %>
+    <%#= f.input :party_voter, as: :boolean, label: 'V těchto volbách budu volit Svobodné' %>
+    <%#= f.input :party_member, as: :boolean, label: 'Nejsem členem jiné politické strany' %>
     <%= f.submit "> Odeslat přihlášku <", class: "btn btn-primary btn-lg btn-block" %>
   <% end %>
 <% end %>
