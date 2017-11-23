@@ -3,16 +3,15 @@
   breadcrumb :root
 %>
 
-<% if 1==1 %>
+<% if 1==0 %>
   <strong>Registrace do okrskových volebních komisí jsou již uzavřeny.</strong>
 <% else %>
-  <p class="perex">pro volby do Poslanecké sněmovny Parlamentu České republiky konané ve dnech 20. a 21. října 2017</p>
-  <p>Volíte Svobodné? Pojďte nám pomoci sečíst vaše hlasy.</p>
-  <p>Strana svobodných občanů má jako kandidující strana ze zákona nárok na své zástupce v okrskových volebních komisích. Podmínkou je české občanství a plnoletost.</p>
-  <p>Pokud jste se rozhodli pracovat v dny voleb ve volební komisi, zaregistrujte se prosím.</p>
+  <p class="perex">pro volbu prezidenta České republiky konanou ve dnech 12. a 13. ledna 2018; případné II. kolo ve dnech 26. a 27. ledna 2018.</p>
+  <p>Strana svobodných občanů má ze zákona nárok delegovat osoby do okrskových volebních komisí jen ve Zlínském kraji, ve kterém máme zvolené naše krajské zastupitele.</p>
+  <p>Pokud jste se rozhodli pracovat v dny voleb ve volební komisi, zaregistrujte se prosím. Podmínkou je české občanství a plnoletost.</p>
   <p><%= link_to "Registrace do komisí pro voliče Svobodných >>", new_commisary_path, class: "btn btn-default btn-lg" %></p>
   <p>V případě nejasností se na nás můžete obrátit emailem na adrese <%=mail_to configatron.our_email %> nebo telefonicky na čísle 773 697 986.</p>
-
+  <p>Registrace jsou otevřeny do <%=l configatron.registration_ends_at%></p>
   <% unless person_signed_in? %>
     <div class="panel panel-default">
       <div class="panel-heading">Vstup pro členy komisí - úprava svých údajů</div>
