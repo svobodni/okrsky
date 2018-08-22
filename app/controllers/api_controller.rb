@@ -21,7 +21,7 @@ class ApiController < ApplicationController
 
   def districts
     @districts = @municipality ? @municipality.districts : District.all
-    @districts = @districts.where(id: 500143)
+    @districts = @districts.where(id: [500143, 500089])
     respond_to do |format|
       format.json { render json: @districts, only: :id, methods: :name }
     end
