@@ -47,8 +47,7 @@ ready = function() {
             response($.map(data, function(item, index) {
               return {
                 label: item['name'],
-                value: item['id'],
-                selected: index == 0
+                value: item['id']
               };
             }));
           });

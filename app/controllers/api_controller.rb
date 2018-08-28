@@ -11,9 +11,10 @@ class ApiController < ApplicationController
 
   def wards
     @wards = @municipality.districts.find_by_id(params[:district_id]).try(:wards) if params[:district_id]
+    @wards ||= [] unless @municipality.districts.empty?
     @wards ||= @municipality.wards
     @wards ||= Ward.includes(:commisary)
-    @wards = @wards.order(:external_id)
+    @wards = @wards.order(:external_id) if @wards.respond_to?(:order)
     respond_to do |format|
       format.json { render json: @wards, only: :id, methods: :name }
     end

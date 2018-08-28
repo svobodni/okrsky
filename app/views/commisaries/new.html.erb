@@ -16,7 +16,7 @@
     <strong>Registrace do okrskových volebních komisí jsou již uzavřeny.</strong>
   <% else %>
     <%= simple_form_for(@commisary, url: new_commisary_registration_path, method: :get, html: { class: 'form-horizontal' }) do |f| %>
-      <%= f.input :region_id, as: :select, collection: Region.accessible_by(current_ability).includes(:municipalities).where("municipalities.registration_allowed":true).order(:name), include_blank: false, prompt: true, input_html: {id: :region_id, class: 'step1'} %>
+      <%= f.input :region_id, as: :select, collection: Region.accessible_by(current_ability).includes(:municipalities).where("municipalities.registration_allowed"=>true).order(:name), include_blank: false, prompt: true, input_html: {id: :region_id, class: 'step1'} %>
       <%= f.input :municipality_id, as: :select, collection: [], include_blank: false, prompt: true, input_html: {id: :municipality_id, class: 'step2'} %>
       <%= f.input :district_id, as: :select, collection: [], include_blank: false, prompt: false, input_html: {id: :district_id, class: 'step3'} %>
       <%= f.input :ward_id, as: :select, collection: [], include_blank: false, prompt: true, input_html: {id: :ward_id, class: 'step4'} %>
