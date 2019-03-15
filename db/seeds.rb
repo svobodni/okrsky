@@ -2,7 +2,7 @@ require "csv"
 
 ciselniky = %w(UI_OBEC UI_OKRES UI_MOMC UI_VUSC UI_VOLEBNI_OKRSEK)
 progressbar_format = "%a %e %P% Zpracovano: %c z %C %bᗧ%i %p%% %t"
-registration_ends_at = Date.parse("2016-09-01")
+registration_ends_at = Date.parse("2019-04-19")
 
 ciselniky.each{|ciselnik|
   unless File.exist?("#{ciselnik}.csv")
@@ -29,7 +29,7 @@ progressbar=ProgressBar.create(format: progressbar_format, progress_mark: ' ', r
 data['UI_VUSC'].each{|r|
   Region.where(id: r[:kod]).first_or_create {|region|
     region.name=r[:nazev]
-    region.registration_ends_at = registration_ends_at
+    # region.registration_ends_at = registration_ends_at
   }
   progressbar.increment
 }
@@ -44,14 +44,14 @@ data['UI_OBEC'].each{|o|
     mun.registration_allowed=true
   }
 
-  filename = "epusa/obce/#{o[:kod]}.html"
-  unless File.exist?(filename)
-    `wget -O #{filename} "https://www.epusa.cz/index.php?obec=#{o[:kod]}"`
-  end
+  # filename = "epusa/obce/#{o[:kod]}.html"
+  # unless File.exist?(filename)
+  #   `wget -O #{filename} "https://www.epusa.cz/index.php?obec=#{o[:kod]}"`
+  # end
 
   TownHall.create(
     name: o[:nazev],
-    ic: Nokogiri.parse(File.open(filename)).at("span.zkratka106:contains('(6)')").parent.next_element.text.rjust(8,"0"),
+    # ic: Nokogiri.parse(File.open(filename)).at("span.zkratka106:contains('(6)')").parent.next_element.text.rjust(8,"0"),
     municipality_id: o[:kod]
   ) unless o[:kod]=="539996" # Brdy
   progressbar.increment
@@ -63,14 +63,14 @@ data['UI_MOMC'].each{|d|
     dis.name=d[:nazev]
     dis.municipality_id=d[:obec_kod]
   }
-  filename = "epusa/momc/#{d[:kod]}.html"
-  unless File.exist?(filename)
-    `wget -O #{filename} "https://www.epusa.cz/index.php?mestcast=#{d[:kod]}"`
-  end
+  # filename = "epusa/momc/#{d[:kod]}.html"
+  # unless File.exist?(filename)
+  #   `wget -O #{filename} "https://www.epusa.cz/index.php?mestcast=#{d[:kod]}"`
+  # end
 
   DistrictTownHall.create(
     name: d[:nazev],
-    ic: Nokogiri.parse(File.open(filename)).at("span.zkratka106:contains('(6)')").parent.next_element.text.rjust(8,"0"),
+    # ic: Nokogiri.parse(File.open(filename)).at("span.zkratka106:contains('(6)')").parent.next_element.text.rjust(8,"0"),
     municipality_id: d[:obec_kod],
     district_id: d[:kod],
   ) unless ["556904","555321"].member?(d[:kod]) # FIXME: Liberec, Opava
@@ -79,58 +79,106 @@ data['UI_MOMC'].each{|d|
 
 progressbar=ProgressBar.create(format: progressbar_format, progress_mark: ' ', remainder_mark: '･', title: "Okrsky", starting_at: 0, total: data['UI_VOLEBNI_OKRSEK'].size)
 data['UI_VOLEBNI_OKRSEK'].each{|o|
-  Ward.where(id: o[:kod]).first_or_create { |okr|
-    okr.external_id=o[:cislo]
+  Ward.find_or_create_by(id: o[:kod]) { |okr|
+    if o[:cislo_s_prefixem]
+      okr.external_id=o[:cislo_s_prefixem]
+    else
+      okr.external_id=o[:cislo]
+    end
     okr.municipality_id=o[:obec_kod]
     okr.district_id=o[:momc_kod]
-  }
+  } if o[:plati_do].blank?
   progressbar.increment
 }
 
-require 'crack'
+progressbar=ProgressBar.create(format: progressbar_format, progress_mark: ' ', remainder_mark: '･', title: "Okrsky", starting_at: 0, total: TownHall.where(district_id:nil).count)
+TownHall.where(district_id:nil).each{|hall|
+  filename="risy/obce/#{hall.municipality_id}.html"
+  unless File.exist?(filename)
+    `wget -O #{filename} "http://www.risy.cz/cs/vyhledavace/obce/detail?zuj=#{hall.municipality_id}"`
+  end
+  progressbar.increment
+}
 
-unless File.exist?("ovm.xml")
-  `wget -O ovm.xml "https://seznam.gov.cz/ovm/datafile.do?format=xml&service=seznamovm"`
+progressbar=ProgressBar.create(format: progressbar_format, progress_mark: ' ', remainder_mark: '･', title: "Okrsky", starting_at: 0, total: DistrictTownHall.count)
+DistrictTownHall.all.each{|hall|
+  filename="risy/momc/#{hall.district_id}.html"
+  unless File.exist?(filename)
+    `wget -O #{filename} "http://www.risy.cz/cs/vyhledavace/obce/detail?zuj=#{hall.municipality_id}&mc=#{hall.district_id}"`
+  end
+  progressbar.increment
+}
+
+files = Dir.glob("risy/obce/*.html")
+progressbar=ProgressBar.create(format: progressbar_format, progress_mark: ' ', remainder_mark: '･', title: "IDDS Obci", starting_at: 0, total: files.size)
+files.each do |fn|
+  id = fn.match(/\d+/)[0]
+  f=File.open(fn)
+  idds_match = f.read.match(/<tr><td>Datov. schr.nka:<\/td><td>(\w{7})<\/td><\/tr>/)
+  f.close
+  unless idds_match
+    puts "ERROR FINDING IDDS #{fn}" unless id=='541303'
+  else
+    TownHall.find_by(district_id:nil,municipality_id:id).update_attribute :idds, idds_match[1]
+  end
+  progressbar.increment
 end
 
-progressbar.log "Loading OVM"
-c=Crack::XML.parse(File.open("ovm.xml"))
-ovm = c["SeznamOvmIndex"]["Subjekt"].select{|d| d["TypDS"]=="OVM"}
-progressbar=ProgressBar.create(format: progressbar_format, progress_mark: ' ', remainder_mark: '･', title: "OVM", starting_at: 0, total: ovm.size)
-typy = ovm.collect{|o|
-  # progressbar.log "Updating #{o['Zkratka']}"
-  filename = "ovm/#{o['Zkratka']}.xml"
-  url = o['DetailSubjektu']
-  unless File.exist?(filename)
-    `wget -O #{filename} "#{url}"`
-  end
-  file = File.open(filename)
-  data = Crack::XML.parse(file)["DetailSubjektu"]
-  if [
-    "Obec I. Typu",
-    "Obec II. Typu",
-    "Obec III. Typu",
-    "Statutární města (Magistráty) a jejich obvody"
-  ].member?(data["TypSubjektu"])
-    hall=TownHall.find_by_ic(data["ICO"])
-    unless ["BOLETICE", "BRDY", "LIBAVA"].member?(o["Zkratka"])
-      if data['AdresaUradu']['UliceNazev'].blank?
-        ulice = "č.p."
-      else
-        ulice = data['AdresaUradu']['UliceNazev']
-      end
-      address = "#{ulice} #{data['AdresaUradu']['CisloDomovni']}\n#{data['AdresaUradu']['PSC']} #{data['AdresaUradu']['ObecNazev']}"
-      hall.update_attributes(
-        idds: data["IdDS"],
-        name: data["Nazev"],
-        address: address
-      )
-    end
-  end
-  file.close
-  progressbar.increment
-}
+# Vidnava fix - risy nema data
+TownHall.find_by(municipality_id:541303).update_attribute :idds, '7ywbajq'
 
-#  c["SeznamOvmIndex"]["Subjekt"].detect{|s| s["Nazev"]=="Obec Kojetice"}
-# => {"Zkratka"=>"KojeticeT", "ICO"=>"00289612", "Nazev"=>"Obec Kojetice", "AdresaUradu"=>{"AdresniBod"=>"2676516", "CisloDomovni"=>"131", "ObecNazev"=>"Kojetice", "ObecKod"=>"590860", "CastObceNeboKatastralniUzemi"=>"Kojetice", "PSC"=>"67523", "KrajNazev"=>"Vysočina"}, "Email"=>{"Polozka"=>[{"Typ"=>"1", "Email"=>"info@oukojetice.cz"}, {"Typ"=>"2", "Email"=>"ou.kojetice@quick.cz"}]}, "TypSubjektu"=>"Obec I. Typu", "PravniForma"=>"Obec", "PrimarniOvm"=>"Ano", "IdDS"=>"cw3ax5s", "TypDS"=>"OVM", "StavDS"=>"1", "StavSubjektu"=>"1", "DetailSubjektu"=>"http://seznam.gov.cz/ovm/datafile.do?format=xml&service=seznamovm&id=KojeticeT"}
-# d=Crack::XML.parse(open("http://seznam.gov.cz/ovm/datafile.do?format=xml&service=seznamovm&id=KojeticeT"))
+files = Dir.glob("risy/momc/*.html")
+progressbar=ProgressBar.create(format: progressbar_format, progress_mark: ' ', remainder_mark: '･', title: "IDDS Momc", starting_at: 0, total: files.size)
+files.each do |fn|
+  id = fn.match(/\d+/)[0]
+  f=File.open(fn)
+  idds_match = f.read.match(/<td><label id="Label35" style="border: 0;">(\w{7})<\/label><\/td>/)
+  f.close
+  unless idds_match
+    puts "ERROR FINDING IDDS #{fn}" unless ['554324', '554715', '545970'].member?(id)
+  else
+    DistrictTownHall.find_by(district_id:id).update_attribute :idds, idds_match[1]
+  end
+  progressbar.increment
+end
+
+# fixy - risy nema validni hodnoty
+DistrictTownHall.find_by(district_id:554324).update_attribute :idds, '2r7bt6b'
+DistrictTownHall.find_by(district_id:554715).update_attribute :idds, 'wu8bzk6'
+DistrictTownHall.find_by(district_id:545970).update_attribute :idds, '2dibh62'
+
+unless File.exist?("ovm.xml")
+  `wget -O ovm.xml.zip "https://www.mojedatovaschranka.cz/sds/datafile.do?format=xml&service=seznam_ds_ovm"`
+  `unzip ovm.xml.zip`
+end
+
+c=Crack::XML.parse(File.open("ovm.xml"))
+boxes = c["list"]["box"] #.select{|d| d["type"]=="OVM"}
+
+data = TownHall.where.not(idds:nil)
+progressbar=ProgressBar.create(format: progressbar_format, progress_mark: ' ', remainder_mark: '･', title: "OVM", starting_at: 0, total: data.count)
+
+data.each do |townhall|
+  box = boxes.detect{|b| b['id']==townhall.idds}
+
+  ulice = if box['address']['street'].blank?
+    "č.p."
+  else
+    box['address']['street']
+  end
+
+  cislo = if box['address']['co'].blank?
+    box['address']['cp']
+  else
+    "#{box['address']['cp']}/#{box['address']['co']}"
+  end
+
+  address = "#{ulice} #{cislo}\n#{box['address']['zip']} #{box['address']['city']}"
+
+  townhall.update_attributes name: box['name']['tradeName'], address: address
+  progressbar.increment
+end
+
+# (1..200).to_a.each{|id|
+#   Commisary.create(name: "Jan Novák", birth_number: "123456/#{id.to_s.rjust(4,'0')}", address: "Adresa Neco nekde", email: "jiri.kubicek+#{id}@kraxnet.cz", phone: "220199201", ward_id: id, user_id: 1)
+# }
