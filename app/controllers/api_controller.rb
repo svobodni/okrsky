@@ -22,7 +22,6 @@ class ApiController < ApplicationController
 
   def districts
     @districts = @municipality ? @municipality.districts : District.all
-    @districts = @districts.where(id: [500143, 539694, 551295, 500089, 547034, 555355, 555339, 555436, 555321, 555401, 555371, 555461, 556700, 555410])
     respond_to do |format|
       format.json { render json: @districts, only: :id, methods: :name }
     end

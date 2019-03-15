@@ -3,7 +3,7 @@ class Ability
 
   def initialize(person)
     # registrace jsou otevreny pro vsechny
-    if configatron.registration_allowed
+    if configatron.public_registration_allowed && configatron.registration_allowed
       can :read, Region
       can :create, Commisary
     end

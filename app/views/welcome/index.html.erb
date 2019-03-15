@@ -6,9 +6,14 @@
 <% if 1==0 %>
   <strong>Registrace do okrskových volebních komisí jsou již uzavřeny.</strong>
 <% else %>
-  <p class="perex">pro volby do zastupitelstev obcí konaných ve dnech 5. a 6. října 2018</p>
+  <p class="perex">pro volby do Evropského parlamentu konaných ve dnech 24. a 25. května 2019</p>
   <p>Pokud jste se rozhodli pracovat v dny voleb ve volební komisi, zaregistrujte se prosím. Podmínkou je české občanství a plnoletost.</p>
+  <% if configatron.public_registration_allowed %>
   <p><%= link_to "Registrace do komisí pro voliče Svobodných >>", new_commisary_path, class: "btn btn-default btn-lg" %></p>
+  <% else %>
+  <p>Registrace do okrskových volebních komisí mohou provádět pouze členové a příznivci Svobodých. Příznivci mohou zaregistrovat pouze sebe, členové i další osoby.</p>
+  <p>Zaregistrovaná osoba obdrží emailem vlastní přihlašovací údaje a může zde měnit své registrační údaje nebo svou registraci zrušit.</p>
+  <% end %>
   <p>V případě nejasností se na nás můžete obrátit emailem na adrese <%=mail_to configatron.our_email %> nebo telefonicky na čísle 773 697 986.</p>
   <p>Registrace jsou otevřeny do <%=l configatron.registration_ends_at%></p>
   <% unless person_signed_in? %>
