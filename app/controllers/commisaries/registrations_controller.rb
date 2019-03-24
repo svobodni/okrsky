@@ -1,6 +1,8 @@
 class Commisaries::RegistrationsController < Devise::RegistrationsController
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  skip_before_filter :require_no_authentication, :only => [ :new, :create ]
+
   def new
     permitted = params.require(:commisary).permit(:ward_id)
     @commisary=Commisary.new(permitted)
