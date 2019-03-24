@@ -57,7 +57,7 @@ data['UI_OBEC'].each{|o|
   progressbar.increment
 }
 
-progressbar=ProgressBar.create(format: progressbar_format, progress_mark: ' ', remainder_mark: '･', title: "Obvody", starting_at: 0, total: data['UI_MOMC'].size)
+progressbar=ProgressBar.create(format: progressbar_format, progress_mark: ' ', remainder_mark: '･', title: "MOMC", starting_at: 0, total: data['UI_MOMC'].size)
 data['UI_MOMC'].each{|d|
   District.where(id: d[:kod]).first_or_create { |dis|
     dis.name=d[:nazev]
@@ -91,7 +91,7 @@ data['UI_VOLEBNI_OKRSEK'].each{|o|
   progressbar.increment
 }
 
-progressbar=ProgressBar.create(format: progressbar_format, progress_mark: ' ', remainder_mark: '･', title: "Okrsky", starting_at: 0, total: TownHall.where(district_id:nil).count)
+progressbar=ProgressBar.create(format: progressbar_format, progress_mark: ' ', remainder_mark: '･', title: "Obce RISY", starting_at: 0, total: TownHall.where(district_id:nil).count)
 TownHall.where(district_id:nil).each{|hall|
   filename="risy/obce/#{hall.municipality_id}.html"
   unless File.exist?(filename)
@@ -100,7 +100,7 @@ TownHall.where(district_id:nil).each{|hall|
   progressbar.increment
 }
 
-progressbar=ProgressBar.create(format: progressbar_format, progress_mark: ' ', remainder_mark: '･', title: "Okrsky", starting_at: 0, total: DistrictTownHall.count)
+progressbar=ProgressBar.create(format: progressbar_format, progress_mark: ' ', remainder_mark: '･', title: "Momc RISY", starting_at: 0, total: DistrictTownHall.count)
 DistrictTownHall.all.each{|hall|
   filename="risy/momc/#{hall.district_id}.html"
   unless File.exist?(filename)
@@ -148,8 +148,8 @@ DistrictTownHall.find_by(district_id:554715).update_attribute :idds, 'wu8bzk6'
 DistrictTownHall.find_by(district_id:545970).update_attribute :idds, '2dibh62'
 
 unless File.exist?("ovm.xml")
-  `wget -O ovm.xml.zip "https://www.mojedatovaschranka.cz/sds/datafile.do?format=xml&service=seznam_ds_ovm"`
-  `unzip ovm.xml.zip`
+  `wget -O ovm.xml.gz "https://www.mojedatovaschranka.cz/sds/datafile.do?format=xml&service=seznam_ds_ovm"`
+  `gzip -d ovm.xml.gz`
 end
 
 c=Crack::XML.parse(File.open("ovm.xml"))
