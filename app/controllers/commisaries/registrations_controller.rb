@@ -34,7 +34,7 @@ class Commisaries::RegistrationsController < Devise::RegistrationsController
         changes: resource.previous_changes
       }))
       set_flash_message! :notice, :signed_up
-      sign_up(resource_name, resource)
+      sign_up(resource_name, resource) unless current_user
       respond_with resource, location: after_sign_up_path_for(resource)
     else
       clean_up_passwords resource
