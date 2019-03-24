@@ -52,7 +52,9 @@ class Commisary < ActiveRecord::Base
   end
 
   def send_update_confirmation_email
-    CommisaryMailer.update_confirmation(self).deliver
+    unless (%w(last_sign_in_at current_sign_in_at last_sign_in_ip current_sign_in_ip sign_in_count updated_at)-changed_attributes.keys).empty?
+      CommisaryMailer.update_confirmation(self).deliver
+    end
   end
 
   def send_destroy_confirmation_email
