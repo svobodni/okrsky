@@ -51,7 +51,6 @@ gem 'prawn-format'
 gem 'prawn_rails'
 gem 'gretel'
 gem 'exception_notification'
-gem 'svobodni_layout', git: 'https://github.com/svobodni/svobodni_layout.git'
 gem 'configatron'
 gem 'simple_form'
 
