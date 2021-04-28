@@ -3,9 +3,12 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '5.2.5'
+gem 'rails', '6.0.3.6'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+# default JavaScript compiler for Rails 6. 
+gem "webpacker"
+gem "bootsnap"
 # gem 'mysql2'
 # Use SCSS for stylesheets
 gem 'sass-rails'
@@ -69,6 +72,8 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  gem 'listen'
 
   gem 'capistrano'
   gem 'capistrano-rails'
