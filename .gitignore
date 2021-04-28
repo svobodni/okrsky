@@ -22,3 +22,10 @@ ovm/*
 /*.csv
 ovm.xml
 
+
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
