@@ -1,4 +1,4 @@
-class AddPasswordToRegion < ActiveRecord::Migration
+class AddPasswordToRegion < ActiveRecord::Migration[4.2]
   def change
     add_column :regions, :password, :string
  	Region.all.each { |r|

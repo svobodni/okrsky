@@ -1,4 +1,4 @@
-class CreateWards < ActiveRecord::Migration
+class CreateWards < ActiveRecord::Migration[4.2]
   def change
     create_table :wards do |t|
       t.integer :external_id

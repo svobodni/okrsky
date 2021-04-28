@@ -1,4 +1,4 @@
-class CreateCommisaries < ActiveRecord::Migration
+class CreateCommisaries < ActiveRecord::Migration[4.2]
   def change
     create_table :commisaries do |t|
       t.string :name

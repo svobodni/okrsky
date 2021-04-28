@@ -1,4 +1,4 @@
-class AddDeviseToCommisary < ActiveRecord::Migration
+class AddDeviseToCommisary < ActiveRecord::Migration[4.2]
   def change
     add_column :commisaries, :encrypted_password, :string
     add_column :commisaries, :reset_password_token, :string

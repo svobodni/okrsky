@@ -1,4 +1,4 @@
-class CreateTownHalls < ActiveRecord::Migration
+class CreateTownHalls < ActiveRecord::Migration[4.2]
   def change
     create_table :town_halls do |t|
       t.string :type

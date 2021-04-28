@@ -1,4 +1,4 @@
-class CreateMunicipalities < ActiveRecord::Migration
+class CreateMunicipalities < ActiveRecord::Migration[4.2]
   def change
     create_table :municipalities do |t|
       t.string :name
