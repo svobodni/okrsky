@@ -1,5 +1,5 @@
 # encoding: utf-8
-class Commisary < ActiveRecord::Base
+class Commisary < ApplicationRecord
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,

@@ -1,4 +1,4 @@
-class Ward < ActiveRecord::Base
+class Ward < ApplicationRecord
   belongs_to :district
   belongs_to :municipality
   has_one :commisary

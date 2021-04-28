@@ -1,4 +1,4 @@
-class TownHall < ActiveRecord::Base
+class TownHall < ApplicationRecord
 
   belongs_to :municipality
   delegate :region, to: :municipality

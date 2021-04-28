@@ -1,4 +1,4 @@
-class Region < ActiveRecord::Base
+class Region < ApplicationRecord
 
   has_many :municipalities
   belongs_to :representative, class_name: 'User'

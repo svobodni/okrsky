@@ -1,4 +1,4 @@
-class Municipality < ActiveRecord::Base
+class Municipality < ApplicationRecord
 
   belongs_to :region
   has_many :districts

@@ -1,4 +1,4 @@
-class District < ActiveRecord::Base
+class District < ApplicationRecord
 
   belongs_to :municipality
   # has_one :district_town_halls
