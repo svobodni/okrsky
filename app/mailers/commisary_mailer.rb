@@ -4,21 +4,21 @@ class CommisaryMailer < ApplicationMailer
     @commisary=commisary
     mail(
       to: commisary.email,
-      subject: "[KR2020-OVK#{commisary.id}] Potvrzení přijetí registrace člena okrskové volební komise"
+      subject: "[PSP2021-OVK#{commisary.id}] Potvrzení přijetí registrace člena okrskové volební komise"
     )
   end
   def update_confirmation(commisary)
     @commisary=commisary
     mail(
       to: commisary.email,
-      subject: "[KR2020-OVK#{commisary.id}] Potvrzení opravy registrace člena okrskové volební komise"
+      subject: "[PSP2021-OVK#{commisary.id}] Potvrzení opravy registrace člena okrskové volební komise"
     )
   end
   def destroy_confirmation(commisary)
     @commisary=commisary
     mail(
       to: commisary.email,
-      subject: "[KR2020-OVK#{commisary.id}] Potvrzení zrušení registrace člena okrskové volební komise"
+      subject: "[PSP2021-OVK#{commisary.id}] Potvrzení zrušení registrace člena okrskové volební komise"
     )
   end
 end
