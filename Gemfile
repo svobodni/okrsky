@@ -49,7 +49,7 @@ gem 'rails_admin'
 gem 'devise', github: 'heartcombo/devise', branch: 'ca-omniauth-2'
 gem 'omniauth-rails_csrf_protection'
 gem 'omniauth-oauth2'
-gem 'cancancan', '~> 1.10'
+gem 'cancancan'
 gem 'google_drive', group: :development
 gem 'prawn'
 gem 'prawn-format'
