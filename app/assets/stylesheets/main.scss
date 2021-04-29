@@ -158,9 +158,12 @@ $navbar-default-toggle-border-color:       #ddd !default;
 // }
 
 .navbar {
-  border-top: 15px solid #009681;
+  border-top: 0px solid #009681;
+    height: 153px;
+    background: url(https://www.svobodni.cz/wp-content/themes/Svobodni/images/logo%20okrsky.png) center top no-repeat;
 }
 .navbar-brand {
+  display: none;
   min-height: 80px;
 }
 .navbar-brand {
