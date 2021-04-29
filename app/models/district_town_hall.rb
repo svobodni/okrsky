@@ -1,7 +1,7 @@
 class DistrictTownHall < TownHall
 
-  belongs_to :district
-  delegate :municipality, :to => :district
+  belongs_to :district, required: false
+  delegate :municipality, to: :district, allow_nil: true
 
   has_many :wards, foreign_key: :district_id, primary_key: :district_id
 

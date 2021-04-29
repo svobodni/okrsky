@@ -2,7 +2,7 @@ require "csv"
 
 ciselniky = %w(UI_OBEC UI_OKRES UI_MOMC UI_VUSC UI_VOLEBNI_OKRSEK)
 progressbar_format = "%a %e %P% Zpracovano: %c z %C %bᗧ%i %p%% %t"
-registration_ends_at = Date.parse("2019-04-19")
+registration_ends_at = Date.parse("2021-09-03")
 
 ciselniky.each{|ciselnik|
   unless File.exist?("#{ciselnik}.csv")
@@ -11,6 +11,7 @@ ciselniky.each{|ciselnik|
     end
     `unzip #{ciselnik}.zip`
     `sed -i '' '$d' #{ciselnik}.csv`
+    `sed -i 's/\r//g' #{ciselnik}.csv`
   end
 }
 
@@ -29,14 +30,14 @@ progressbar=ProgressBar.create(format: progressbar_format, progress_mark: ' ', r
 data['UI_VUSC'].each{|r|
   Region.where(id: r[:kod]).first_or_create {|region|
     region.name=r[:nazev]
-    # region.registration_ends_at = registration_ends_at
+    region.registration_ends_at = registration_ends_at
   }
   progressbar.increment
 }
 
 progressbar=ProgressBar.create(format: progressbar_format, progress_mark: ' ', remainder_mark: '･', title: "Obce", starting_at: 0, total: data['UI_OBEC'].size)
 data['UI_OBEC'].each{|o|
-  Municipality.where(id: o[:kod]).first_or_create { |mun|
+  Municipality.where(id: o[:kod]).first_or_create! { |mun|
     okres = data['UI_OKRES'].detect{|okres| okres[:kod]==o[:okres_kod]}
     kraj = data['UI_VUSC'].detect{|kraj| kraj[:kod]==okres[:vusc_kod]}
     mun.name=o[:nazev]==okres[:nazev] ? okres[:nazev] : "#{o[:nazev]} (okres #{okres[:nazev]})"
@@ -49,7 +50,7 @@ data['UI_OBEC'].each{|o|
   #   `wget -O #{filename} "https://www.epusa.cz/index.php?obec=#{o[:kod]}"`
   # end
 
-  TownHall.create(
+  TownHall.create!(
     name: o[:nazev],
     # ic: Nokogiri.parse(File.open(filename)).at("span.zkratka106:contains('(6)')").parent.next_element.text.rjust(8,"0"),
     municipality_id: o[:kod]
@@ -59,7 +60,7 @@ data['UI_OBEC'].each{|o|
 
 progressbar=ProgressBar.create(format: progressbar_format, progress_mark: ' ', remainder_mark: '･', title: "MOMC", starting_at: 0, total: data['UI_MOMC'].size)
 data['UI_MOMC'].each{|d|
-  District.where(id: d[:kod]).first_or_create { |dis|
+  District.where(id: d[:kod]).first_or_create! { |dis|
     dis.name=d[:nazev]
     dis.municipality_id=d[:obec_kod]
   }
@@ -68,7 +69,7 @@ data['UI_MOMC'].each{|d|
   #   `wget -O #{filename} "https://www.epusa.cz/index.php?mestcast=#{d[:kod]}"`
   # end
 
-  DistrictTownHall.create(
+  DistrictTownHall.create!(
     name: d[:nazev],
     # ic: Nokogiri.parse(File.open(filename)).at("span.zkratka106:contains('(6)')").parent.next_element.text.rjust(8,"0"),
     municipality_id: d[:obec_kod],
@@ -79,7 +80,7 @@ data['UI_MOMC'].each{|d|
 
 progressbar=ProgressBar.create(format: progressbar_format, progress_mark: ' ', remainder_mark: '･', title: "Okrsky", starting_at: 0, total: data['UI_VOLEBNI_OKRSEK'].size)
 data['UI_VOLEBNI_OKRSEK'].each{|o|
-  Ward.find_or_create_by(id: o[:kod]) { |okr|
+  Ward.find_or_create_by!(id: o[:kod]) { |okr|
     if o[:cislo_s_prefixem]
       okr.external_id=o[:cislo_s_prefixem]
     else
@@ -175,7 +176,7 @@ data.each do |townhall|
 
   address = "#{ulice} #{cislo}\n#{box['address']['zip']} #{box['address']['city']}"
 
-  townhall.update_attributes name: box['name']['tradeName'], address: address
+  townhall.update name: box['name']['tradeName'], address: address
   progressbar.increment
 end
 

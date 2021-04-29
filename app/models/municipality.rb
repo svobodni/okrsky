@@ -1,6 +1,6 @@
 class Municipality < ApplicationRecord
 
-  belongs_to :region
+  belongs_to :region, required: false
   has_many :districts
   has_one :town_hall
   has_many :town_halls, through: :districts

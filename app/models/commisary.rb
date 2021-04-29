@@ -9,8 +9,8 @@ class Commisary < ApplicationRecord
 
   before_validation :fix_params
 
-  belongs_to :user
-  belongs_to :town_hall
+  belongs_to :user, required: false
+  belongs_to :town_hall, required: false
   has_many :events, as: :eventable
 
   validates :name, length: { minimum: 5 }

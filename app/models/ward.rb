@@ -1,6 +1,6 @@
 class Ward < ApplicationRecord
-  belongs_to :district
-  belongs_to :municipality
+  belongs_to :district, required: false
+  belongs_to :municipality, required: false
   has_one :commisary
 
   def taken?
