@@ -26,7 +26,7 @@ pdf.text "Naše značka: PSP2017-OVK-D-#{town_hall.id}"
 pdf.text "Vyřizuje: kancelar@svobodni.cz, tel.: 773 697 986"
 pdf.move_down 20
 
-pdf.text "Seznam delegovaných členů do okrskových volebních komisí pro volby do Poslanecké sněmovny Parlamentu České republiky konané ve dnech 20. a 21. října 2017.", :style => :bold
+pdf.text "Seznam delegovaných členů do okrskových volebních komisí pro <%=configatron.votes_full_name%>.", :style => :bold
 pdf.move_down 20
 pdf.text "V souladu s ust. § 14e odst. 3 a 4 zákona č. 247/1995 Sb., o volbách do Parlamentu České republiky a o změně a doplnění některých dalších zákonů, ve znění pozdějších předpisů tímto politická strana Strana svobodných občanů, jejíž kandidátní listina byla zaregistrována pro volby do Poslanecké sněmovny Parlamentu České republiky, deleguje níže uvedené členy do okrskových volebních komisí vaší obce/města."
 
