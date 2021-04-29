@@ -84,6 +84,7 @@ GEM
     autoprefixer-rails (10.2.4.0)
       execjs
     bcrypt (3.1.16)
+    bcrypt_pbkdf (1.1.0)
     bindex (0.8.1)
     bootsnap (1.7.4)
       msgpack (~> 1.0)
@@ -118,6 +119,7 @@ GEM
       rexml
     crass (1.0.6)
     declarative (0.0.20)
+    ed25519 (1.2.4)
     erubi (1.10.0)
     exception_notification (4.4.3)
       actionmailer (>= 4.0, < 7)
@@ -382,6 +384,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt_pbkdf
   bootsnap
   bootstrap-sass
   byebug
@@ -393,6 +396,7 @@ DEPENDENCIES
   configatron
   crack
   devise!
+  ed25519
   exception_notification
   font-awesome-sass
   google_drive

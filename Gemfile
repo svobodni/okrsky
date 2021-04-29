@@ -78,6 +78,8 @@ group :development do
   gem 'capistrano'
   gem 'capistrano-rails'
   gem 'capistrano-passenger'
+  gem 'ed25519'
+  gem 'bcrypt_pbkdf'
 
   # gem 'factory_girl'
   # gem 'factory_girl_rails'
