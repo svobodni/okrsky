@@ -13,8 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
-//= require sweetalert
-//= require sweet-alert-confirm
 //= require knockout-min
 //= require jquery.cascadingdropdown
 //= require turbolinks

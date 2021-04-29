@@ -9,12 +9,12 @@ module BootstrapFlashHelper
       # Skip empty messages, e.g. for devise messages set to nothing in a locale file.
       next if message.blank?
 
-      logger.info("divnej #{type} #{type.class} #{type.inspect}")
+      # logger.info("divnej #{type} #{type.class} #{type.inspect}")
       type = type.to_sym
       type = :success if type == :notice
       type = :danger  if type == :alert
       type = :danger  if type == :error
-      logger.info("novej #{type} #{type.class} #{type.inspect}")
+      # logger.info("novej #{type} #{type.class} #{type.inspect}")
       next unless ALERT_TYPES.include?(type)
 
       Array(message).each do |msg|

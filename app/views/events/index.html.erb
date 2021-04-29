@@ -7,7 +7,7 @@
   <div class="panel-body bg-success">
 <%= simple_form_for @event, url: events_path, method: :get do |f| %>
 <%= f.input :eventable_id, label: "ID" %>
-<%= f.input :name, collection:  Event.group(:name).uniq.size.collect{|k,v| k}.compact, label: "Událost" %>
+<%= f.input :name, collection:  Event.group(:name).uniq.collect{|k,v| k}.compact, label: "Událost" %>
 <%= f.button :submit, "Vyhledat", class: "pull-right" %>
 <% end %>
 </div>
