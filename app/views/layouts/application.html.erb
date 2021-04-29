@@ -63,7 +63,7 @@
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Přihlášení <b class="caret"></b></a>
                   <ul class="dropdown-menu">
                     <li><%= link_to "Vstup pro členy komisí", new_commisary_session_path %></li>
-                    <li><%= link_to "Vstup pro Svobodné", user_registr_omniauth_authorize_path %></li>
+                    <li><%= link_to "Vstup pro Svobodné", user_registr_omniauth_authorize_path, method: :post %></li>
                   </ul>
                 </li>
               </ul>
