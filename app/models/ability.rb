@@ -23,7 +23,7 @@ class Ability
           can :create, Commisary, user_id: person.id
           can :read, Region
         else
-          # Koalicni partner
+          # Soukromnik
           # muze registrovat nove osoby pouze v koalicnich krajich
           can :create, Commisary, user_id: person.id, ward: { municipality: {region: { id: configatron.coalition_region_ids}}}
           can :read, Region, id: configatron.coalition_region_ids
