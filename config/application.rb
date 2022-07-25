@@ -20,5 +20,9 @@ module Okrsky
     # config.eager_load_paths << Rails.root.join("lib")
     config.time_zone = 'Prague'
     config.i18n.default_locale = :cs
+
+    config.assets.configure do |env|
+      env.export_concurrent = false
+    end
   end
 end
