@@ -11,8 +11,12 @@ GIT
       warden (~> 1.2.3)
 
 GEM
-  remote: https://rubygems.org/
   remote: https://rails-assets.org/
+  specs:
+    rails-assets-sweetalert (2.1.2)
+
+GEM
+  remote: https://rubygems.org/
   specs:
     actioncable (6.1.6.1)
       actionpack (= 6.1.6.1)
@@ -252,7 +256,7 @@ GEM
       railties (>= 3.0.0)
     public_suffix (4.0.6)
     racc (1.6.0)
-    rack (2.2.4)
+    rack (2.2.6.2)
     rack-pjax (1.1.0)
       nokogiri (~> 1.5)
       rack (>= 1.1)
@@ -277,7 +281,6 @@ GEM
       bundler (>= 1.15.0)
       railties (= 6.1.6.1)
       sprockets-rails (>= 2.0.0)
-    rails-assets-sweetalert (2.1.2)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
